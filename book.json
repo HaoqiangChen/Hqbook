@@ -1,0 +1,75 @@
+{
+  "title": "hqbook",
+  "author": "Haoqiang Chen",
+  "description": "平时零散编程笔记收录手册，以便日后查阅。",
+  "keywords": "编程,markdown,",
+  "introduction": {
+    "path": "README.md",
+    "title": "hqbook"
+  },
+  "links": {
+    "home": false,
+    "about": false,
+    "issues": false,
+    "contribute": false,
+    "tail": {
+      "GitHub地址": "https://github.com/HaoqiangChen/hqbook"
+    },
+    "gitbook": false,
+    "sharing": {
+      "google": true,
+      "facebook": true,
+      "twitter": true,
+      "weibo": true,
+      "qrcode": true
+    }
+  },
+  "plugins": [
+    "chapter-fold",
+    "splitter",
+    "anchors",
+    "-lunr",
+    "-search",
+    "search-pro",
+    "flexible-alerts",
+    "advanced-emoji",
+    "hide-element",
+    "sitemap"
+  ],
+  "pluginsConfig": {
+    "chapter-fold": {},
+    "fontSettings": {
+      "theme": "white",
+      "family": "serif",
+      "size": 2
+    },
+    "flexible-alerts": {
+      "style": "callout",
+      "comment": {
+        "label": "Comment",
+        "icon": "fa fa-comments",
+        "className": "info"
+      }
+    },
+    "hide-element": {
+      "elements": [
+        ".gitbook-link"
+      ]
+    },
+    "sitemap": {
+      "hostname": "https://chq.github.io/"
+    }
+  },
+  "pdf": {
+    "toc": true,
+    "pageNumbers": true,
+    "fontSize": 12,
+    "paperSize": "a4",
+    "margin": {
+      "right": 62,
+      "left": 62,
+      "top": 36,
+      "bottom": 36
+    }
+  }
+}

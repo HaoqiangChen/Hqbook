@@ -1,0 +1,17 @@
+{
+  "name": "Hqbook",
+  "version": "1.0.0",
+  "description": "平时零散编程笔记收录手册，以便日后查阅。",
+  "author": "Haoqiang Chen",
+  "scripts": {},
+  "devDependencies": {
+    "gitbook-plugin-advanced-emoji": "^0.2.2",
+    "gitbook-plugin-anchors": "^0.7.1",
+    "gitbook-plugin-chapter-fold": "0.0.4",
+    "gitbook-plugin-flexible-alerts": "^1.0.3",
+    "gitbook-plugin-hide-element": "0.0.4",
+    "gitbook-plugin-search-pro": "^2.0.2",
+    "gitbook-plugin-sitemap": "^1.2.0",
+    "gitbook-plugin-splitter": "0.0.8"
+  }
+}
