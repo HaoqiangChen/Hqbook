@@ -1,7 +1,117 @@
-# 插件
+## 配置 {#config}
+
+GitBook允许您使用灵活的配置来自定义您的书。这些选项在`book.json`文件中指定。对于不熟悉JSON语法的作者，您可以使用[JSONlint之类的](http://jsonlint.com/)工具来验证语法。
+
+### 常规设置
+
+| 变量 | 说明 |
+| -------- | ----------- |
+| `root` | 包含所有图书文件的根文件夹的路径，除了`book.json`|
+| `structure` | 指定自述，摘要，词汇表等的路径。请参见[结构段落](#structure). |
+| `title` | 书的标题，默认值从README中提取。在GitBook.com上，此字段已预填。|
+| `description` | 您的图书说明，默认值从自述文件中提取。在GitBook.com上，此字段已预填。|
+| `author` | 作者姓名。在GitBook.com上，此字段已预填。|
+| `isbn` | 书的国际码ISBN |
+| `language` | 图书语言的[ISO代码](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) ，默认值是`en` |
+| `direction` | 文本的方向。可以是`rtl`或`ltr`，默认值取决于`language`的值 |
+| `gitbook` | GitBook的版本。使用[SemVer](http://semver.org)规范并接受诸如`“> = 3.0.0”`的条件|
+
+##### 其他属性设置
+
+`links` : 在左侧导航栏添加链接信息  
+```
+"links" : {
+    "sidebar" : {
+        "Home" : "https://www.baidu.com"
+    }
+}
+```
+
+`styles` : 自定义页面样式， 默认情况下各generator对应的css文件
+```
+"styles": {
+    "website": "styles/website.css",
+    "ebook": "styles/ebook.css",
+    "pdf": "styles/pdf.css",
+    "mobi": "styles/mobi.css",
+    "epub": "styles/epub.css"
+}
+```
+例如使`<h1>` `<h2>`标签有下边框， 可以在`website.css`中设置
+```
+h1 , h2{ border-bottom: 1px solid #EFEAEA; }
+```
+
+### 结构体
+
+除了`root`变量，你可以告诉Gitbook Readme，Summary，Glossary，Languages的文件名(而不是使用默认名称，如README.md)。 这些文件必须在您的书的根(或每个语言书的根)。不接受诸如`dir/MY_README.md`之类的路径。
+
+| 变量 | 说明 |
+| -------- | ----------- |
+| `structure.readme` | 自述文件名（默认为`README.md`） |
+| `structure.summary` | 摘要文件名（默认为`SUMMARY.md`） |
+| `structure.glossary` | 词汇表文件名（默认为`GLOSSARY.md`） |
+| `structure.languages` | 语言文件名（默认为`LANGS.md`） |
+
+### PDF选项
+
+PDF输出可以使用`book.json`中的一组选项来定制：
+
+| 变量 | 说明 |
+| -------- | ----------- |
+| `pdf.pageNumbers` | 在每页底部添加页码（默认为`true`） |
+| `pdf.fontSize` | 基本字体大小（默认为`12`）|
+| `pdf.fontFamily` | 基本字体系列（默认为`Arial`） |
+| `pdf.paperSize` | 纸张尺寸，选项为 `'a0', 'a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'b0', 'b1', 'b2', 'b3', 'b4', 'b5', 'b6', 'legal', 'letter'` (默认为 `a4`) |
+| `pdf.margin.top` | 上边距 (默认为 `56`) |
+| `pdf.margin.bottom` | 底边距 (默认为 `56`) |
+| `pdf.margin.right` | 右边距 (默认为 `62`) |
+| `pdf.margin.left` | 左边距 (默认为 `62`) |
+
+## 词汇表 {#lexicon}
+
+您可以指定要显示为注释的术语及其相应的定义。 基于这些术语，GitBook在编译的时候会自动构建索引并在页面中突出显示这些术语。
+
+`GLOSSARY.md`是一个`h2`标题的列表，以及一个描述段落：
+
+```markdown
+## 条款
+该术语的定义
+
+## 另一个名词
+使用它的定义，它可以包含粗体文本
+以及所有其他类型的内联标记...
+```
+
+## 多种语言 {#language}
+
+GitBook支持多种语言编写的书籍或者文档。 首先需要在根目录创建一个名为`LANGS.md`的文件，然后按照语言创建子目录：
+
+```markdown
+# Languages
+
+* [中文](zh/)
+* [English](en/)
+* [French](fr/)
+* [Español](es/)
+```
+
+### 每种语言的配置
+
+每个语言(例如：`en`)目录中都可以有一个`book.json`来定义自己的配置，它将作为主配置的扩展。
+
+唯一的例外是插件，插件是全局指定的，语言环境配置不能指定特定的插件。
+
+# 插件 {#plugins}
+
 可以通过 Gitbook 的插件来扩展 Gitbook 的功能，现有的 Gitbook 插件能够实现数学公式，Google 统计，评论等等功能。
 
 所有的插件都可以从 <https://plugins.gitbook.com/> 获取。
+
+| 变量 | 说明 |
+| -------- | ----------- |
+| `plugins` | 要加载的插件列表 |
+| `pluginsConfig` | 插件配置 |
 
 ## 安装插件
 Gitbook 安装插件比较简单，需要在项目下添加 `book.json` 文件，然后在其中添加
@@ -28,11 +138,13 @@ Gitbook 安装插件比较简单，需要在项目下添加 `book.json` 文件�
 * font-settings：字体设置（最上方的"A"符号）
 * livereload：为GitBook实时重新加载
 
+> [!TIP]
+> 可以在插件名称前面加 - 表示去除自带插件，比如去除自带搜索 "plugins": \[ "-search" \]
+
 ## 常用的插件
 
 下面列举一些常用的gitbook插件，至于怎么加上自己开发的插件，这里就不多说了，感兴趣的可以看这篇[中文文档](http://gitbook.hushuang.me/plugins/create.html)。
 
-记录一些实用的插件
 用法：在`book.json`中添加以下内容。然后执行`gitbook install`，或者使用`NPM`安装（单独安装推荐NPM）`npm install gitbook-plugin-插件名`，也可以从源码GitHub地址中下载，放到`node_modules`文件夹里（GitHub地址在进入插件地址右侧的GitHub链接）
 
 ### 修改页面样式
