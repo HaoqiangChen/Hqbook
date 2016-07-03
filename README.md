@@ -22,6 +22,8 @@ npm install -g gitbook-cli
 
 # install dependencies
 gitbook install
+or
+npm install (推荐)
 
 # serve with hot reload at localhost:4000
 gitbook serve
