@@ -145,7 +145,7 @@ GitBook使用[SUMMARY](#summary)文件管理目录结构，文件支持Markdown�
 
 | 文件 | 说明 |
 | -------- | ----------- |
-| `book.json` | 保存 [配置文件](#config) 数据 (__可选__) |
+| `book.json` | 保存 [配置文件](config.md) 数据 (__可选__) |
 | `README.md` | 简介 - 书籍的简单介绍 (**必填**) |
 | `SUMMARY.md` | 目录 (参见 [目录管理](#structure)) (__可选__) |
 | `GLOSSARY.md` | 字段/注释 - 专业术语列表 (参见 [词汇表](#lexicon)) (__可选__) |
@@ -170,7 +170,7 @@ bin/*
 
 ### 以子目录的方式与项目集成
 
-对于软件项目，您可以使用子目录（如docs/）来存储用于项目文档的书。您可以配置[配置](#config)以指示GitBook可以在其中找到书籍文件的文件夹：
+对于软件项目，您可以使用子目录（如docs/）来存储用于项目文档的书。您可以配置[配置](config.md)以指示GitBook可以在其中找到书籍文件的文件夹：
 
 ```
 .
@@ -281,7 +281,9 @@ Markdown将决定您**书的结构_most_
 #### 顶部描述
 
 页面可以用它作为描述。 它使用`YAML`格式的风格，在三条虚线之间。 文档中也可以不写顶部描述。
->**特别提示:**在没有安装支持插件之前，不要在文件中使用，否则编译或者运行会失败。 
+
+> [!Tip]
+> **特别提示:** 在没有安装支持插件之前，不要在文件中使用，否则编译或者运行会失败。 
 
 这里有一个基本示例：
 
@@ -296,111 +298,11 @@ description: This is a short description of my page
 
 顶部描述的内容可以定义自己的变量，可以参考[页面变量](templating.md#variables)，以便您可以在模板中使用它们。
 
-## 配置 {#config}
-
-GitBook允许您使用灵活的配置来自定义您的书。这些选项在`book.json`文件中指定。对于不熟悉JSON语法的作者，您可以使用[JSONlint之类的](http://jsonlint.com/)工具来验证语法。
-
-### 常规设置
-
-| 变量 | 说明 |
-| -------- | ----------- |
-| `root` | 包含所有图书文件的根文件夹的路径，除了`book.json`|
-| `structure` | 指定自述，摘要，词汇表等的路径。请参见[结构段落](#structure). |
-| `title` | 书的标题，默认值从README中提取。在GitBook.com上，此字段已预填。|
-| `description` | 您的图书说明，默认值从自述文件中提取。在GitBook.com上，此字段已预填。|
-| `author` | 作者姓名。在GitBook.com上，此字段已预填。|
-| `isbn` | 书的国际码ISBN |
-| `language` | 图书语言的[ISO代码](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) ，默认值是`en` |
-| `direction` | 文本的方向。可以是`rtl`或`ltr`，默认值取决于`language`的值 |
-| `gitbook` | GitBook的版本。使用[SemVer](http://semver.org)规范并接受诸如`“> = 3.0.0”`的条件|
-
-### 插件
-
-插件及其配置在`book.json`中指定。有关更多详细信息，请参阅[插件部分](plugins.md)。
-
-从3.0.0版本开始，GitBook可以使用主题。有关详细信息，请参阅[主题部分](#theme)。
-
-| 变量 | 说明 |
-| -------- | ----------- |
-| `plugins` | 要加载的插件列表 |
-| `pluginsConfig` | 插件配置 |
-
-### 结构体
-
-除了`root`变量，你可以告诉Gitbook Readme，Summary，Glossary，Languages的文件名(而不是使用默认名称，如README.md)。 这些文件必须在您的书的根(或每个语言书的根)。不接受诸如`dir/MY_README.md`之类的路径。
-
-| 变量 | 说明 |
-| -------- | ----------- |
-| `structure.readme` | 自述文件名（默认为`README.md`） |
-| `structure.summary` | 摘要文件名（默认为`SUMMARY.md`） |
-| `structure.glossary` | 词汇表文件名（默认为`GLOSSARY.md`） |
-| `structure.languages` | 语言文件名（默认为`LANGS.md`） |
-
-### PDF选项
-
-PDF输出可以使用`book.json`中的一组选项来定制：
-
-| 变量 | 说明 |
-| -------- | ----------- |
-| `pdf.pageNumbers` | 在每页底部添加页码（默认为`true`） |
-| `pdf.fontSize` | 基本字体大小（默认为`12`）|
-| `pdf.fontFamily` | 基本字体系列（默认为`Arial`） |
-| `pdf.paperSize` | 纸张尺寸，选项为 `'a0', 'a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'b0', 'b1', 'b2', 'b3', 'b4', 'b5', 'b6', 'legal', 'letter'` (默认为 `a4`) |
-| `pdf.margin.top` | 上边距 (默认为 `56`) |
-| `pdf.margin.bottom` | 底边距 (默认为 `56`) |
-| `pdf.margin.right` | 右边距 (默认为 `62`) |
-| `pdf.margin.left` | 左边距 (默认为 `62`) |
-
-## 词汇表 {#lexicon}
-
-您可以指定要显示为注释的术语及其相应的定义。 基于这些术语，GitBook在编译的时候会自动构建索引并在页面中突出显示这些术语。
-
-`GLOSSARY.md`是一个`h2`标题的列表，以及一个描述段落：
-
-```markdown
-## 条款
-该术语的定义
-
-## 另一个名词
-使用它的定义，它可以包含粗体文本
-以及所有其他类型的内联标记...
-```
-
-## 多种语言 {#language}
-
-GitBook支持多种语言编写的书籍或者文档。 首先需要在根目录创建一个名为`LANGS.md`的文件，然后按照语言创建子目录：
-
-```markdown
-# Languages
-
-* [中文](zh/)
-* [English](en/)
-* [French](fr/)
-* [Español](es/)
-```
-
-### 每种语言的配置
-
-每个语言(例如：`en`)目录中都可以有一个`book.json`来定义自己的配置，它将作为主配置的扩展。
-
-唯一的例外是插件，插件是全局指定的，语言环境配置不能指定特定的插件。
-
-## Markdown语法
-
-`Markdown`是GitBook的默认解析器，本文档基本上都是[Markdown语法](../markdown/README.md)编写的。当然，你也可以选择[AsciiDoc语法](https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/)来编写文档。
-
-## AsciiDoc
-
-从·2.0.0·版本开始，GitBook接受AsciiDoc语法文件作为输入格式。
-
-有关格式的更多信息，请参阅[AsciiDoc语法快速参考](https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/)。
-
-跟markdown一样，GitBook可以从下的面文件来提取结构：`README.adoc`，`SUMMARY.adoc`，`LANGS.adoc`和`GLOSSARY.adoc`。
-
 ## 主题 {#theme}
 
 GitBook默认使用[theme-default](https://github.com/GitbookIO/theme-default) 主题，从3.0.0版本开始，可以自定义主题。
 
+> [!Warning]
 > **注意**: 自定义主题可能会导致某些插件不能正常工作。
 
 ### 主题的结构
@@ -435,5 +337,5 @@ GitBook默认使用[theme-default](https://github.com/GitbookIO/theme-default) �
 
 ### 发布主题
 
-主题以`theme-`前缀插件方式发布，可参考([插件文档](plugins.md))。例如，主题`awesome`将从`theme-awesome`插件加载，然后从`gitbook-plugin-theme-awesome` NPM包加载。
+主题以`theme-`前缀插件方式发布，可参考([插件文档](config.md))。例如，主题`awesome`将从`theme-awesome`插件加载，然后从`gitbook-plugin-theme-awesome` NPM包加载。
 

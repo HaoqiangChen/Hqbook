@@ -150,7 +150,7 @@ This is the default content
 {% include "./LICENSE" %}
 ```
 
-## 变量
+## 变量 {#variables}
 
 以下是书的解析和主题生成期间可用数据的参考。
 

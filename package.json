@@ -5,7 +5,6 @@
   "author": "Haoqiang Chen",
   "scripts": {},
   "devDependencies": {
-    "gitbook-plugin-advanced-emoji": "^0.2.2",
     "gitbook-plugin-anchors": "^0.7.1",
     "gitbook-plugin-chapter-fold": "0.0.4",
     "gitbook-plugin-flexible-alerts": "^1.0.3",
