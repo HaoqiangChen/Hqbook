@@ -16,7 +16,9 @@ GitBook允许您使用灵活的配置来自定义您的书。这些选项在`boo
 | `direction` | 文本的方向。可以是`rtl`或`ltr`，默认值取决于`language`的值 |
 | `gitbook` | GitBook的版本。使用[SemVer](http://semver.org)规范并接受诸如`“> = 3.0.0”`的条件|
 
-- `links` 在左侧导航栏添加链接信息
+##### 其他属性设置
+
+- `links`: 在左侧导航栏添加链接信息
 ```
 "links" : {
     "sidebar" : {
@@ -25,7 +27,7 @@ GitBook允许您使用灵活的配置来自定义您的书。这些选项在`boo
 }
 ```
 
-- `styles` 自定义页面样式， 默认情况下各generator对应的css文件
+- `styles`: 自定义页面样式， 默认情况下各generator对应的css文件
 ```
 "styles": {
     "website": "styles/website.css",

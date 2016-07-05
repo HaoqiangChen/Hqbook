@@ -298,6 +298,19 @@ description: This is a short description of my page
 
 顶部描述的内容可以定义自己的变量，可以参考[页面变量](templating.md#variables)，以便您可以在模板中使用它们。
 
+## Markdown语法
+
+`Markdown`是GitBook的默认解析器，本文档基本上都是[Markdown语法](../markdown/README.md)编写的。当然，你也可以选择[AsciiDoc语法](https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/)来编写文档。
+
+## AsciiDoc
+
+从·2.0.0·版本开始，GitBook接受AsciiDoc语法文件作为输入格式。
+
+有关格式的更多信息，请参阅[AsciiDoc语法快速参考](https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/)。
+
+跟markdown一样，GitBook可以从下的面文件来提取结构：`README.adoc`，`SUMMARY.adoc`，`LANGS.adoc`和`GLOSSARY.adoc`。
+
+>>>>>>> 232bc80afe9d03e130b716aca4d2923470a2cc9f
 ## 主题 {#theme}
 
 GitBook默认使用[theme-default](https://github.com/GitbookIO/theme-default) 主题，从3.0.0版本开始，可以自定义主题。
