@@ -104,6 +104,11 @@ gitbook serve ./{book_name}
 
 `gitbook serve` 命令实际会先调用 `gitbook build` 编译书籍，完成后打开 web 服务器，默认监听本地 4000 端口，在浏览器打开 <http://localhost:4000> 即可浏览电子书。
 
+> [!Danger]
+> `windows` 系统上启动 `gitbook` 服务后,如果本地文件发生更改,热加会失败。  
+> 由于官方已经停止更新，所以找不到其他方法可以解决。  
+> 小浩目前有个不是方法中的方法，如果启动服务器后立即删除 _book 目录,那么之后再怎么修改本地文件都能顺利重启。
+
 ### 发布电子书
 
 ```bash
@@ -310,7 +315,6 @@ description: This is a short description of my page
 
 跟markdown一样，GitBook可以从下的面文件来提取结构：`README.adoc`，`SUMMARY.adoc`，`LANGS.adoc`和`GLOSSARY.adoc`。
 
->>>>>>> 232bc80afe9d03e130b716aca4d2923470a2cc9f
 ## 主题 {#theme}
 
 GitBook默认使用[theme-default](https://github.com/GitbookIO/theme-default) 主题，从3.0.0版本开始，可以自定义主题。

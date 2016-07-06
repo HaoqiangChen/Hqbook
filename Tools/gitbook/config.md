@@ -169,6 +169,7 @@ Gitbook 安装插件比较简单，需要在项目下添加 `book.json` 文件�
 - `auto-scroll-table` 表格滚动条(为避免表格过宽，增加滚动条) ➡️ <https://www.jianshu.com/p/427b8bb066e6>
 - `autotheme` 自动换肤插件 ➡️ <https://github.com/willin/gitbook-plugin-autotheme>
 - `change_girls` 可自动切换的背景 ➡️ <https://github.com/zhenchao125/gitbook-plugin-change_girls>
+- `custom-favicon` 修改标题栏图标 ➡️ <https://github.com/Bandwidth/gitbook-plugin-custom-favicon>
 - `expandable-chapters` 收起或展开章节目录中的父节点 ➡️ <https://github.com/DomainDrivenArchitecture/gitbook-plugin-expandable-chapters>
 - `expandable-chapters-small` 折叠侧边栏 ➡️ <https://github.com/lookdczar/gitbook-plugin-expandable-chapters-small-auto>
 - `editlink` 顶部显示编辑此页 ➡️ <https://github.com/zhaoda/gitbook-plugin-editlink>
@@ -176,15 +177,14 @@ Gitbook 安装插件比较简单，需要在项目下添加 `book.json` 文件�
 - `favicon` 更改网站的 favicon.ico ➡️ <https://github.com/menduo/gitbook-plugin-favicon>
 - `github-buttons` 显示 github 仓库的**star**和**fork**按钮 ➡️ <https://github.com/azu/gitbook-plugin-github-buttons>
 - `insert-logo` 将logo插入到导航栏上方中 ➡️ <https://github.com/matusnovak/gitbook-plugin-insert-logo>
-- `prism` 基于 Prism 的代码高亮 ➡️ <https://github.com/gaearon/gitbook-plugin-prism>
-- `splitter` 在左侧目录和右侧内容之间添加一个可以拖拽的栏，用来调整两边的宽度 ➡️ <https://github.com/yoshidax/gitbook-plugin-splitter>
 - `localized-footer` 为 Gitbook 每一个页面添加页脚 ➡️ <https://github.com/noerw/gitbook-plugin-localized-footer#readme>
+- `prism` 基于 Prism 的代码高亮 ➡️ <https://github.com/gaearon/gitbook-plugin-prism>
 - `page-copyright` 自定义页面页脚版权（内容多） ➡️ <https://github.com/skyFi/gitbook-plugin-page-footer>
-- `tbfed-pagefooter` 自定义页脚，显示版权和最后修订时间 ➡️ <https://github.com/zhj3618/gitbook-plugin-tbfed-pagefooter>
+- `splitter` 在左侧目录和右侧内容之间添加一个可以拖拽的栏，用来调整两边的宽度 ➡️ <https://github.com/yoshidax/gitbook-plugin-splitter>
 - `styles-sass` 使用 SASS 替换 CSS ➡️ <https://github.com/GitbookIO/plugin-styles-sass>
 - `styles-less` 使用 LESS 替换 CSS ➡️ <https://github.com/GitbookIO/plugin-styles-less>
 - `sectionx` 分离各个段落，并提供一个展开收起的按钮 ➡️ <https://github.com/ymcatar/gitbook-plugin-sectionx>
-- `custom-favicon` 修改标题栏图标 ➡️ <https://github.com/Bandwidth/gitbook-plugin-custom-favicon>
+- `tbfed-pagefooter` 自定义页脚，显示版权和最后修订时间 ➡️ <https://github.com/zhj3618/gitbook-plugin-tbfed-pagefooter>
 
 #### 功能增强
 
@@ -194,6 +194,7 @@ Gitbook 安装插件比较简单，需要在项目下添加 `book.json` 文件�
 - `back-to-top-button` 回到顶部 ➡️ <https://github.com/stuebersystems/gitbook-plugin-back-to-top-button>
 - `book-summary-scroll-position-saver` 自动保存左侧目录区域导航条的位置 ➡️ <https://github.com/yoshidax/gitbook-plugin-book-summary-scroll-position-saver>
 - `baidu` 使用百度统计 ➡️ <https://github.com/poppinlp/gitbook-plugin-baidu>
+- `click-reveal` 默认隐藏，点击可显示。 ➡️ <https://github.com/c4software/gitbook-plugin-click-reveal>
 - `code` 代码添加行号&复制按钮 ➡️ <https://github.com/TGhoul/gitbook-plugin-code>
 - `copy-code-button` 为代码块添加复制的按钮 ➡️ <https://github.com/WebEngage/gitbook-plugin-copy-code-button>
 - `chart` 使用 C3.js 图表 ➡️ <https://github.com/csbun/gitbook-plugin-chart>
@@ -201,6 +202,7 @@ Gitbook 安装插件比较简单，需要在项目下添加 `book.json` 文件�
 - `disqus` 添加 disqus 评论插件 ➡️ <https://github.com/GitbookIO/plugin-disqus>
 - `duoshuo` 使用多说评论 ➡️ <https://github.com/codepiano/gitbook-plugin-duoshuo>
 - `ga` 添加 Google 统计代码 ➡️ <https://github.com/GitbookIO/plugin-ga>
+- `include-codeblock` 通过引用文件插入代码 ➡️ <https://github.com/azu/gitbook-plugin-include-codeblock>
 - `jsfiddle` 插入 JSFiddle 组件 ➡️ <https://github.com/Mavrin/gitbook-plugin-jsfiddle>
 - `jsbin` 插入 JSBin 组件 ➡️ <https://github.com/jcouyang/gitbook-plugin-jsbin>
 - `mygitalk` 基于gitalk的评论插件 ➡️ <https://github.com/snowdreams1006/gitbook-plugin-mygitalk>
@@ -209,7 +211,6 @@ Gitbook 安装插件比较简单，需要在项目下添加 `book.json` 文件�
 - `sitemap` 生成站点地图 ➡️ <https://github.com/GitbookIO/plugin-sitemap>
 - `theme-api` 编写 API 文档 ➡️ <https://github.com/GitbookIO/theme-api>
 - `mcqx` 交互式多选插件 ➡️ <https://github.com/ymcatar/gitbook-plugin-mcqx>
-- `include-codeblock` 通过引用文件插入代码 ➡️ <https://github.com/azu/gitbook-plugin-include-codeblock>
 - `spoiler` 隐藏答案，当鼠标划过时才显示 ➡️ <https://github.com/ymcatar/gitbook-plugin-spoiler>
 - `redirect` 重定向页面跳转 ➡️ <https://github.com/ketan/gitbook-plugin-redirect>
 - `ancre-navigation` 悬浮目录和回到顶部 ➡️ <https://www.jianshu.com/p/427b8bb066e6>
@@ -225,7 +226,6 @@ Gitbook 安装插件比较简单，需要在项目下添加 `book.json` 文件�
 - `rss` 添加 rss 订阅功能 ➡️ <https://github.com/denysdovhan/gitbook-plugin-rss>
 - `multipart` 将书籍分成几个部分 ➡️ <https://github.com/citizenmatt/gitbook-plugin-multipart>
 - `url-embed` 嵌入动态内容 ➡️ <https://github.com/basilvetas/gitbook-plugin-url-embed>
-- `click-reveal` 默认隐藏，点击可显示。 ➡️ <https://github.com/c4software/gitbook-plugin-click-reveal>
 - `pageview-count` 阅读量计数 ➡️ <https://www.jianshu.com/p/427b8bb066e6>
 
 #### 查看图片
