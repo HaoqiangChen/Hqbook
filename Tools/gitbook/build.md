@@ -39,7 +39,7 @@ Serving book on http://localhost:4000
 
 与直接预览生成的静态网站不一样的时，使用这个命令，你可以将内容输出到你想要的目录。如果不使用 `--output` 参数则默认在当前文件夹下
 
-```
+```bash
 $ gitbook build --output=/tmp/gitbook
 Starting build ...
 Successfuly built !
@@ -74,13 +74,13 @@ $ gitbook mobi ./ ./mybook.mobi
 
 安装[Caliber应用程序](https://calibre-ebook.com/download)。
 
-```markdown
+```bash
 $ sudo aptitude install calibre
 ```
 
 在某些Linux发行版中安装nodejs，您还需要手动创建一个nodejs软链接：
 
-```
+```bash
 $sudo ln -s /usr/bin/nodejs /usr/bin/node
 ```
 
@@ -88,7 +88,7 @@ $sudo ln -s /usr/bin/nodejs /usr/bin/node
 
 下载[Caliber应用程序](https://calibre-ebook.com/download)。将`calibre.app`移动到您的应用程序文件夹后，创建一个指向ebook-convert工具的软件链接：
 
-```
+```bash
 $ sudo ln -s ~/Applications/calibre.app/Contents/MacOS/ebook-convert /usr/bin
 ```
 
@@ -96,7 +96,7 @@ $ sudo ln -s ~/Applications/calibre.app/Contents/MacOS/ebook-convert /usr/bin
 
 如果出现`Operation not permitted`异常，说明系统权限限制，需要配置环境变量的方式解决
 
-```
+```bash
 $ sudo ln -s /Applications/calibre.app/Contents/MacOS/ebook-convert /usr/bin
 ln: /usr/bin/ebook-convert: Operation not permitted
 ```
@@ -105,7 +105,7 @@ ln: /usr/bin/ebook-convert: Operation not permitted
 
 先启动ebook-convert完成第一次启动配置，然后关闭。接着在命令行窗口修改环境配置文件，加入`EBOOK_PATH`（ebook-convert命令的所在目录）
 
-```
+```bash
 vim ~/.bash_profile 
 
 export EBOOK_PATH=/Applications/calibre.app/Contents/MacOS
@@ -114,13 +114,13 @@ export PATH=$PATH:$EBOOK_PATH
 
 然后刷新一下刚刚的配置:
 
-```
+```bash
 source ~/.bash_profile
 ```
 
 最后测试一下`ebook-convert`指令是否能正常被调用：
 
-```
+```bash
 $ ebook-convert --version
 ebook-convert (calibre 2.81.0)
 Created by: Kovid Goyal <kovid@kovidgoyal.net>
@@ -148,7 +148,7 @@ GitBook插件 (`autocover`) 同样可以用来为你生成一个封面文件，�
 
 进入文档项目目录，输入`gitbook pdf ./ ./gitbook.pdf`
 
-```
+```bash
 $ cd ~/gitbook-cn
 
 $ gitbook pdf ./ ./gitbook.pdf

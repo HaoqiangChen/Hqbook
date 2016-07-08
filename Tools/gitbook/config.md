@@ -19,8 +19,8 @@ GitBook允许您使用灵活的配置来自定义您的书。这些选项在`boo
 ##### 其他属性设置
 
 - `links`: 在左侧导航栏添加链接信息
-```
-"links" : {
+```json
+"links": {
     "sidebar" : {
         "Home" : "https://www.baidu.com"
     }
@@ -28,7 +28,7 @@ GitBook允许您使用灵活的配置来自定义您的书。这些选项在`boo
 ```
 
 - `styles`: 自定义页面样式， 默认情况下各generator对应的css文件
-```
+```json
 "styles": {
     "website": "styles/website.css",
     "ebook": "styles/ebook.css",
@@ -38,7 +38,7 @@ GitBook允许您使用灵活的配置来自定义您的书。这些选项在`boo
 }
 ```
 例如使`<h1>` `<h2>`标签有下边框， 可以在`website.css`中设置
-```
+```css
 h1 , h2{ border-bottom: 1px solid #EFEAEA; }
 ```
 
@@ -167,15 +167,21 @@ Gitbook 安装插件比较简单，需要在项目下添加 `book.json` 文件�
 - `anchor-navigation` 锚点导航 ➡️ <https://github.com/yaneryou/gitbook-plugin-anchor-navigation>
 - `anchor-navigation-ex` 插件锚导航-EX ➡️ <https://github.com/zq99299/gitbook-plugin-anchor-navigation-ex>
 - `auto-scroll-table` 表格滚动条(为避免表格过宽，增加滚动条) ➡️ <https://www.jianshu.com/p/427b8bb066e6>
-- `autotheme` 自动换肤插件 ➡️ <https://github.com/willin/gitbook-plugin-autotheme>
+- `autotheme` 自动换肤插件(早中晚自动切换) ➡️ <https://github.com/willin/gitbook-plugin-autotheme>
 - `change_girls` 可自动切换的背景 ➡️ <https://github.com/zhenchao125/gitbook-plugin-change_girls>
 - `custom-favicon` 修改标题栏图标 ➡️ <https://github.com/Bandwidth/gitbook-plugin-custom-favicon>
+- `chapter-fold` 左侧目录折叠 ➡️ <https://github.com/ColinCollins/gitbook-plugin-chapter-fold>
 - `expandable-chapters` 收起或展开章节目录中的父节点 ➡️ <https://github.com/DomainDrivenArchitecture/gitbook-plugin-expandable-chapters>
 - `expandable-chapters-small` 折叠侧边栏 ➡️ <https://github.com/lookdczar/gitbook-plugin-expandable-chapters-small-auto>
+> [!Tip|label: 这三款目录折叠的区别是：]
+> `expandable-chapters-small` 和 `expandable-chapters` 效果相同，唯一不同的是`expandable-chapters`这个插件的箭头粗；  
+> 另外这两款只有点击箭头才能实现折叠扩展。不如`【chapter-fold 左侧目录折叠】`好用
 - `editlink` 顶部显示编辑此页 ➡️ <https://github.com/zhaoda/gitbook-plugin-editlink>
 - `emphasize` 为文字加上底色 ➡️ <https://github.com/GitbookIO/plugin-emphasize>
 - `favicon` 更改网站的 favicon.ico ➡️ <https://github.com/menduo/gitbook-plugin-favicon>
+- `flexible-alerts` 将块引用转换为漂亮的警报 ➡️ <https://github.com/zanfab/gitbook-plugin-flexible-alerts>
 - `github-buttons` 显示 github 仓库的**star**和**fork**按钮 ➡️ <https://github.com/azu/gitbook-plugin-github-buttons>
+- `hide-element` 隐藏元素 ➡️ <https://github.com/gonjay/gitbook-plugin-hide-element>
 - `insert-logo` 将logo插入到导航栏上方中 ➡️ <https://github.com/matusnovak/gitbook-plugin-insert-logo>
 - `localized-footer` 为 Gitbook 每一个页面添加页脚 ➡️ <https://github.com/noerw/gitbook-plugin-localized-footer#readme>
 - `prism` 基于 Prism 的代码高亮 ➡️ <https://github.com/gaearon/gitbook-plugin-prism>
@@ -213,10 +219,9 @@ Gitbook 安装插件比较简单，需要在项目下添加 `book.json` 文件�
 - `mcqx` 交互式多选插件 ➡️ <https://github.com/ymcatar/gitbook-plugin-mcqx>
 - `spoiler` 隐藏答案，当鼠标划过时才显示 ➡️ <https://github.com/ymcatar/gitbook-plugin-spoiler>
 - `redirect` 重定向页面跳转 ➡️ <https://github.com/ketan/gitbook-plugin-redirect>
-- `ancre-navigation` 悬浮目录和回到顶部 ➡️ <https://www.jianshu.com/p/427b8bb066e6>
 - `page-treeview` 生成页内目录 ➡️ <https://github.com/aleen42/gitbook-treeview>
 - `simple-page-toc` 生成本页目录 ➡️ <https://github.com/stuebersystems/gitbook-plugin-simple-page-toc>
-- `page-toc-button` 悬浮目录 ➡️ <https://plugins.gitbook.com/plugin/page-toc-button-rmp>
+- `page-toc-button` 悬浮目录 ➡️ <https://github.com/stuebersystems/gitbook-plugin-page-toc-button>
 - `Puml` 使用 PlantUML 展示 uml 图 ➡️ <https://github.com/GitbookIO/plugin-puml>
 - `klipse` 嵌入类似IDE的功能,可在代码段中实时交互，即（输入代码 > 执行结果 ➡️ <https://github.com/brian-dawn/gitbook-plugin-klipse>
 - `Todo` 添加 Todo 功能 ➡️ <https://github.com/ly-tools/gitbook-plugin-todo>
@@ -226,13 +231,13 @@ Gitbook 安装插件比较简单，需要在项目下添加 `book.json` 文件�
 - `rss` 添加 rss 订阅功能 ➡️ <https://github.com/denysdovhan/gitbook-plugin-rss>
 - `multipart` 将书籍分成几个部分 ➡️ <https://github.com/citizenmatt/gitbook-plugin-multipart>
 - `url-embed` 嵌入动态内容 ➡️ <https://github.com/basilvetas/gitbook-plugin-url-embed>
-- `pageview-count` 阅读量计数 ➡️ <https://www.jianshu.com/p/427b8bb066e6>
+- `pageview-count` 阅读量计数 ➡️ <https://github.com/tinys/gitbook-plugin-pageview-count>
 
 #### 查看图片
 
 - `image-captions` 抓取内容中图片的`alt`或`title`属性，在图片下面显示标题 ➡️ <https://github.com/todvora/gitbook-plugin-image-captions>
 - `popup` 单击图片，在新页面查看大图。 ➡️ <https://github.com/somax/gitbook-plugin-popup>
-- `lightbox` 点击图片可显示，大小不变 ➡️ <https://www.jianshu.com/p/427b8bb066e6>
+- `lightbox` 点击图片可显示，大小不变 ➡️ <https://github.com/vongola12324/gitbook-plugin-lightbox>
 
 
 #### 数学插件 & Tex
@@ -244,8 +249,7 @@ Gitbook 安装插件比较简单，需要在项目下添加 `book.json` 文件�
 - `mathjax` 支持数学方程式 ➡️ <https://www.mathjax.org/>
 - `mermaid` 使用流程图 ➡️ <https://github.com/JozoVilcek/gitbook-plugin-mermaid>
 
-> [!Tip] 
-> **MathJax 和 KaTeX 的区别**  
+> [!Tip|label: **MathJax 和 KaTeX 的区别**] 
 > `mathjax` 和 `katex` 插件是 Tex 公式绘制的不同实现，它们基于各自的开源库：[KaTeX](https://www.mathjax.org/) 和 [MathJax](https://www.mathjax.org/) 。  
 > MathJax 支持整个 Tex 语法，但是在制作电子书版本时不是很完美。 KaTex 在所有格式（网页和电子书）的绘制上都很完美，但是还不支持 所有的语法。
 
@@ -263,17 +267,17 @@ MathJax 支持整个 Tex 语法，但是在制作电子书版本时不是很完�
 
 ### book.json配置（直接用本书配置来说明） {#bookjson}
 
-```
+```json
 {
-  "title": "hqbook", // 书本标题
-  "author": "Haoqiang Chen", // 作者
-  "description": "平时零散编程笔记收录手册，以便日后查阅。", // 描述
-  "keywords": "编程,markdown,笔记", // 关键字
+  "title": "hqbook",
+  "author": "Haoqiang Chen",
+  "description": "平时零散编程笔记收录手册，以便日后查阅。",
+  "keywords": "编程,markdown,笔记",
   "introduction": {
     "path": "README.md",
     "title": "hqbook"
   },
-  "links": { // 在左侧导航栏添加链接信息
+  "links": {
     "home": false,
     "about": false,
     "issues": false,
@@ -290,23 +294,47 @@ MathJax 支持整个 Tex 语法，但是在制作电子书版本时不是很完�
       "qrcode": true
     }
   },
-  "plugins": [ // 配置使用的插件
-    "chapter-fold", // 左侧目录折叠
-    "splitter", // 侧边栏宽度可调节
-    "anchors", // 标题带有 github 样式的锚点
+  "plugins": [
+    "-highlight",
     "-lunr",
-    "-search", // 其中"-search"中的 - 符号代表去除默认自带的插件
-    "search-pro", // 高级搜索（支持中文）
-    "flexible-alerts", // 将块引用转换为漂亮的警报
-    "hide-element", // 可以隐藏不想看到的元素，比如导航栏中Published by GitBook
-    "sitemap" // 生成站点地图
+    "-search",
+    "anchor-navigation-ex",
+    "chapter-fold",
+    "code",
+    "custom-favicon",
+    "flexible-alerts",
+    "hide-element",
+    "insert-logo",
+    "klipse",
+    "lightbox",
+    "prism",
+    "splitter",
+    "search-pro",
+    "sitemap"
   ],
-  "pluginsConfig": { // 配置插件的属性
-    "chapter-fold": {},
+  "pluginsConfig": {
     "fontSettings": {
       "theme": "white",
       "family": "serif",
       "size": 2
+    },
+    "styles": {
+      "website": "styles/website.css"
+    },
+    "chapter-fold": {},
+    "favicon": "./favicon.ico",
+    "insert-logo": {
+      "url": "../../images/home/logo.png",
+      "style": "background: none;"
+    },
+    "anchor-navigation-ex": {
+      "showLevel": true,
+      "printLog": true,
+      "multipleH1": false,
+      "float": {
+        "floatIcon": "fa fa-anchor",
+        "showLevelIcon": false
+      }
     },
     "flexible-alerts": {
       "style": "callout",
@@ -319,6 +347,22 @@ MathJax 支持整个 Tex 语法，但是在制作电子书版本时不是很完�
     "hide-element": {
       "elements": [
         ".gitbook-link"
+      ]
+    },
+    "lightbox": {
+      "sameUuid": false,
+      "options": {
+        "resizeDuration": 200,
+        "wrapAround": true
+      }
+    },
+    "localized-footer": {
+      "hline": true,
+      "filename": "./FOOTER.md"
+    },
+    "prism": {
+      "css": [
+        "prismjs/themes/prism-okaidia.css"
       ]
     },
     "sitemap": {
@@ -338,5 +382,6 @@ MathJax 支持整个 Tex 语法，但是在制作电子书版本时不是很完�
     }
   }
 }
+
 ```
 

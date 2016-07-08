@@ -102,7 +102,7 @@ Current version is {{ softwareVersion }}.
 
 使用`include`标签可以轻松导入其他文件的内容：
 
-```
+```twig
 {% include "./test.md" %}
 ```
 
@@ -110,13 +110,13 @@ Current version is {{ softwareVersion }}.
 
 GitBook还可以使用git解析包含路径：
 
-```
+```twig
 {% include "git+https://github.com/GitbookIO/documentation.git/README.md#0.0.1" %}
 ```
 
 git url的格式为：
 
-```
+```twig
 git+https://user@hostname/owner/project.git/file#commit-ish
 ```
 
@@ -130,7 +130,7 @@ git+https://user@hostname/owner/project.git/file#commit-ish
 
 `block`定义模板上的一个部分，并用一个名字来标识它。基本模板可以指定块，子模板可以用新内容覆盖它们。
 
-```
+```twig
 {% extends "./mypage.md" %}
 
 {% block pageContent %}
@@ -140,7 +140,7 @@ git+https://user@hostname/owner/project.git/file#commit-ish
 
 在`mypage.md`中，你应该指定可以扩展的块：
 
-```
+```twig
 {% block pageContent %}
 This is the default content
 {% endblock %}
@@ -177,7 +177,7 @@ This is the default content
 | `book.language` | 多语言书的当前语言 |
 
 例如，这个`book.json`：
-```
+```json5
 {
   variables: {
     hello: "everyone"

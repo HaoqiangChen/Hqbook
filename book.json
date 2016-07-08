@@ -25,25 +25,49 @@
     }
   },
   "plugins": [
-    "chapter-fold",
-    "splitter",
-    "anchors",
+    "-highlight",
     "-lunr",
     "-search",
-    "search-pro",
+    "anchor-navigation-ex",
+    "chapter-fold",
+    "code",
+    "custom-favicon",
     "flexible-alerts",
     "hide-element",
+    "insert-logo",
+    "klipse",
+    "lightbox",
+    "prism",
+    "splitter",
+    "search-pro",
     "sitemap"
   ],
   "pluginsConfig": {
-    "chapter-fold": {},
     "fontSettings": {
       "theme": "white",
       "family": "serif",
       "size": 2
     },
+    "styles": {
+      "website": "styles/website.css"
+    },
+    "chapter-fold": {},
+    "favicon": "./favicon.ico",
+    "insert-logo": {
+      "url": "../../images/home/logo.png",
+      "style": "background: none;"
+    },
+    "anchor-navigation-ex": {
+      "showLevel": true,
+      "printLog": true,
+      "multipleH1": false,
+      "float": {
+        "floatIcon": "fa fa-anchor",
+        "showLevelIcon": false
+      }
+    },
     "flexible-alerts": {
-      "style": "callout",
+      "style": "flat",
       "comment": {
         "label": "Comment",
         "icon": "fa fa-comments",
@@ -53,6 +77,22 @@
     "hide-element": {
       "elements": [
         ".gitbook-link"
+      ]
+    },
+    "lightbox": {
+      "sameUuid": false,
+      "options": {
+        "resizeDuration": 200,
+        "wrapAround": true
+      }
+    },
+    "localized-footer": {
+      "hline": true,
+      "filename": "./FOOTER.md"
+    },
+    "prism": {
+      "css": [
+        "prismjs/themes/prism-okaidia.css"
       ]
     },
     "sitemap": {

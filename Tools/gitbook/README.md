@@ -104,8 +104,8 @@ gitbook serve ./{book_name}
 
 `gitbook serve` 命令实际会先调用 `gitbook build` 编译书籍，完成后打开 web 服务器，默认监听本地 4000 端口，在浏览器打开 <http://localhost:4000> 即可浏览电子书。
 
-> [!Danger]
-> `windows` 系统上启动 `gitbook` 服务后,如果本地文件发生更改,热加会失败。  
+> [!Warning|label: 注意]
+> `windows` 系统上启动 `gitbook` 服务后,如果本地文件发生更改,热加载会失败。  
 > 由于官方已经停止更新，所以找不到其他方法可以解决。  
 > 小浩目前有个不是方法中的方法，如果启动服务器后立即删除 _book 目录,那么之后再怎么修改本地文件都能顺利重启。
 
@@ -163,7 +163,7 @@ GitBook使用[SUMMARY](#summary)文件管理目录结构，文件支持Markdown�
 
 GitBook将读取.gitignore、.bookignore和.ignore文件，以获取要忽略的文件和文件夹的列表。被忽略的文件不会被上传到版本中。 这些文件中的格式遵循与.gitignore相同的约定：
 
-```
+```markdown
 ＃井号代表这是一行注释
 
 ＃忽略文件test.md
@@ -177,7 +177,7 @@ bin/*
 
 对于软件项目，您可以使用子目录（如docs/）来存储用于项目文档的书。您可以配置[配置](config.md)以指示GitBook可以在其中找到书籍文件的文件夹：
 
-```
+```markdown
 .
 ├── book.json
 └── docs/
@@ -187,7 +187,7 @@ bin/*
 
 `book.json` 中的配置如下：
 
-```
+```markdown
 {
     "root": "./docs"
 }
@@ -287,8 +287,8 @@ Markdown将决定您**书的结构_most_
 
 页面可以用它作为描述。 它使用`YAML`格式的风格，在三条虚线之间。 文档中也可以不写顶部描述。
 
-> [!Tip]
-> **特别提示:** 在没有安装支持插件之前，不要在文件中使用，否则编译或者运行会失败。 
+> [!Tip|label: **特别提示：**]
+> 在没有安装支持插件之前，不要在文件中使用，否则编译或者运行会失败。 
 
 这里有一个基本示例：
 
@@ -319,8 +319,8 @@ description: This is a short description of my page
 
 GitBook默认使用[theme-default](https://github.com/GitbookIO/theme-default) 主题，从3.0.0版本开始，可以自定义主题。
 
-> [!Warning]
-> **注意**: 自定义主题可能会导致某些插件不能正常工作。
+> [!Warning|label: **注意：**]
+> 自定义主题可能会导致某些插件不能正常工作。
 
 ### 主题的结构
 
@@ -341,7 +341,7 @@ GitBook默认使用[theme-default](https://github.com/GitbookIO/theme-default) �
 
 如果你自定义主题的目的只是让不同的文档和书有不同的显示，你可以使用[模板语法](templating.md)：
 
-```html
+```markdown
 {% extends template.self %}
 
 {% block body %}
