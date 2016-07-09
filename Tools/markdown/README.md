@@ -119,7 +119,7 @@ Markdown 支持两种形式的链接语法： 行内式和参考式两种形式�
 
 **代码：**
 
-```
+```markdown
 欢迎来到[Markdown语法篇](https://github.com/HaoqiangChen/Hq-note/tree/master/markdown)
 
 欢迎来到[Markdown语法篇](https://github.com/HaoqiangChen/Hq-note/tree/master/markdown "Markdown语法篇")

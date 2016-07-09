@@ -46,10 +46,7 @@
     "fontSettings": {
       "theme": "white",
       "family": "serif",
-      "size": 2
-    },
-    "styles": {
-      "website": "styles/website.css"
+      "size": 1
     },
     "chapter-fold": {},
     "favicon": "./favicon.ico",
@@ -94,6 +91,9 @@
       "css": [
         "prismjs/themes/prism-okaidia.css"
       ]
+    },
+    "styles": {
+      "website": "styles/website.css"
     },
     "sitemap": {
       "hostname": "https://chq.github.io/"

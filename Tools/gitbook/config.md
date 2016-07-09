@@ -191,6 +191,7 @@ Gitbook 安装插件比较简单，需要在项目下添加 `book.json` 文件�
 - `styles-less` 使用 LESS 替换 CSS ➡️ <https://github.com/GitbookIO/plugin-styles-less>
 - `sectionx` 分离各个段落，并提供一个展开收起的按钮 ➡️ <https://github.com/ymcatar/gitbook-plugin-sectionx>
 - `tbfed-pagefooter` 自定义页脚，显示版权和最后修订时间 ➡️ <https://github.com/zhj3618/gitbook-plugin-tbfed-pagefooter>
+- `theme-fexa` 基于gitbook主题机制定制的主题 ➡️ <https://github.com/tonyyls/gitbook-plugin-theme-fexa>
 
 #### 功能增强
 
