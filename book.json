@@ -42,11 +42,9 @@
     "-search",
     "theme-hqbook",
     "chapter-fold",
-    "code",
     "flexible-alerts",
     "lightbox",
     "prism",
-    "splitter",
     "search-pro",
     "sitemap"
   ],
@@ -88,6 +86,7 @@
       "favicon": "./favicon.ico",
       "logo": "../../images/home/logo.png",
       "search-placeholder": "输入关键字搜索",
+      "copyLines": false,
       "hide-elements": [
         ".summary .gitbook-link"
       ]

@@ -202,7 +202,7 @@ Gitbook 安装插件比较简单，需要在项目下添加 `book.json` 文件�
 - `book-summary-scroll-position-saver` 自动保存左侧目录区域导航条的位置 ➡️ <https://github.com/yoshidax/gitbook-plugin-book-summary-scroll-position-saver>
 - `baidu` 使用百度统计 ➡️ <https://github.com/poppinlp/gitbook-plugin-baidu>
 - `click-reveal` 默认隐藏，点击可显示。 ➡️ <https://github.com/c4software/gitbook-plugin-click-reveal>
-- `code` 代码添加行号&复制按钮 ➡️ <https://github.com/TGhoul/gitbook-plugin-code>
+- `code` 代码添加行号&复制按钮 ➡️ <https://github.com/davidmogar/gitbook-plugin-code>
 - `copy-code-button` 为代码块添加复制的按钮 ➡️ <https://github.com/WebEngage/gitbook-plugin-copy-code-button>
 - `chart` 使用 C3.js 图表 ➡️ <https://github.com/csbun/gitbook-plugin-chart>
 - `Donate` Gitbook 捐赠打赏插件 ➡️ <https://github.com/willin/gitbook-plugin-donate>
