@@ -43,7 +43,6 @@
     "theme-hqbook",
     "chapter-fold",
     "flexible-alerts",
-    "lightbox",
     "prism",
     "search-pro",
     "sitemap"
@@ -61,13 +60,6 @@
         "label": "Comment",
         "icon": "fa fa-comments",
         "className": "info"
-      }
-    },
-    "lightbox": {
-      "sameUuid": false,
-      "options": {
-        "resizeDuration": 200,
-        "wrapAround": true
       }
     },
     "localized-footer": {
