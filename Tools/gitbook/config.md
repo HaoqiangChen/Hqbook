@@ -2,7 +2,7 @@
 
 GitBook允许您使用灵活的配置来自定义您的书。这些选项在`book.json`文件中指定。对于不熟悉JSON语法的作者，您可以使用[JSONlint之类的](http://jsonlint.com/)工具来验证语法。
 
-### 常规设置
+## 常规设置
 
 | 变量 | 说明 |
 | -------- | ----------- |
@@ -42,7 +42,7 @@ GitBook允许您使用灵活的配置来自定义您的书。这些选项在`boo
 h1 , h2{ border-bottom: 1px solid #EFEAEA; }
 ```
 
-### 结构体
+## 结构体
 
 除了`root`变量，你可以告诉Gitbook Readme，Summary，Glossary，Languages的文件名(而不是使用默认名称，如README.md)。 这些文件必须在您的书的根(或每个语言书的根)。不接受诸如`dir/MY_README.md`之类的路径。
 
@@ -53,7 +53,7 @@ h1 , h2{ border-bottom: 1px solid #EFEAEA; }
 | `structure.glossary` | 词汇表文件名（默认为`GLOSSARY.md`） |
 | `structure.languages` | 语言文件名（默认为`LANGS.md`） |
 
-### PDF选项
+## PDF选项
 
 PDF输出可以使用`book.json`中的一组选项来定制：
 
@@ -295,21 +295,26 @@ MathJax 支持整个 Tex 语法，但是在制作电子书版本时不是很完�
       "qrcode": true
     }
   },
+  "variables": {
+    "themeColor": "#3884ff",
+    "themeHqbook": {
+      "nav": [
+        {
+          "url": "https://www.baidu.com",
+          "target": "_blank",
+          "name": "百度一下"
+        }
+      ]
+    }
+  },
   "plugins": [
     "-highlight",
     "-lunr",
     "-search",
-    "anchor-navigation-ex",
+    "theme-hqbook",
     "chapter-fold",
-    "code",
-    "custom-favicon",
     "flexible-alerts",
-    "hide-element",
-    "insert-logo",
-    "klipse",
-    "lightbox",
     "prism",
-    "splitter",
     "search-pro",
     "sitemap"
   ],
@@ -317,44 +322,15 @@ MathJax 支持整个 Tex 语法，但是在制作电子书版本时不是很完�
     "fontSettings": {
       "theme": "white",
       "family": "serif",
-      "size": 2
-    },
-    "styles": {
-      "website": "styles/website.css"
+      "size": 1
     },
     "chapter-fold": {},
-    "favicon": "./favicon.ico",
-    "insert-logo": {
-      "url": "../../images/home/logo.png",
-      "style": "background: none;"
-    },
-    "anchor-navigation-ex": {
-      "showLevel": true,
-      "printLog": true,
-      "multipleH1": false,
-      "float": {
-        "floatIcon": "fa fa-anchor",
-        "showLevelIcon": false
-      }
-    },
     "flexible-alerts": {
-      "style": "callout",
+      "style": "flat",
       "comment": {
         "label": "Comment",
         "icon": "fa fa-comments",
         "className": "info"
-      }
-    },
-    "hide-element": {
-      "elements": [
-        ".gitbook-link"
-      ]
-    },
-    "lightbox": {
-      "sameUuid": false,
-      "options": {
-        "resizeDuration": 200,
-        "wrapAround": true
       }
     },
     "localized-footer": {
@@ -363,7 +339,19 @@ MathJax 支持整个 Tex 语法，但是在制作电子书版本时不是很完�
     },
     "prism": {
       "css": [
-        "prismjs/themes/prism-okaidia.css"
+        "gitbook-plugin-theme-hqbook/_themes/prism-xonokai.css"
+      ]
+    },
+    "styles": {
+      "website": "styles/website.css"
+    },
+    "theme-hqbook": {
+      "favicon": "./favicon.ico",
+      "logo": "../../images/home/logo.png",
+      "search-placeholder": "输入关键字搜索",
+      "copyLines": false,
+      "hide-elements": [
+        ".summary .gitbook-link"
       ]
     },
     "sitemap": {

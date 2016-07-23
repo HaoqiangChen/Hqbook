@@ -4,7 +4,7 @@ GitBook使用[Nunjucks模板语言](https://mozilla.github.io/nunjucks/)来处�
 
 Nunjucks语法与**Jinja2**或**Liquid**非常相似。语法使用大括号`{}`来标记需要处理的内容。
 
-### 变量
+## 变量
 
 变量从模板上下文中查找值。如果你想简单地显示一个变量，你可以使用`{{variable}}`语法。例如 ：
 
@@ -23,7 +23,7 @@ Nunjucks语法与**Jinja2**或**Liquid**非常相似。语法使用大括号`{}`
 
 GitBook提供了[预定义变量](#variables)。
 
-### 过滤器
+## 过滤器
 
 过滤器本质上是可以应用于变量的函数。它们用管道操作符(`|`)调用，并且可以接受参数。
 
@@ -35,9 +35,9 @@ GitBook提供了[预定义变量](#variables)。
 
 第三个示例显示了如何链接过滤器。首先将“ foo”替换为“ bar”，然后将其大写，从而显示“ Bar”。
 
-### 标签
+## 标签
 
-##### if
+### if
 
 `if` 根据条件选择显示内容。它的行为与JavaScript的`if`行为完全一样。
 
@@ -61,7 +61,7 @@ GitBook提供了[预定义变量](#variables)。
 {% endif %}
 ```
 
-##### for
+### for
 
 `for` 遍历数组和对象。
 
@@ -73,7 +73,7 @@ GitBook提供了[预定义变量](#variables)。
 {% endfor %}
 ```
 
-##### set
+### set
 
 `set` 允许你创建/修改一个变量。
 
@@ -84,7 +84,7 @@ Current version is {{ softwareVersion }}.
 [Download it](website.com/download/{{ softwareVersion }})
 ```
 
-### 转义
+## 转义
 
 如果您希望GitBook忽略任何特殊的模板标签，则可以使用raw，并且其中的任何内容都将以纯文本格式输出。
 
@@ -201,7 +201,7 @@ This is the default content
 | `file.mtime` | 修改时间。上次修改文件的时间  |
 | `file.type` | 用于编译此文件的语法解析器的名称(例如：`markdown`，`asciidoc`等) |
 
-#### 页面变量
+### 页面变量
 
 | 变量 | 说明 |
 | -------- | ----------- |
@@ -210,7 +210,7 @@ This is the default content
 | `page.next` | 内容页的下一页 (可以是`null`) |
 | `page.dir` | 文本方向，基于配置(`rtl`或`ltr`) |
 
-#### 目录变量
+### 目录变量
 
 | 变量 | 说明 |
 | -------- | ----------- |
@@ -220,7 +220,7 @@ This is the default content
 
 `summary.parts[0].articles[0].title` 将返回第一篇文章的标题。
 
-#### 多语言环境变量
+### 多语言环境变量
 
 | 变量 | 说明 |
 | -------- | ----------- |
