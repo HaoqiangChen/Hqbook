@@ -90,7 +90,7 @@ Markdown使用星号`*`和底线`_`作为标记强调字词的符号，被`*`或
 
 ------
 
-### 脚注
+### 脚注 {#footnote}
 
 脚注是对文本的补充说明。  
 在需要添加注脚的文字后加上脚注名字`[^注脚名字]`,称为脚注。 然后在文本的任意位置(一般在最后)添加脚注，脚注前必须有对应的脚注名字。
@@ -107,85 +107,11 @@ Markdown使用星号`*`和底线`_`作为标记强调字词的符号，被`*`或
 
 [^HQBOOK]: hqbook -- A book for note。
 ```
-**gitbook Cli显示效果：**
+**gitbook Cli显示效果：**  
 创建脚注格式类似这样 [^HQBOOK]。
 
 **其他markdown编译器显示效果：**  
 ![markdown 脚注](http://hqbook.kangzeshan.com/md-footnote.png)
-
-------
-
-## 超链接
-
-`Markdown` 支持两种形式的链接语法： 行内式和参考式两种形式，行内式一般使用较多。
-
-### 行内式
-
-**语法说明：**
-
-`[]`里写链接文字，`()`里写链接地址, `()`里面" "中的内容可以为链接指定`title属性`，`title属性`可加可不加。  
-`title属性`的效果是鼠标悬停在链接上会出现指定的 `title文字`。\[链接文字\]\(链接地址 "链接标题"\)这样的形式。  
-***链接地址与链接标题前有一个空格。***
-
-```markdown
-欢迎来到[Markdown语法篇](https://github.com/HaoqiangChen/Hq-note/tree/master/markdown)
-
-欢迎来到[Markdown语法篇](https://github.com/HaoqiangChen/Hq-note/tree/master/markdown "Markdown语法篇")
-```
-
-**显示效果：**
-
-欢迎来到[Markdown语法篇](https://github.com/HaoqiangChen/Hq-note/tree/master/markdown)
-
-欢迎来到[Markdown语法篇](https://github.com/HaoqiangChen/Hq-note/tree/master/markdown "Markdown语法篇")
-
-### 参考式
-
-参考式超链接一般用在学术论文上面，或者另一种情况，如果某一个链接在文章中多处使用，那么使用引用 的方式创建链接将非常好，它可以让你对链接进行统一的管理。
-
-**语法说明：**
-
-参考式链接分为两部分，文中的写法 [链接文字][链接标记]，在文本的任意位置添加[链接标记]:链接地址 &#34;链接标题&#34;，***链接地址与链接标题前有一个空格。***
-
-如果链接文字本身可以做为链接标记，你也可以写成[链接文字][]
-[链接文字]：链接地址的形式，见代码的最后一行。
-
-```markdown
-欢迎阅读本[Markdown语法篇][1]，还有这几篇高手总结的也不错：[入门篇][2]、
-[简明版][3]、[完整版][4]，我就喜欢把百家汇成[自己一家][]^_^。
-
-[1]:https://github.com/HaoqiangChen/Hq-note/tree/master/markdown "Markdown语法篇"
-[2]:https://www.jianshu.com/p/1e402922ee32 "入门篇"
-[3]:https://www.jianshu.com/p/6bf6735993ec "简明版"
-[4]:https://www.runoob.com/markdown/md-tutorial.html "完整版"
-[自己一家]:https://github.com/HaoqiangChen/Hq-note/tree/master/markdown
-```
-
-**显示效果：**
-
-欢迎阅读本[Markdown语法篇][1]，还有这几篇高手总结的也不错：[入门篇][2]、  
-[简明版][3]、[完整版][4]，我就喜欢把百家汇成[自己一家][]^_^。
-
-[1]:https://github.com/HaoqiangChen/Hq-note/tree/master/markdown "Markdown语法篇"
-[2]:https://www.jianshu.com/p/1e402922ee32 "入门篇"
-[3]:https://www.jianshu.com/p/6bf6735993ec "简明版"
-[4]:https://www.runoob.com/markdown/md-tutorial.html "完整版"
-[自己一家]:https://github.com/HaoqiangChen/Hq-note/tree/master/markdown
-
-### 自动链接
-
-**语法说明：**
-`Markdown` 支持以比较简短的自动链接形式来处理网址和电子邮件信箱，只要是用`<>`包起来，`Markdown`就会自动把它转成链接。一般网址的链接文字就和链接地址一样，例如：
-
-```markdown
-<http://example.com/>
-<address@example.com>
-```
-
-**显示效果：**
-
-<http://example.com/>  
-<address@example.com>
 
 ------
 
@@ -282,7 +208,6 @@ Markdown 区块引用是在段落开头使用 `>` 符号 ，然后后面紧跟�
 > hqbook  
 > 学的不仅是技术更是梦想
 
-
 Markdown 也允许你偷懒只在整个段落的第一行最前面加上`>``：
 
 ```markdown
@@ -313,71 +238,262 @@ Markdown 区块引用
 >> 第一层嵌套  
 >>> 第二层嵌套
 
-### 6.2. 引用其它要素
+### 区块中引用其它要素
 
 引用的区块内也可以使用其他的 Markdown 语法，包括标题、列表、代码区块等：
 
-**代码：**
-
-```
-> 1. 这是第一行列表项。
-> 2. 这是第二行列表项。
+```markdown
+> 区块中使用列表
+> 1. 第一项
+> 2. 第二项
+>   + 第一项
+>   + 第二项
 >
-> 给出一些例子代码：
->
+> 给出一些例子代码：  
 > return shell_exec("echo $input | $markdown_script");
 ```
 
 **显示效果：**
 
-> 1. 这是第一行列表项。  
-> 2. 这是第二行列表项。  
+> 区块中使用列表
+> 1. 第一项
+> 2. 第二项
+>   + 第一项
+>   + 第二项
 >
 > 给出一些例子代码：  
->
 > return shell_exec("echo $input | $markdown_script");
 
+### 列表中使用区块
 
-***
+如果要在列表项目内放进区块，那么就需要在 `>` 前添加四个空格的缩进。
 
+```markdown
+* 第一项
+    > hqbook  
+    > A book for note
+* 第二项
+```
 
-## 7. 插入图像
+**显示效果：**
 
-图片的创建方式与超链接相似，而且和超链接一样也有两种写法，行内式和参考式写法。
+* 第一项
+    > hqbook  
+    > A book for note
+* 第二项
 
-语法中图片Alt的意思是如果图片因为某些原因不能显示，就用定义的图片Alt文字来代替图片。 图片Title则和链接中的Title一样，表示鼠标悬停与图片上时出现的文字。 Alt 和 Title 都不是必须的，可以省略，但建议写上。
+------
 
-### 7.1. 行内式
+## 代码
+
+> [!Tip]
+> Markdown 支持使用原生`html`代码
+
+如果是段落上的一个函数或片段的代码可以用反引号<code>\`</code>把它包起来，也可以将某些字眼加上反引号达到`显眼`的作用。例如：
+
+```markdown
+`printf()` 函数  
+随便敲打几个字，在这行字里面用`反引号`突出某些字眼，比如`hqbook`
+```
+
+**显示效果：**
+
+`printf()` 函数  
+随便敲打几个字，在这行字里面用`反引号`突出某些字眼，比如`hqbook`
+
+### 代码区块
+
+代码区块使用<code>```</code>包裹一段代码，并指定一种语言（也可以不指定）：
+
+<pre>
+```javascript
+$(document).ready(function () {
+    alert('hqbook');
+});
+```
+</pre>
+
+**显示效果：**
+
+```javascript
+$(document).ready(function () {
+    alert('hqbook');
+});
+```
+
+你也可以用`4 个空格`或者一个`制表符`（Tab 键）
+
+![代码区块](http://hqbook.kangzeshan.com/md-codeblock.jpg)
+
+**显示效果：**
+
+    <?php
+    echo 'RUNOOB';
+    funtion test() {
+        echo 'test';
+    }
+
+### 支持的 HTML 元素
+
+不在 Markdown 涵盖范围之内的标签，都可以直接在文档里面用 HTML 撰写。
+目前支持的 HTML 元素有：<kbd> <b> <i> <em> <sup> <sub> <br>等 ，如：
+
+```html
+使用 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd> 重启电脑
+```
+**显示效果：**
+
+使用 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd> 重启电脑
+
+### 转义
+
+Markdown 使用了很多特殊符号来表示特定的意义，如果需要显示特定的符号则需要使用转义字符，Markdown 使用反斜杠转义特殊字符  
+Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的符号：
+
+ 符号 |       | 符号 |      | 符号 |  
+ --- | ----- | --- | ----- | --- | -----
+  \  | 反斜线 | \`  | 反引号 |  *  | 星号 
+  _  | 下划线 | {}  | 花括号 | []  | 方括号 
+ ()  | 小括号 |  #  | 井字号 |  +  | 加号 
+  -  |  减号  |  .  |英文句点|  *  | 感叹号 
+
+------
+
+## 超链接
+
+`Markdown` 支持两种形式的链接语法： 行内式和参考式两种形式，行内式一般使用较多。
+
+### 行内式
+
+**语法说明：**
+
+`[]`里写链接文字，`()`里写链接地址, `()`里面" "中的内容可以为链接指定`title属性`，`title属性`可加可不加。  
+`title属性`的效果是鼠标悬停在链接上会出现指定的 `title文字`。\[链接文字\]\(链接地址 "链接标题"\)这样的形式。  
+***链接地址与链接标题前有一个空格。***
+
+```markdown
+欢迎来到[Markdown语法篇](https://github.com/HaoqiangChen/Hq-note/tree/master/markdown)
+
+欢迎来到[Markdown语法篇](https://github.com/HaoqiangChen/Hq-note/tree/master/markdown "Markdown语法篇")
+```
+
+**显示效果：**
+
+欢迎来到[Markdown语法篇](https://github.com/HaoqiangChen/Hq-note/tree/master/markdown)
+
+欢迎来到[Markdown语法篇](https://github.com/HaoqiangChen/Hq-note/tree/master/markdown "Markdown语法篇")
+
+### 参考式
+
+参考式超链接一般用在学术论文上面，或者另一种情况，如果某一个链接在文章中多处使用，那么使用引用 的方式创建链接将非常好，它可以让你对链接进行统一的管理。
+
+**语法说明：**
+
+参考式链接分为两部分，文中的写法 [链接文字][链接标记]，在文本的任意位置添加[链接标记]:链接地址 &#34;链接标题&#34;，***链接地址与链接标题前有一个空格。***
+
+如果链接文字本身可以做为链接标记，你也可以写成[链接文字][]
+[链接文字]：链接地址的形式，见代码的最后一行。
+
+```markdown
+欢迎阅读本[Markdown语法篇][1]，还有这几篇高手总结的也不错：[入门篇][2]、
+[简明版][3]、[完整版][4]，我就喜欢把百家汇成[自己一家][]^_^。
+
+[1]:https://github.com/HaoqiangChen/Hq-note/tree/master/markdown "Markdown语法篇"
+[2]:https://www.jianshu.com/p/1e402922ee32 "入门篇"
+[3]:https://www.jianshu.com/p/6bf6735993ec "简明版"
+[4]:https://www.runoob.com/markdown/md-tutorial.html "完整版"
+[自己一家]:https://github.com/HaoqiangChen/Hq-note/tree/master/markdown
+```
+
+**显示效果：**
+
+欢迎阅读本[Markdown语法篇][1]，还有这几篇高手总结的也不错：[入门篇][2]、  
+[简明版][3]、[完整版][4]，我就喜欢把百家汇成[自己一家][]^_^。
+
+[1]:https://github.com/HaoqiangChen/Hq-note/tree/master/markdown "Markdown语法篇"
+[2]:https://www.jianshu.com/p/1e402922ee32 "入门篇"
+[3]:https://www.jianshu.com/p/6bf6735993ec "简明版"
+[4]:https://www.runoob.com/markdown/md-tutorial.html "完整版"
+[自己一家]:https://github.com/HaoqiangChen/Hq-note/tree/master/markdown
+
+### 自动链接
+
+**语法说明：**
+`Markdown` 支持以比较简短的自动链接形式来处理网址和电子邮件信箱，只要是用`<>`包起来，`Markdown`就会自动把它转成链接。一般网址的链接文字就和链接地址一样，例如：
+
+```markdown
+<http://example.com/>
+<address@example.com>
+```
+
+**显示效果：**
+
+<http://example.com/>  
+<address@example.com>
+
+### 锚点
+
+网页中，锚点其实就是页内超链接，也就是链接本文档内部的某些元素，实现当前页面中的跳转。比如我这里写下一个锚点，点击回到目录，就能跳转到目录。
+在目录中点击这一节，就能跳过来。还有markdown的[脚注](#footnote)。这些根本上都是用锚点来实现的。
+
+**语法描述：**
+1. 使用`[TOC]`标记编辑器会把所有标题写到目录大纲中，该功能原生不支持；  
+2. 在你准备跳转到的指定标题后插入锚点`{#标记}`，然后在文档的其它地方写上连接到锚点的链接`[标记](#标记)`。  
+3. 直接HTML语法锚点功能。  
+
+```markdown
+[TOC]
+
+## 脚注{#footnote}
+跳转到[脚注](#footnote)
+
+上面这两种方法原生markdown(GitHub)都不支持，不过第二种方法在`gitbook cli`可行
+
+<span id="#footnote"></span>
+```
+**显示效果：**
+
+跳转到[脚注](#footnote)
+
+------
+
+## 图片
+
+图片的创建方式与超链接相似（在超链接前面加个`!`感叹号），而且和超链接一样也有两种写法，行内式和参考式写法。
+
+语法中图片Alt的意思是如果图片因为某些原因不能显示，就用定义的图片Alt文字来代替图片。  
+图片Title则和链接中的Title一样，表示鼠标悬停与图片上时出现的文字。 Alt 和 Title 都不是必须的，可以省略，但建议写上。
+
+> [!Tip]
+> Markdown 还没有办法指定图片的高度与宽度，如果你需要的话，你可以使用普通的 `<img>` 标签  
+> <img alt="美丽花儿" src="http://hqbook.kangzeshan.com/md-flower.jpg" width="50%">
+
+### 行内式
 
 **语法说明：**!\[图片Alt\]\(图片地址 "图片Title"\)
 
-**代码：**
-
-```
+```markdown
 美丽花儿：  
-![美丽花儿](https://raw.githubusercontent.com/HaoqiangChen/Hq-note/master/asset/markdown/img/flower.jpg "美丽花儿")
+![美丽花儿](http://hqbook.kangzeshan.com/md-flower.jpg "美丽花儿")
 ```
 
 **显示效果：**
 
 美丽花儿：  
-![美丽花儿](https://raw.githubusercontent.com/HaoqiangChen/Hq-note/master/asset/markdown/img/flower.jpg "美丽花儿")
+![美丽花儿](http://hqbook.kangzeshan.com/md-flower.jpg "美丽花儿")
 
-
-### 7.2. 参考式
+### 参考式
 **语法说明：**
 
 在文档要插入图片的地方写![图片Alt][标记]
 
 在文档的最后写上[标记]:图片地址 "Title"
 
-**代码：**
-
-```
+```markdown
 美丽花儿：
 ![美丽花儿][flower]
 
-[flower]:https://raw.githubusercontent.com/HaoqiangChen/Hq-note/master/asset/markdown/img/flower.jpg "美丽花儿"
+[flower]:http://hqbook.kangzeshan.com/md-flower.jpg "美丽花儿"
 ```
 
 **显示效果：**
@@ -385,160 +501,86 @@ Markdown 区块引用
 美丽花儿：   
 ![美丽花儿][flower]
 
-[flower]:https://raw.githubusercontent.com/HaoqiangChen/Hq-note/master/asset/markdown/img/flower.jpg "美丽花儿"
+[flower]:http://hqbook.kangzeshan.com/md-flower.jpg "美丽花儿"
 
+------
 
-
-***
-
-
-## 8. 分隔线和预格式化
-
-### 8.1 分隔线
-
-你可以在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。下面每种写法都可以建立分隔线：
-
-**代码：**
-
-```
-* * *
-
-***
-
-*****
-
-- - -
-
----------------------------------------
-```
-
-**显示效果都一样：**
-
-
----
-
-***
-
-### 8.2 预格式化
-
-用\```+中间你所想注释的内容或代码+\```包裹：预格式化，可用于markdown里面的注释，解释说明什么的
-markdown的预格式化 相当于HTML的&lt;pre&gt;&lt;/pre&gt;预格式化，  
-不过markdown这个除了预格式化之外还会添加了一个背景色与其他内容区分开，相当好用。
-
-
-
----
-
-
-## 9 .表格
+## 表格
 
 **语法说明：**
 
-1. 不管是哪种方式，第一行为表头，第二行分隔表头和主体部分，第三行开始每一行为一个表格行。
-2. 列于列之间用管道符|隔开。原生方式的表格每一行的两边也要有管道符。
-3. 第二行还可以为不同的列指定对齐方向。默认为左对齐，在-符号右边加上冒号: 就会右对齐。
+1. 表格使用`|`来分隔不同的单元格，第一行为表头，第二行使用`-`来分隔表头和主体部分，第三行开始每一行为一个表格行；
+2. 列于列之间用管道符`|`隔开。`原生markdown`的表格每一行的两边也要有管道符，而有些编辑器是可以省略的，具体使用视情况而定；
+3. 第二行还可以为不同的列指定对齐方向。默认为左对齐。有时候为了代码可读好看，第二行`-`可以使用多个。
+    * `:-`或者`-` 表格内容和表头居左对齐
+    * `:-:` 居中对齐
+    * `-:` 右对齐
 
-**代码：**
-
-简单方式写表格：
-
-```
-学号|姓名|分数
--|-|-
-小明|男|75
-小红|女|79
-小陆|男|92
-```
-原生方式写表格：
-
-```
-|学号|姓名|分数|
-|-|-|-|
-|小明|男|75|
-|小红|女|79|
-|小陆|男|92|
-```
-为表格第二列指定方向：
-
-```
-产品|价格
--|-:
-Leanote 高级账号|60元/年
-Leanote 超级账号|120元/年
+```markdown
+|  表头  | 左对齐 | 居中对齐 | 右对齐 |
+| ----  | :---  |  :---:  |  ---:  |
+| 单元格 | 单元格 |  单元格  | 单元格 |
+| 单元格 | 单元格 |  单元格  | 单元格 |
 ```
 
 **显示效果：**
-简单方式写表格：
 
-学号|姓名|分数
--|-|-
-小明|男|75
-小红|女|79
-小陆|男|92
-
-原生方式写表格：
-
-|学号|姓名|分数|
-|-|-|-|
-|小明|男|75|
-|小红|女|79|
-|小陆|男|92|
-
-为表格第二列指定方向：
-
-产品|价格
--|-:
-Leanote 高级账号|60元/年
-Leanote 超级账号|120元/年
-
-
+  表头  | 左对齐 | 居中对齐 | 右对齐 
+ ----  | :---  |  :---:  |  ---:  
+ 单元格 | 单元格 |  单元格  | 单元格 
+ 单元格 | 单元格 |  单元格  | 单元格 
 
 ---
 
+## LaTeX 公式
 
-## 11. LaTeX 公式
+> [!Warning|label: 注意]
+> 原生markdown不支持LaTeX 公式，有两种可以解决，一种在线LaTeX 数学公式编辑工具生成图片展示，一种使用gitbook插件
 
-### 11.1. $ 表示行内公式：
+* 在线LaTeX 数学公式编辑工具
 
-**代码：**
-
-```
-质能守恒方程可以用一个很简洁的方程式 $E=mc^2$ 来表达。  
-
-注：又来了，真闹心，又是原生不支持LaTeX 公式。但对于程序员来说，大部分问题是能解决的。  
 可以用codecogs的云服务，在线LaTeX 数学公式编辑工具，api+一大串LaTex，比如：  
+```html
 <img src="http://latex.codecogs.com/gif.latex?\frac{\partial J}{\partial \theta_k^{(j)}}=  
 \sum_{i:r(i,j)=1}{\big((\theta^{(j)})^Tx^{(i)}-y^{(i,j)}\big)x_k^{(i)}}+\lambda \theta_k^{(j)}" />
 ```
-
-当然这么强大的在线公式编辑器肯定提供了在线GUI给大家，打开网址：[http://www.codecogs.com/latex/eqneditor.php](http://www.codecogs.com/latex/eqneditor.php)，  
-你就可以随心所欲的编辑公式了，它同样想Mathtype一样提供了不少模板，直接编辑，也很方便。编辑完成之后，页面上  
-就会实时得到编辑的Latex格式公式图片，右击图片，选择“属性”，复制其链接地址，就是其引用地址了。  
-（这种麻烦操作当然是针对IE了，其他浏览器直接点“复制图片地址”）  
+当然这么强大的在线公式编辑器肯定提供了在线GUI给大家，打开网址：[http://www.codecogs.com/latex/eqneditor.php](http://www.codecogs.com/latex/eqneditor.php)，
+你就可以随心所欲的编辑公式了，它同样想Mathtype一样提供了不少模板，直接编辑，也很方便。编辑完成之后，页面上就会实时得到编辑的Latex格式公式图片，
+右击图片，选择“属性”，复制其链接地址，就是其引用地址了。（这种麻烦操作当然是针对IE了，其他浏览器直接点“复制图片地址”）  
 或者这个网址：[http://latex.codecogs.com/](http://latex.codecogs.com/)  
-这个网址的使用方法：\!\[\]\(http://latex.codecogs.com/gif.latex?\\frac{1}{1+sin(x)}\)
+这个网址的使用方法：`![](http://latex.codecogs.com/gif.latex?\\frac{1}{1+sin(x)}\)` + 生成的公式地址
 
-```
-所以，上面的例子可以修改为  
-质能守恒方程可以用一个很简洁的方程式 ![](http://latex.codecogs.com/gif.latex?E=mc^2) 来表达。
+* gitbook插件 数学插件 & Tex
+
+有不少gitbook插件 支持 Tex 公式绘制，比如`mathjax` 和 `katex`，具体可看[数学插件](../gitbook/config.md#mathjax)
+
+### $ 表示行内公式
+
+```markdown
+支持LaTeX 公式的话：  
+质能守恒方程可以用一个很简洁的方程式 $E=mc^2$ 来表达。 
+不支持则使用 ![](http://latex.codecogs.com/gif.latex?E=mc^2) 来表达。
 ```
 
 **显示效果：**
 
-质能守恒方程可以用一个很简洁的方程式 ![](http://latex.codecogs.com/gif.latex?E=mc^2) 来表达。 
+支持LaTeX 公式的话：  
+质能守恒方程可以用一个很简洁的方程式 $E=mc^2$ 来表达。  
+不支持则使用 ![](http://latex.codecogs.com/gif.latex?E=mc^2) 来表达。
 
-### 11.2 $$ 表示整行公式：
+### $$ 表示整行公式
 
-**代码：**
+当你需要在编辑器中插入数学公式时，可以使用两个美元符`$$`包裹`TeX`或`LaTeX`格式的数学公式来实现。提交后，问答和文章页会根据需要加载`Mathjax`对数学公式进行渲染。如：
 
-```
+```markdown
+支持LaTeX 公式的话：  
 $$\sum_{i=1}^n a_i=0$$
 
 $$f(x_1,x_x,\ldots,x_n) = x_1^2 + x_2^2 + \cdots + x_n^2 $$
 
 $$\sum^{j-1}_{k=0}{\widehat{\gamma}_{kj} z_k}$$
 
-同上，原生不支持，故，你懂得。
+原生不支持，可使用以下图片：  
 ![](http://latex.codecogs.com/gif.latex?\\sum_{i=1}^n&space;a_i=0 "\sum_{i=1}^n a_i=0")  
 
 <img src="http://latex.codecogs.com/gif.latex?f(x_1,x_x,\ldots,x_n)&space;=&space;x_1^2&space;&plus;&space;
@@ -559,366 +601,46 @@ title="f(x_1,x_x,\ldots,x_n) = x_1^2 + x_2^2 + \cdots + x_n^2" />
 
 访问 [MathJax](http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference) 参考更多使用方法。
 
----
+------
 
-## 12. 流程图
+## 流程图
 
-**代码：**
+> [!Warning|label: 注意]
+> 原生markdown不支持流程图，有两种可以解决，一种用一些支持流程图的编辑器先画出来，然后截图生成图片展示，一种使用gitbook插件[mermaid](https://github.com/JozoVilcek/gitbook-plugin-mermaid)
 
-
+**举例：**
+<pre>
+标准流程图源码格式：
+```flow
+st=>start: 开始框
+op=>operation: 处理框
+cond=>condition: 判断框(是或否?)
+sub1=>subroutine: 子流程
+io=>inputoutput: 输入输出框
+e=>end: 结束框
+st->op->cond
+cond(yes)->io->e
+cond(no)->sub1(right)->op
 ```
-flow
-st=>start: Start:>https://www.zybuluo.com
-io=>inputoutput: verification
-op=>operation: Your Operation
-cond=>condition: Yes or No?
-sub=>subroutine: Your Subroutine
-e=>end
 
-st->io->op->cond
-cond(yes)->e
-cond(no)->sub->io
+UML时序图源码样例：
+```sequence
+对象A->对象B: 对象B你好吗?（请求）
+Note right of 对象B: 对象B的描述
+Note left of 对象A: 对象A的描述(提示)
+对象B-->对象A: 我很好(响应)
+对象A->对象B: 你真的好吗？
 ```
+</pre>
 
 **显示效果：**
 
-```flow
-st=>start: Start:>https://www.zybuluo.com
-io=>inputoutput: verification
-op=>operation: Your Operation
-cond=>condition: Yes or No?
-sub=>subroutine: Your Subroutine
-e=>end
-
-st->io->op->cond
-cond(yes)->e
-cond(no)->sub->io
-```
-
-**从上面的例子可以看出原生对流程图同样也是不支持，所以只能采取迂回取巧方法了，就是用一些支持流程图的编辑器先画出来，然后截图放到这个不支持的页面上**
-
----
+![标准流程图](http://hqbook.kangzeshan.com/md-flow.png "标准流程图")
+![UML时序图](http://hqbook.kangzeshan.com/md-sequence.png "UML时序图")
 
 **更多语法参考：[流程图语法参考](http://adrai.github.io/flowchart.js/)**
 
----
-
-
-## 13. 代码
-
-对于程序员来说这个功能是必不可少的，插入程序代码的方式有两种，一种是利用缩进(Tab)，  
-另一种是利用”`”符号（一般在ESC键下方）包裹代码。
-
-**语法说明：**
-
-1. 插入行内代码，即插入一个单词或者一句代码的情况，使用\`code`这样的形式插入。
-2. 插入多行代码，可以使用缩进或者“\` code “`,具体看示例。
-
-**注意： 缩进式插入前方必须有空行**
-
-### 13.1. 行内式
-
-**代码：**
-
-```
-C语言里的函数 `scanf()` 怎么使用？
-```
-
-**显示效果：**
-
-C语言里的函数 `scanf()` 怎么使用？
-
-### 13.2. 缩进式多行代码
-
-缩进 4 个空格或是 1 个制表符
-
-一个代码区块会一直持续到没有缩进的那一行（或是文件结尾）。
-
-**代码：**
-
-```
-    #include <stdio.h>;
-    int main(void)
-    {
-    printf("Hello world\n");
-    }
-```
-
-**显示效果：**
-
-    #include <stdio.h>;
-    int main(void)
-    {
-    printf("Hello world\n");
-    }
-
-### 13.3. 用六个`包裹多行代码
-
-**代码：**
-
-    ```
-    #include <stdio.h>;
-    int main(void)
-    {
-    printf("Hello world\n");
-    }
-    ```
-
-**显示效果：**
-
-```
-#include <stdio.h>;
-int main(void)
-{
-printf("Hello world\n");
-}
-```
-
-### 13.4. HTML 原始码
-
-在代码区块里面， & 、 &lt; 和 &gt; 会自动转成 HTML 实体，这样的方式让你非常容易使用 Markdown 插入范例用的 HTML 原始码，只需要复制贴上，剩下的 Markdown 都会帮你处理，例如：
-
-**代码：**
-
-第一个例子：
-```
-<div class="footer">
-    &copy; 2004 Foo Corporation
-</div>
-```
-第二个例子：
-```
-<table>
-    <tr>
-        <th rowspan="2">值班人员</th>
-        <th>星期一</th>
-        <th>星期二</th>
-        <th>星期三</th>
-    </tr>
-    <tr>
-        <td>李强</td>
-        <td>张明</td>
-        <td>王平</td>
-    </tr>
-</table>
-```
-
-**显示效果：**  
-   
- 第一个例子：
-<div class="footer">
-    &copy; 2004 Foo Corporation
-</div>
-
-第二个例子：
-
-<table>
-    <tr>
-        <th rowspan="2">值班人员</th>
-        <th>星期一</th>
-        <th>星期二</th>
-        <th>星期三</th>
-    </tr>
-    <tr>
-        <td>李强</td>
-        <td>张明</td>
-        <td>王平</td>
-    </tr>
-</table>
-
-
-
-## 锚点
-
-
-网页中，锚点其实就是页内超链接，也就是链接本文档内部的某些元素，实现当前页面中的跳转。比如我这里写下一个锚点，点击回到目录，就能跳转到目录。 在目录中点击这一节，就能跳过来。还有下一节的注脚。这些根本上都是用锚点来实现的。
-
-注意：  
-1. Markdown Extra 只支持在标题后插入锚点，其它地方无效。  
-2. Leanote 编辑器右侧显示效果区域暂时不支持锚点跳转，所以点来点去发现没有跳转不必惊慌，但是你发布成笔记或博文后是支持跳转的。  
-3. 非常遗憾的是，目前markdownPad2和GitHub的markdown并不支持[TOC]目录和锚点这个功能，暂时只能用HTML的标签id来使用页内跳转。
-
-**语法描述：**
-1. 使用[TOC]标记编辑器会把所有标题写到目录大纲中。
-2. 在你准备跳转到的指定标题后插入锚点{#标记}，然后在文档的其它地方写上连接到锚点的链接。  
-3. 直接HTML语法锚点功能。  
-4. 而说到这个就有一个值得一提的地方了，就是如何在GitHub上也能实现页面跳转，原先我用的是HTML的a标签锚点，  
-并且自己给每个标题套上个span#id，但是发现在gitbook可以有效果，但是在GitHub上不行，后面发现这个  
-原生markdown会自动帮你处理，自动转成 HTML 实体，然后我就去看是怎么转化的，发现它转化每个标题的同时  
-都会赋予一个ID，那么我们完全直接拿这个ID来做锚点，至于怎么拿到这个ID，这个应该就不用我说了吧，会点编程  
-都知道，直接打开chrome或者Firefox等调试工具就可以看到了。
-
-
-**代码：**
-
-```
-## 0. 目录{#index}  
-[TOC]  
-上面这两种方法原生markdown都不支持，但是第一种在gitbook居然有效果，可惜在GitHub还是没有效果
-
-<span id="#index"></span>
-
-跳转到[目录](#0-目录)  
-```
-**显示效果：**
-
-跳转到[目录](#0-目录)
-
-***
-
-
-
-### 定义型列表
-
-**语法说明：**
-
-定义型列表由名词和解释组成。一行写上定义，紧跟一行写上解释。解释的写法:紧跟一个缩进(Tab)
-
-**代码：**
-
-```
-Markdown
-:    轻量级文本标记语言，可以转换成html，pdf等格式（左侧有一个可见的冒号和四个不可见的空格）
-
-代码块 2
-:    这是代码块的定义（左侧有一个可见的冒号和四个不可见的空格）
-
-        代码块（左侧有八个不可见的空格）
-```
-**显示效果：**
-
-Markdown  
-:    轻量级文本标记语言，可以转换成html，pdf等格式(没效果，可能又是不支持吧)
-
-代码块 2  
-:   这是代码块的定义(没效果，可能又是不支持吧)
-
-        代码块（左侧有八个不可见的空格）
-
-**注：方法一和二在马克飞象编辑器是有效果的，但是gitbook没有，可能又是不支持，至于有没有什么方法可以实现我也不知道- -！**
-
-
-### 列表缩进
-
-**语法说明：**
-
-列表项目标记通常是放在最左边，但是其实也可以缩进，最多 3 个空格，项目标记后面则一定要接着至少一个空格或制表符。
-
-要让列表看起来更漂亮，你可以把内容用固定的缩进整理好（显示效果与代码一致）：但是可能又是不支持缘故，gitbook需要每一行末尾空两空格换行才行。
-
-```
-*  轻轻的我走了， 正如我轻轻的来； 我轻轻的招手， 作别西天的云彩。  
-   那河畔的金柳， 是夕阳中的新娘； 波光里的艳影， 在我的心头荡漾。  
-   软泥上的青荇， 油油的在水底招摇； 在康河的柔波里， 我甘心做一条水草！  
-*  那榆荫下的一潭， 不是清泉， 是天上虹； 揉碎在浮藻间， 沉淀着彩虹似的梦。  
-   寻梦？撑一支长篙， 向青草更青处漫溯； 满载一船星辉， 在星辉斑斓里放歌。  
-   但我不能放歌， 悄悄是别离的笙箫； 夏虫也为我沉默， 沉默是今晚的康桥！  
-   悄悄的我走了， 正如我悄悄的来； 我挥一挥衣袖， 不带走一片云彩。  
-```
-
-但是如果你懒，那也行：
-**代码：**
-```
-*   轻轻的我走了， 正如我轻轻的来； 我轻轻的招手， 作别西天的云彩。  
-那河畔的金柳， 是夕阳中的新娘； 波光里的艳影， 在我的心头荡漾。  
-软泥上的青荇， 油油的在水底招摇； 在康河的柔波里， 我甘心做一条水草！  
-*   那榆荫下的一潭， 不是清泉， 是天上虹； 揉碎在浮藻间， 沉淀着彩虹似的梦。  
-寻梦？撑一支长篙， 向青草更青处漫溯； 满载一船星辉， 在星辉斑斓里放歌。  
-但我不能放歌， 悄悄是别离的笙箫； 夏虫也为我沉默， 沉默是今晚的康桥！  
-悄悄的我走了， 正如我悄悄的来； 我挥一挥衣袖， 不带走一片云彩。  
-```
-**显示效果：**
-
-*   轻轻的我走了， 正如我轻轻的来； 我轻轻的招手， 作别西天的云彩。  
-那河畔的金柳， 是夕阳中的新娘； 波光里的艳影， 在我的心头荡漾。  
-软泥上的青荇， 油油的在水底招摇； 在康河的柔波里， 我甘心做一条水草！  
-*   那榆荫下的一潭， 不是清泉， 是天上虹； 揉碎在浮藻间， 沉淀着彩虹似的梦。  
-寻梦？撑一支长篙， 向青草更青处漫溯； 满载一船星辉， 在星辉斑斓里放歌。  
-但我不能放歌， 悄悄是别离的笙箫； 夏虫也为我沉默， 沉默是今晚的康桥！  
-悄悄的我走了， 正如我悄悄的来； 我挥一挥衣袖， 不带走一片云彩。 
-
-
-### 包含段落的列表
-
-**语法说明：**
-
-列表项目可以包含多个段落，每个项目下的段落都必须缩进 4 个空格或是 1 个制表符（显示效果与代码一致）：但是可能又是不支持缘故，gitbook需要每一行末尾空两空格换行才行。
-
-```
-*   轻轻的我走了， 正如我轻轻的来； 我轻轻的招手， 作别西天的云彩。  
-    那河畔的金柳， 是夕阳中的新娘； 波光里的艳影， 在我的心头荡漾。  
-    软泥上的青荇， 油油的在水底招摇； 在康河的柔波里， 我甘心做一条水草！  
-    
-    那榆荫下的一潭， 不是清泉， 是天上虹； 揉碎在浮藻间， 沉淀着彩虹似的梦。  
-    寻梦？撑一支长篙， 向青草更青处漫溯； 满载一船星辉， 在星辉斑斓里放歌。  
-    但我不能放歌， 悄悄是别离的笙箫； 夏虫也为我沉默， 沉默是今晚的康桥！  
-
-*   悄悄的我走了， 正如我悄悄的来； 我挥一挥衣袖， 不带走一片云彩。  
-```
-
-如果你每行都有缩进，看起来会看好很多，当然，再次地，如果你很懒惰，Markdown 也允许：
-
-**代码：**
-
-```
-*   轻轻的我走了， 正如我轻轻的来； 我轻轻的招手， 作别西天的云彩。  
-那河畔的金柳， 是夕阳中的新娘； 波光里的艳影， 在我的心头荡漾。  
-软泥上的青荇， 油油的在水底招摇； 在康河的柔波里， 我甘心做一条水草！  
-
-    那榆荫下的一潭， 不是清泉， 是天上虹； 揉碎在浮藻间， 沉淀着彩虹似的梦。  
-寻梦？撑一支长篙， 向青草更青处漫溯； 满载一船星辉， 在星辉斑斓里放歌。  
-但我不能放歌， 悄悄是别离的笙箫； 夏虫也为我沉默， 沉默是今晚的康桥！  
-
-
-*   悄悄的我走了， 正如我悄悄的来； 我挥一挥衣袖， 不带走一片云彩。  
-```
-
-**显示效果：**
-
-*   轻轻的我走了， 正如我轻轻的来； 我轻轻的招手， 作别西天的云彩。  
-那河畔的金柳， 是夕阳中的新娘； 波光里的艳影， 在我的心头荡漾。  
-软泥上的青荇， 油油的在水底招摇； 在康河的柔波里， 我甘心做一条水草！  
-
-    那榆荫下的一潭， 不是清泉， 是天上虹； 揉碎在浮藻间， 沉淀着彩虹似的梦。  
-寻梦？撑一支长篙， 向青草更青处漫溯； 满载一船星辉， 在星辉斑斓里放歌。  
-但我不能放歌， 悄悄是别离的笙箫； 夏虫也为我沉默， 沉默是今晚的康桥！  
-
-
-*   悄悄的我走了， 正如我悄悄的来； 我挥一挥衣袖， 不带走一片云彩。  
-
-### 包含引用的列表
-
-**语法说明：**
-
-如果要在列表项目内放进引用，那在 &gt; 前面需要缩进：
-
-**代码：**
-
-```
-*   阅读的方法:
-
-    > 打开书本。  
-    > 打开电灯。  
-```
-
-**显示效果：**
-
-*   阅读的方法:
-
-    > 打开书本。  
-    > 打开电灯。  
-
-
-### 包含代码区块的引用
-
-**语法说明：**
-如果要放代码区块的话，该区块就需要缩进两次，也就是 8 个空格或是 2 个制表符：
-
-
-* 一列表项包含一个列表区块：
-
-        <代码写在这>
-
+------
 
 
 [^HQBOOK]: hqbook -- A book for note。

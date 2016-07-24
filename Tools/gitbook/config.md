@@ -241,7 +241,7 @@ Gitbook 安装插件比较简单，需要在项目下添加 `book.json` 文件�
 - `lightbox` 点击图片可显示，大小不变 ➡️ <https://github.com/vongola12324/gitbook-plugin-lightbox>
 
 
-#### 数学插件 & Tex
+#### 数学插件 & Tex {#mathjax}
 
 - `fbqx` 使用填空题 ➡️ <https://github.com/Erwin-Chan/gitbook-plugin-fbqx>
 - `Graph` 使用 function-plot 绘制数学函数图 ➡️ <https://github.com/cjam/gitbook-plugin-graph>
@@ -253,12 +253,6 @@ Gitbook 安装插件比较简单，需要在项目下添加 `book.json` 文件�
 > [!Tip|label: **MathJax 和 KaTeX 的区别**] 
 > `mathjax` 和 `katex` 插件是 Tex 公式绘制的不同实现，它们基于各自的开源库：[KaTeX](https://www.mathjax.org/) 和 [MathJax](https://www.mathjax.org/) 。  
 > MathJax 支持整个 Tex 语法，但是在制作电子书版本时不是很完美。 KaTex 在所有格式（网页和电子书）的绘制上都很完美，但是还不支持 所有的语法。
-
-##### MathJax 和 KaTeX 的区别
-
-`mathjax` 和 `katex` 插件是 Tex 公式绘制的不同实现，它们基于各自的开源库：[KaTeX](https://www.mathjax.org/) 和 [MathJax](https://www.mathjax.org/) 。
-
-MathJax 支持整个 Tex 语法，但是在制作电子书版本时不是很完美。 KaTex 在所有格式（网页和电子书）的绘制上都很完美，但是还不支持 所有的语法。
 
 ### 更多其他插件选择
 

@@ -34,7 +34,7 @@ gitbook build
 
 ## 技术栈
 
-**前端**
+### 前端
 
 * `HTML5`：待记录
 * `样式`：待记录
@@ -42,16 +42,21 @@ gitbook build
 * `jQuery`：待记录
 * `。。。等等`：待记录
 
-**移动端**
+### 移动端
 
 * `小程序`：待记录
 
-**后端**
+### 后端
 
 * `Node.js`：待记录
 * `。。。等等`：待记录
 
-**其他**
+### 工具
+
+* [Gitbook](Tools/gitbook/README.md "Gitbook")
+* [Markdown](Tools/markdown/README.md "Markdown")
+
+### 其他
 
 * `服务器`：待记录
 
