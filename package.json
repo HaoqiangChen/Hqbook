@@ -4,7 +4,8 @@
   "description": "平时零散编程笔记收录手册，以便日后查阅。",
   "author": "Haoqiang Chen",
   "scripts": {
-    "serve": "gitbook serve"
+    "serve": "gitbook serve",
+    "docs": "gitbook build ./ ./docs"
   },
   "devDependencies": {
     "gitbook-plugin-accordion": "^1.1.3",

@@ -1,0 +1,204 @@
+# Gitbook 打包输出
+
+## 输出为静态网站
+
+你有两种方式输出一个静态的网站：
+
+### 本地预览是自动生成
+
+当你编辑好 gitbook 文档之后，你可以使用 gitbook 的命令来进行本地预览。
+
+```bash
+$ gitbook serve ./{book_name}
+```
+
+gitbook会启动一个`4000`端口用于预览。
+
+比如，通过`gitbook serve`来预览本文档：
+
+```bash
+$ gitbook serve gitbook-howtouse
+
+Press CTRL+C to quit ...
+
+Live reload server started on port: 35729
+Starting build ...
+Successfully built!
+
+Starting server ...
+Serving book on http://localhost:4000
+```
+
+你可以你的浏览器中打开这个网址： http://localhost:4000
+
+![gitbook serve 本地预览图](../../images/gitbook/serve.png)
+
+你会发现，在你编辑的gitbook项目的目录中会多一个```_book```目录，而这个目录中就是生成的本地预览的静态网站内容。
+
+### 使用gitbook build参数
+
+与直接预览生成的静态网站不一样的时，使用这个命令，你可以将内容输出到你想要的目录。如果不使用 `--output` 参数则默认在当前文件夹下
+
+```bash
+$ gitbook build --output=/tmp/gitbook
+Starting build ...
+Successfuly built !
+$ ls /tmp/gitbook/
+howtouse          search_index.json
+book              imgs              output
+gitbook           index.html        publish
+```
+
+无论哪种方式，你都可以将这个静态网站打包，发布到你想要发布的服务器上，或者直接将这个打包文件给阅读者。
+
+## 生成电子书和PDF
+
+GitBook不仅可以生成静态网站，也可以将内容输出为电子书(ePub，Mobi，PDF)格式。
+
+```
+＃生成PDF文件
+$ gitbook pdf ./ ./mybook.pdf
+
+＃生成ePub文件
+$ gitbook epub ./ ./mybook.epub
+
+＃生成Mobi文件
+$ gitbook mobi ./ ./mybook.mobi
+```
+
+### 安装ebook-convert
+
+`ebook-convert` 是生成电子书所必需的(epub，mobi，pdf)插件。
+
+##### Linux系统
+
+安装[Caliber应用程序](https://calibre-ebook.com/download)。
+
+```bash
+$ sudo aptitude install calibre
+```
+
+在某些Linux发行版中安装nodejs，您还需要手动创建一个nodejs软链接：
+
+```bash
+$sudo ln -s /usr/bin/nodejs /usr/bin/node
+```
+
+##### 苹果OS X系统
+
+下载[Caliber应用程序](https://calibre-ebook.com/download)。将`calibre.app`移动到您的应用程序文件夹后，创建一个指向ebook-convert工具的软件链接：
+
+```bash
+$ sudo ln -s ~/Applications/calibre.app/Contents/MacOS/ebook-convert /usr/bin
+```
+
+这样就可以在任何目录下执行目录执行`ebook-convert`命令。
+
+如果出现`Operation not permitted`异常，说明系统权限限制，需要配置环境变量的方式解决
+
+```bash
+$ sudo ln -s /Applications/calibre.app/Contents/MacOS/ebook-convert /usr/bin
+ln: /usr/bin/ebook-convert: Operation not permitted
+```
+
+环境变量配置
+
+先启动ebook-convert完成第一次启动配置，然后关闭。接着在命令行窗口修改环境配置文件，加入`EBOOK_PATH`（ebook-convert命令的所在目录）
+
+```bash
+vim ~/.bash_profile 
+
+export EBOOK_PATH=/Applications/calibre.app/Contents/MacOS
+export PATH=$PATH:$EBOOK_PATH
+```
+
+然后刷新一下刚刚的配置:
+
+```bash
+source ~/.bash_profile
+```
+
+最后测试一下`ebook-convert`指令是否能正常被调用：
+
+```bash
+$ ebook-convert --version
+ebook-convert (calibre 2.81.0)
+Created by: Kovid Goyal <kovid@kovidgoyal.net>
+```
+
+大功告成！下面就可以使用`gitbook pdf ./ ./mybook.pdf` 命令把你的项目生成pdf文档了！
+
+### 封面
+
+Gitbook 的封面可以通过插件[auto cover](https://github.com/GitbookIO/plugin-autocover)自动生成，也可以自己配置。
+
+如果要使用自定义的封面，在书籍的根目录下放置 `cover.jpg`，如果想要小版本封面可以放置 cover_small.jpg，文件格式必须为 jpg
+
+一个合格的封面应遵守以下准则：
+* 大小要求 cover.jpg 1800x2360 像素 , cover_small.jpg 200x262
+* 不要有边框
+* 清晰可见的书名
+* 任何重要的文本应该在小版本中可见
+
+#### 自动封面
+
+GitBook插件 (`autocover`) 同样可以用来为你生成一个封面文件，或者仅仅从大封面中生成 `cover_small.jpg`。这个插件默认会被添加到托管的书本中。
+
+### 生成PDF
+
+进入文档项目目录，输入`gitbook pdf ./ ./gitbook.pdf`
+
+```bash
+$ cd ~/gitbook-cn
+
+$ gitbook pdf ./ ./gitbook.pdf
+```
+
+* pdf： 表示生成pdf格式，还有epub、mobi可选
+* ./ ： 表示需要生成书籍的项目根目录
+* ./gitbook.pdf : 表示生成书籍的名称
+* 如果你的书籍有多种语言，就会生成多本书籍，书籍的名称会以语言结尾
+
+# Gitbook 发布
+
+可以使用Github Pages服务将我们写的Gitbook发布到互联网上，前提是你已经了解了Git、Github及Github Pages的使用。
+
+## 发布到 Gitbook.com
+
+[Gitbook.com](https://gitbook.com) 是一个发布 gitbook 编写书籍的在线网站，提供公开和私有的托管服务，和 GitHub 一样，私有的 Gitbook 是需要付费使用的。但是公开的书籍是无上限的，使用在线的 Gitbook 可以让未接触过 Git 和 Markdown 的作者轻松的创建书籍，并且在线的编辑器可以让作者安心的只关心内容，而不必在意排版，并且支持多人协作编写。
+
+在 Gitbook 上建立账户，新建项目之后，其实也是一个 Git 项目，如果对 Git 熟悉，将本地内容推送到远端即可。
+
+## 发布到Github Pages
+
+### 将静态网站直接发布到Github Pages
+
+可以将编写好的.md文件通过Gitbook处理成静态网站，然后发布到[Github Pages](https://pages.github.com/)上。
+
+将md文件与Github Pages静态文件存放在一个仓库中。md文件为master分支，而html文件为 `gh-pages`分支。
+
+下面将介绍使用一个仓库托管源码，而使用 Travis 自动将静态网站发布到 `gh-pages` 分支中。这样就可以避免提交源码的同时，还需要同步一遍 `gh-pages` 分支。
+
+[domenic](https://gist.github.com/domenic/ec8b0fc8ab45f39403dd) 制作了一个脚本，当 master 分支更新时，自动使用 CI Travis 拉取更新，然后和 `gh-pages` 分支做比较，如果有差异了，自动将 master 分支的修改提交到 `gh-pages` 分支。
+
+### 使用项目的Pages服务
+
+除了上面的直接发布静态文件到Github Pages的方法以外，还可以使用一个单独的项目的Github Pages功能。
+
+#### 创建仓库与分支
+
+1. 登陆到Github，创建一个新的仓库，名称我们就命名为`gitbook-tutorial`，这样我就得到一个`gitbook-tutorial`仓库。
+2. 克隆仓库到本地： `git clone git@github.com:/USER_NAME/gitbook-tutorial.git`
+3. 创建一个新分支： `git checkout -b gh-pages`，注意，分支名必须为`gh-pages`。
+4. 将分支push到仓库： `git push -u origin gh-pages`。
+5. 切换到主分支：`git checkout master`。
+
+经过这一步处理，我们已经创建了`gh-pages`分支了，有了这个分支，Github会自动为你分配一个网址。
+
+> http://USERNAME.github.io/gitbook-tutorial
+
+你可以在项目页面右下角```setting```中看到：
+
+![Github Pages][ghPage]
+
+[ghPage]: data:image/png;base64,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
