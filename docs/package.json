@@ -5,7 +5,7 @@
   "author": "Haoqiang Chen",
   "scripts": {
     "serve": "gitbook serve",
-    "docs": "gitbook build ./ ./docs"
+    "build": "gitbook build ./ ./docs && del /S /Q docs\\*.md"
   },
   "devDependencies": {
     "gitbook-plugin-accordion": "^1.1.3",
