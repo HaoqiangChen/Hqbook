@@ -372,16 +372,16 @@ Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的�
 ***链接地址与链接标题前有一个空格。***
 
 ```markdown
-欢迎来到[Markdown语法篇](https://github.com/HaoqiangChen/Hq-note/tree/master/markdown)
+欢迎来到[Markdown语法篇](https://haoqiangchen.github.io/hqbook/Tools/markdown/)
 
-欢迎来到[Markdown语法篇](https://github.com/HaoqiangChen/Hq-note/tree/master/markdown "Markdown语法篇")
+欢迎来到[Markdown语法篇](https://haoqiangchen.github.io/hqbook/Tools/markdown/ "Markdown语法篇")
 ```
 
 **显示效果：**
 
-欢迎来到[Markdown语法篇](https://github.com/HaoqiangChen/Hq-note/tree/master/markdown)
+欢迎来到[Markdown语法篇](https://haoqiangchen.github.io/hqbook/Tools/markdown/)
 
-欢迎来到[Markdown语法篇](https://github.com/HaoqiangChen/Hq-note/tree/master/markdown "Markdown语法篇")
+欢迎来到[Markdown语法篇](https://haoqiangchen.github.io/hqbook/Tools/markdown/ "Markdown语法篇")
 
 ### 参考式
 
@@ -398,11 +398,11 @@ Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的�
 欢迎阅读本[Markdown语法篇][1]，还有这几篇高手总结的也不错：[入门篇][2]、
 [简明版][3]、[完整版][4]，我就喜欢把百家汇成[自己一家][]^_^。
 
-[1]:https://github.com/HaoqiangChen/Hq-note/tree/master/markdown "Markdown语法篇"
+[1]:https://haoqiangchen.github.io/hqbook/Tools/markdown/ "Markdown语法篇"
 [2]:https://www.jianshu.com/p/1e402922ee32 "入门篇"
 [3]:https://www.jianshu.com/p/6bf6735993ec "简明版"
 [4]:https://www.runoob.com/markdown/md-tutorial.html "完整版"
-[自己一家]:https://github.com/HaoqiangChen/Hq-note/tree/master/markdown
+[自己一家]:https://haoqiangchen.github.io/hqbook/Tools/markdown/
 ```
 
 **显示效果：**
@@ -410,11 +410,11 @@ Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的�
 欢迎阅读本[Markdown语法篇][1]，还有这几篇高手总结的也不错：[入门篇][2]、  
 [简明版][3]、[完整版][4]，我就喜欢把百家汇成[自己一家][]^_^。
 
-[1]:https://github.com/HaoqiangChen/Hq-note/tree/master/markdown "Markdown语法篇"
+[1]:https://haoqiangchen.github.io/hqbook/Tools/markdown/ "Markdown语法篇"
 [2]:https://www.jianshu.com/p/1e402922ee32 "入门篇"
 [3]:https://www.jianshu.com/p/6bf6735993ec "简明版"
 [4]:https://www.runoob.com/markdown/md-tutorial.html "完整版"
-[自己一家]:https://github.com/HaoqiangChen/Hq-note/tree/master/markdown
+[自己一家]:https://haoqiangchen.github.io/hqbook/Tools/markdown/
 
 ### 自动链接
 

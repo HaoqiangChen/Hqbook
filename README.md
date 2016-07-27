@@ -11,7 +11,7 @@ hqbook其实是我个人平时学习笔记，就是零散记点编程知识点�
 ## 本项目地址
 
 - 仓库：https://github.com/HaoqiangChen/hqbook
-- 在线阅读：https://chq.github.io/hqbook
+- 在线阅读：https://haoqiangchen.github.io/hqbook/
 
 ## Build Setup
 克隆代码到本地之后，可以查看本书 [Gitbook](gitbook/README.md) 笔记了解如何运行本项目。
@@ -31,8 +31,8 @@ gitbook serve
 # 打包压缩项目
 gitbook build
 
-# `gitbook serve`时其实已经打包好到`_book`并运行项目的，所以可以省略打包步骤，直接将`_book`重命名为`_book`，
-# 这样子docs文件夹得以发布到GitHub pages，注意在GitHub上将项目设置里的GitHub pages网站构建选择为 master/branch /docs folder
+# `gitbook serve`时其实已经打包好到`_book`并运行项目的，所以可以省略打包步骤，直接将`_book`重命名为`docs`，这样子可以
+# 直接构建部署到GitHub pages，注意在GitHub上将项目设置里的GitHub pages网站构建选择为 master/branch /docs folder
 rename _book docs
 
 # 删除docs文件夹内所有md文件，避免GitHub pages构建失败
