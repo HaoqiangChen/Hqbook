@@ -5,7 +5,7 @@
   "author": "Haoqiang Chen",
   "scripts": {
     "serve": "gitbook serve",
-    "build": "rename _book docs && del /S /Q docs\\*.md"
+    "build": "rimraf docs && rename _book docs && del /S /Q docs\\*.md"
   },
   "devDependencies": {
     "gitbook-plugin-accordion": "^1.1.3",

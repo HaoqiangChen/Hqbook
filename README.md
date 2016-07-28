@@ -31,8 +31,8 @@ gitbook serve
 # 打包压缩项目
 gitbook build
 
-# `gitbook serve`时其实已经打包好到`_book`并运行项目的，所以可以省略打包步骤，直接将`_book`重命名为`docs`，这样子可以
-# 直接构建部署到GitHub pages，注意在GitHub上将项目设置里的GitHub pages网站构建选择为 master/branch /docs folder
+# gitbook serve时其实已经打包好到`_book`并运行项目的，所以可以省略打包步骤，直接将_book重命名为docs，这样子可以
+# 直接构建部署到GitHub pages，注意在GitHub上将项目设置里的GitHub pages网站构建选择为`master/branch /docs folder`
 rename _book docs
 
 # 删除docs文件夹内所有md文件，避免GitHub pages构建失败
