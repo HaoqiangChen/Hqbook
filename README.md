@@ -17,7 +17,7 @@ hqbook其实是我个人平时学习笔记，就是零散记点编程知识点�
 克隆代码到本地之后，可以查看本书 [Gitbook](gitbook/README.md) 笔记了解如何运行本项目。
 
 ```bash
-# 如果`gitbook`没有安装，运行下面的命令，如果有，忽略它
+# 如果 gitbook 没有安装，运行下面的命令，如果有，忽略它
 npm install -g gitbook-cli
 
 # 安装依赖
@@ -25,14 +25,15 @@ gitbook install
 or
 npm install (推荐)
 
-# 启动服务和热更新并打开`localhost:4000`
+# 启动服务和热更新并打开 "localhost:4000"
 gitbook serve
 
 # 打包压缩项目
 gitbook build
 
-# gitbook serve时其实已经打包好到`_book`并运行项目的，所以可以省略打包步骤，直接将_book重命名为docs，这样子可以
-# 直接构建部署到GitHub pages，注意在GitHub上将项目设置里的GitHub pages网站构建选择为`master/branch /docs folder`
+# "gitbook serve"时其实已经打包好到 _book 并运行项目的，所以可以省略打包步骤，
+# 直接将 _book 重命名为 docs，这样子可以直接构建部署到 GitHub pages，
+# 注意在 GitHub 上将项目设置里的 GitHub pages 网站构建选择为 "master/branch /docs folder"
 rename _book docs
 
 # 删除docs文件夹内所有md文件，避免GitHub pages构建失败

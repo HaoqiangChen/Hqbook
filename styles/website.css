@@ -1,3 +1,36 @@
+/* 插件配置调整 */
+.markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4, .markdown-section h5, .markdown-section h6 {
+    font-weight: bold;
+}
+
+/* 代码高亮 */
+
+.markdown-section code,pre[class*="language-"]{font-family:"Fira Mono",Menlo,Monaco,"Lucida Console","Courier New",Courier,monospace;line-height:1.375;direction:ltr;text-align:left;word-spacing:normal;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;white-space:pre;white-space:pre-wrap;word-break:break-all;word-wrap:break-word}
+.markdown-section code{color:#f00;font-size:12px}
+.markdown-section code .tag .tag{color:#f0f;font-weight:bold}
+.markdown-section code .punctuation{color:#4B0082}
+.markdown-section code .attr-name{color:#FF8C00}
+.markdown-section code .attr-value{color:#00f}
+.markdown-section code .comment,.markdown-section code .prolog,.markdown-section code .doctype,.markdown-section code .cdata{color:#008000}
+.markdown-section code .entity{color:#00f;cursor: auto}
+
+pre[class*="language-"] code{white-space:pre-wrap;word-wrap:break-word;color:#00BFFF}
+pre[class*="language-"] code.lang-css{color:#AE81FF}
+pre[class*="language-"] .tag .tag{color:#f00}
+pre[class*="language-"] .punctuation{color:#fff}
+pre[class*="language-"] .attr-name{color:#0f0}
+pre[class*="language-"] .attr-value{color:#ff0}
+pre[class*="language-"] .keyword{color:#ff008a}
+pre[class*="language-"] .function,pre[class*="language-"] .function-variable{color:#0f0}
+pre[class*="language-"] .operator{color:#0ff}
+pre[class*="language-"] .boolean{color:#AE81FF}
+pre[class*="language-"] .number{color:#f0f}
+pre[class*="language-"] .string{color:#ff0}
+pre[class*="language-"] .parameter{color:#FF8C00}
+pre[class*="language-"] .property{color:#0ff}
+pre[class*="language-"] .important{color:#ef3b7d;font-weight: bold}
+pre[class*="language-"] .comment,pre[class*="language-"] .prolog,pre[class*="language-"] .doctype,pre[class*="language-"] .cdata{color:#75715E}
+
 /* 用户自定义 */
 ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -20,15 +53,17 @@
     background-image: -webkit-linear-gradient(150deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent)
 }
 
-pre {
-    white-space: pre-wrap;
-    word-wrap: break-word;
+.language-::-webkit-scrollbar {
+    height: 3px;
 }
 
 .book-summary ul.summary li.header {
     padding: 10px 15px 0;
 }
 
-/* 插件配置调整 */
+.markdown-section blockquote {
+    border-left-color: #42b983;
+    font-weight: 600;
+}
 
 
