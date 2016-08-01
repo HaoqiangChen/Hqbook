@@ -66,4 +66,6 @@ pre[class*="language-"] .comment,pre[class*="language-"] .prolog,pre[class*="lan
     font-weight: 600;
 }
 
-
+.markdown-section table td, .markdown-section table th {
+    padding: 5px;
+}
