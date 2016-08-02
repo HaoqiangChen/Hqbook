@@ -464,7 +464,7 @@ __显示效果如下：__
 
 ## 表单
 
-### `&lt;form>`表单标记
+### `form`表单标记
 ```html
 <form name="表单名称" method="提交方法" action="处理程序">……</form>
 ```
@@ -488,7 +488,7 @@ __get 与 post 有什么区别呢？__
 * `onsubmit` 用于指定处理表单的脚本函数
 * `enctype` 设置`MIME类型`，默认值为`application/x-www-form-urlencoded`。需要上传文件到服务器时，应将该属性设置为`multipart/form-data`
 
-### `&lt;input>`输入标记
+### `input`输入标记
 多数表单元素都可使用`input`定义,为了标识每一个数据，我们需要给表单元素添加`name`属性，所以`name`为必设属性，`name="域名称"`
 
 #### `<input>`文本框的主要属性:
@@ -563,7 +563,7 @@ __get 与 post 有什么区别呢？__
 <input type="image" name="按钮名称" src="图像路径" width="宽" height="高">
 ```
 
-### `&lt;select>`选择列表标记
+### `select`选择列表标记
 
 #### 选择列表
 一次可以选择多个列表选项，且一次可以显示1个以上列表选项的选择列表  
@@ -592,7 +592,7 @@ select 标记用于声明选择列表，option标记用于设置各个选项
 </select>
 ```
 
-### `&lt;textarea>`文本域标记
+### `textarea`文本域标记
 一般用于给用户填写备注信息或留言信息的多行多列文本区域
 ```html
 <textarea name="文本区域名称" rows="行数" cols="字符数">
