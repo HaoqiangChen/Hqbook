@@ -122,7 +122,7 @@ h1的字最大，递减至 h6 最小
 `size` | 默认字号为3号字。取值范围1~7，可+1到+7，-1到-7(正负取值相对于页面默认字号)，超出取值范围，与取值范围的最近的值效果相同。
 `face` | 默认宋体[黑体,微软雅黑...]
 
-4\. 字体格式化标签
+4\. 字体格式化标签 {#tagSymbol}
 
  标签 | 意义 | 标签 | 意义
  :-: | :-: | :-: | :-:
@@ -186,7 +186,7 @@ __html特殊符号对照表__
 * 预格式化标记 `<pre></pre>`
 * 水平线标签 `<hr align="center" width="50%" size="2" noshade />` noshade 实心的不带阴影的效果
 
-## 超链接a标签
+## 超链接a标签 {#link}
 
 > 属性
 
@@ -250,7 +250,7 @@ __`<a>` 标签的 `target` 属性__
 * 绝对路径  
 `<a href="E:/image/img2.png">用绝对路径打开图片</a>`
 
-## 图片标签`<img>`
+## 图片标签`<img>` {#img}
 
 > 属性
 
@@ -295,7 +295,7 @@ area标签属性 | 描述 | 类型shape属性值 | 描述
 站位高=`height+border+padding`;  
 而这个可以使用`photoshop`找到坐标，使用到标尺等工具。使用`photoshop打开图片->将鼠标放在坐标上->在控制面板查看坐标信息`
 
-## 列表
+## 列表 {#ul}
 
 ### 有序列表
 ```html
@@ -352,7 +352,7 @@ __定义列表的应用场景__
 </ul>
 ```
 
-## 表格
+## 表格 {#table}
 
 ### 表格标签
 
@@ -462,7 +462,7 @@ __显示效果如下：__
 
 ![合并单元格](../../images/html5/table.gif)
 
-## 表单
+## 表单 {#form}
 
 ### `form`表单标记
 ```html
@@ -599,3 +599,170 @@ select 标记用于声明选择列表，option标记用于设置各个选项
     ...(此处输入的为默认文本，比如)请在此处输入备注信息
 </textarea>
 ```
+
+### `label`标签：为`input`元素定义标注
+`lable`元素不会向用户呈现任何特殊效果。不过，它为鼠标用户改进了可用性。如果您在`label`元素内点击文本，就会触发此控件。就是说，当用户选择该标签时，浏览器就会自动将焦点转到和标签相关的表单控件上。
+
+> [!Warning|label: 注意]
+> __"for"__属性可把__label__绑定到另外一个元素。请把__"for"__属性的值设置为相关元素的__id__属性的值。即为下面说的隐式的联系。
+
+#### 隐式和显式的联系
+标记通常以下面两种方式中的一种来和表单控件相联系：将表单控件作为标记标签的内容，这样的就是隐式形式， 
+或者为`<label>`标签下的__for__属性命名一个目标表单__id__，这样就是显式形式。
+
+**显式的联系**
+```html
+<label for="SSN">Social Security Number:</label>
+<input type="text" name="SocSecNum" id="SSN" />
+```
+
+**隐式的联系**
+```html
+<label>Date of Birth: <input type="text" name="DofB" /></label>
+```
+
+### `fieldset`标签
+把表单中元素组合起来，通俗的讲就是把表单围起来，顺便给个标题注释，看起来更规整。
+
+**基本语法：**`<fieldset> <legend>...</legend> <form>...</form> </fieldset>`
+
+**demo**
+```html
+<fieldset>
+    <legend>我最喜爱的:</legend>
+    <label for="computer">计算机</label> <input type="checkbox" value="1" id="fav" name="fav" />
+    <label for="trval">旅游</label> <input type="checkbox" value="2" id="fav" name="fav" />
+    <label for="buy">购物</label> <input type="checkbox" value="3" id="fav" name="fav" />
+</fieldset>
+```
+**显示效果**
+
+<fieldset>
+    <legend>我最喜爱的:</legend>
+    <label for="computer">计算机</label> <input type="checkbox" value="1" id="fav" name="fav" />
+    <label for="trval">旅游</label> <input type="checkbox" value="2" id="fav" name="fav" />
+    <label for="buy">购物</label> <input type="checkbox" value="3" id="fav" name="fav" />
+</fieldset>
+
+## 框架 {#frame}
+
+### 框架概述
+
+框架的作用，就是把浏览器窗口划分成若干个小窗口，每个小窗口可以分别显示不同的网页。这样在一个页面中可以同时显示不同网页内容，不同窗口的内容相互独立。框架的主要用途是导航，通常会在一个窗口中显示导航条，另外一个窗口则作为内容窗口，用于显示导航栏目的目标页面内容，窗口的内容会根据导航栏目的不同而动态变化。
+
+html框架集与body同级,因此不能同时出现。框架的基本结构主要分为框架集`<frameset>`和框架`<frame>`两个部分。
+
+**基本语法如下：**
+```html
+<frameset>
+    <frame/> <!-- 一个框架集中可以包括多个框架，每个框架窗口显示的页面由框架的 src 属性指定。 -->
+    <frame/>
+    ...
+</frameset>
+```
+
+### 框架集标记`frameset`
+
+定义浏览器窗口的分割方式、各分割窗口（框架）的大小以及设置框架边框的颜色和粗细等属性。**主要属性有：**
+
+属性 | 说明 | 属性 | 说明 | 属性 | 说明
+:-: | :-: | :-: | :-: | :-: | :-:
+border | 边框宽度，框架粗细 | frameborder | 是否显示边框（取值1, 0或yes，no）| rows | 上下分割窗口
+bordercolor | 边框颜色 | framespacing | 边框间距| cols | 左右分割窗口
+
+`<frameset>`标记对浏览器窗口的分割存在不同的方式，主要分为以下几种类型：
+* cols左右（水平）分割  `<frameset cols="80,*">`
+* rows上下（垂直）分割  `<frameset rows="80,*">`
+cols把框架分成左右两半,上下分割使用rows(分成上下两半)。每个框架的大小使用逗号隔开，最后一个使用*会把剩下的都分配给它
+* 嵌套分割：左右上下分割都有。`<frameset>`里面再嵌套一个`<frameset>`标记.
+```html
+<frameset rows="100,*">
+    <frame/>
+    <frameset cols="20%,*">
+    <frame/>
+    </frameset>
+</frameset>
+```
+**效果图如下：**
+
+![frameset 嵌套分割](../../images/html5/frameset.png)
+
+### 框架标记`frame`
+
+`<frameset>`分割得到的每个子窗口都需要显示不同的页面内容，这些页面内容由`<frame>`标记来设置。  
+`<frame>`是个单标记，它必须放在框架集`frameset`中，`<frameset>`分割了几个子窗口就必须对应几个`<frame>`标记。
+
+**基本语法：**
+```html
+<frame src="01.html" name="test" /> <!-- src 框架的源文件地址，name 框架名(命名框架，以便超链接使用它作为目标窗口) -->
+```
+
+**`<frame>`标记的常用属性有：**
+
+属性 | 属性值 | 说明 | 属性 | 属性值 | 说明
+:-: | :-: | :-: | :-: | :-: | :-:
+scrolling | yes、no、auto | 是否显示滚动条 | noresize | | 禁止改变框架的尺寸大小
+border | | 边框宽度，框架粗细 | bordercolor | | 边框颜色
+marginwidth | | 设置内容与框架窗口左右边框的距离 | marginheight | | 设置内容与框架窗口上下边框的距离
+src | | 显示页面的URL地址 | | |
+
+### 浮动框架标记`iframe`（也有叫“内嵌框架”的）
+
+浮动框架时一种特殊的框架页面，主要体现在这个框架时嵌套在一个HTML页面中，作为页面的一个组成部分。具有和`<frame>`一样的属性，也有自己的属性：
+`<iframe src="源文件地址" name="名" width="宽" height="高" align="对齐方式">`
+
+### 不支持框架标记`noframes`
+
+当用户浏览器版本太低不支持框架时，浏览器制作人员无法改变这一现象，所能做的只是告诉用户事实，把显示给用户看的文本信息放在`<body></body>`标记对之间；而`<noframes>`放在`</frameset>`标记后面。如：
+```html
+<frameset cols="130,*"><frame src="menu.html"/><frame src="introduce.html"/></frameset>
+<noframes>
+    <body>抱歉，您的浏览器版本太低，不支持框架，无法看到页面内容，请使用较新的浏览器来浏览。</body>
+</noframes>
+```
+当用户浏览器版本太低不支持框架时，浏览器窗口将显示`<body></body>`标记对之间的文本内容，否则将显示`<frameset></frameset>`中各个框架的页面内容。
+
+### 框架与超链接
+
+一般情况下在框架中的a链接使用target属性实现框架内文件跳转时：
+* `href` 一直不变，即指向打开的文件路径不需要变
+* `_self` 自己框架页面打开
+* `_blank` 新页面打开
+* `_top` 顶级框架页面打开
+* `_parent` 到其父级框架页面打开
+* `_framename` 将我们想要打开的页面在指定的框架中打开
+
+**下面用个例子来说明**  
+1. 首先，新建一个网页“框架集和框架.html”，为右侧框架窗口添加"name"标识，输入下面的内容：
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>框架集frameset和框架frame</title>
+</head>
+<frameset cols="10%,*">
+<frame src="menu.html" />
+<frame  src="http://qq.com" name="RightFrame" />
+</frameset>
+</html>
+```
+2. 然后，新建一个网页“menu.html”，在左侧窗口中，设置"target"属性显示的窗口名，输入下面的内容：
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <a href="http://qq.com/"  target="RightFrame">qq</a>
+    <a href="http://baidu.com" target="RightFrame">百度</a>
+    <a href="http://taobao.com" target="RightFrame">淘宝</a>
+</body>
+</html>
+```
+如下图，刚开始打开这个“框架集和框架.html”这个网页时，显示的效果如下：  
+左边相当于是一个菜单，右边是显示效果，当你单击“百度”或者“淘宝”时都可以链接到相应网站。
+
+![框架集和框架.html](../../images/html5/frame.png)

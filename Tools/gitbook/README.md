@@ -268,7 +268,7 @@ Adding a nested list to a parent chapter will create subchapters.
 
 ##### 章节文件示例
 
-```
+```markdown
 ＃ 本章标题
 
 这是一个很棒的介绍。
