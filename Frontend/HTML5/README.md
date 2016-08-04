@@ -766,3 +766,85 @@ src | | 显示页面的URL地址 | | |
 左边相当于是一个菜单，右边是显示效果，当你单击“百度”或者“淘宝”时都可以链接到相应网站。
 
 ![框架集和框架.html](../../images/html5/frame.png)
+
+## 在网页中嵌入多媒体内容 {#media}
+
+现在在制作网页时，除了可以在网页中放置文本、图片外，还可以在页面中嵌入声音、视频、动画等多媒体内容，使得页面看上去更加丰富多彩、动感十足。
+
+### 设置滚动字幕`marquee`
+
+    属性          属性值                             说明
+    ——————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+    demo：`<marquee direction="up">文字从下往上循环滚动</marquee>`
+                  up(从下往上)down(从上往下)
+    direction     left(从右往左，默认滚动方向)       设置滚动字幕的滚动方向
+    (滚动方向)     right(从左往右)
+    ——————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+    demo：`<marquee behavior="alternate">设置文字循环交替往返进行滚动</marquee>`
+    behavior      scroll      设置文字循环往复滚动(默认行为)
+    (滚动行为)     slide       设置文字只进行一次滚动
+                  alternate   设置文字循环交替往返进行滚动
+    ——————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+    demo：`<marquee scorllamount="滚动速度值" scrolldelay="延迟时间">滚动文字</marquee>`
+    scorllamount  设置文字滚动速度，取值为某个数字，越大滚动越快，默认的速度值是6
+    scrolldelay   设置文字在每一次滚动后，延迟一段时间后再进行下一次滚动，value以毫秒为单位，值越小越快，默认值是100ms
+    ——————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+    设置字幕的滚动区域、背景颜色、与周围对象的间距等
+    width         设置文字滚动区域的宽度，可以是数字像素或百分比数值%
+    height        设置文字滚动区域的宽度，可以是数字像素或百分比数值%
+    bgcolor       设置文字滚动区域的背景颜色
+    hspace        水平间距
+    vspace        垂直间距
+    ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+### 设置背景音乐`bgsound`
+
+```html
+<bgsound src="路径/文件名称" loop="循环次数">
+<--loop默认情况下，背景音乐播放一次；如果取值为-1，则表示背景音乐循环不断地播放-->
+```
+
+### 嵌入音视频文件`embed`
+
+`<embed src="路径/文件名称"></embed>`
+
+属性 | 说明
+:-: | :--
+src    | 文件路径
+width  | 以像素为单位定义嵌入式对象的宽度
+height | 以像素为单位定义嵌入式对象的宽度
+loop   | 设置嵌入式对象的播放是否循环不断，取值true时循环不断，否则只播放一次，默认值是false
+hidden | 设置多媒体播放软件的可视性，默认值是false
+
+### 嵌入Flash动画`object`
+
+```html
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="500" height="300" id="一个字" >
+    <param name="movie" value="一个字.swf">
+    <param name="FlashVars" value="prizeResult=3">
+    <param name="quality" value="high">
+    <param name="menu" value="false">
+    <param name="wmode" value="transparent">
+    <param name="allowScriptAccess" value="always" />
+    <embed src="../../images/html5/一个字.swf" FlashVars="prizeResult=3" allowScriptAccess="always" wmode="transparent" menu="false" quality="high" width="500" height="300" type="application/x-shockwave-flash" pluginspage="http://get.adobe.com/cn/flashplayer/" name="一个字"/>
+</object>
+```
+其中 __OBJECT__ 的__classid__和__codebase__的值是必须这么写的，告诉浏览器自动下载__flash player__的地址,OBJECT标签是用于windows平台的IE浏览器的，EMBED是用于windows和Macintosh平台下的Netscape Navigator浏览器以及Macintosh平台下的IE浏览器，就是所谓的非IE浏览器。windows平台的IE利用__Activex控件__来播放flash而其它的浏览器则使用Netscape插件技术来播放__flash__。
+
+**代码效果显示如下：**
+
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="500" height="300" id="一个字" >
+        <param name="movie" value="一个字.swf">
+        <param name="FlashVars" value="prizeResult=3">
+        <param name="quality" value="high">
+        <param name="menu" value="false">
+        <param name="wmode" value="transparent">
+        <param name="allowScriptAccess" value="always" />
+        <embed src="../../images/html5/一个字.swf" FlashVars="prizeResult=3" allowScriptAccess="always" wmode="transparent" menu="false" quality="high" width="500" height="300" type="application/x-shockwave-flash" pluginspage="http://get.adobe.com/cn/flashplayer/" name="一个字"/>
+</object>
+
+### 嵌入Java Applet（扩展）
+
+Applet 是用 Java开发的一种小程序，不能独立运行，必须嵌入HTML文件中，并通过支持Java的浏览器来运行。  
+**基本语法：** `<applet code="XXX.class" width="区域宽度" height="区域高度"></applet>`  
+**语法说明：** `XXX.class`表示所嵌入的`applet`类文件，`width、height`属性用来设置`applet`文件显示区域，单位是像素。
