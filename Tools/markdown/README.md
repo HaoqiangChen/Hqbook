@@ -1,6 +1,3 @@
-<!-- @author chenhaoqiang (chenhaoqiang.irxk@gmail.com) -->
-<!-- @date    2017-08-16 10:51:36 -->
-
 # Markdown
 
 <img alt="markdown" src="../../images/markdown/markdown.png" style="float: left;" />

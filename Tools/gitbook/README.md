@@ -133,7 +133,7 @@ GitBook使用[SUMMARY](#summary)文件管理目录结构，文件支持Markdown�
 
 一般GitBook目录如下：
 
-```
+```markdown
 .
 ├── book.json
 ├── README.md
