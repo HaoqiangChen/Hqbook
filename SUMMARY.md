@@ -39,6 +39,8 @@
 
 * [CSS](Frontend/CSS/README.md)
     * [CSS语法](Frontend/CSS/README.md#grammar)
+    * [CSS选择符](Frontend/CSS/README.md#selector)
+    * [CSS常用属性](Frontend/CSS/README.md#property)
     * [CSS3](Frontend/CSS/CSS3.md)
 
 ## JavaScript

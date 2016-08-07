@@ -32,6 +32,21 @@
           "url": "https://www.baidu.com",
           "target": "_blank",
           "name": "百度一下"
+        },
+        {
+          "url": "http://jsrun.net/",
+          "target": "_blank",
+          "name": "JSRUN"
+        },
+        {
+          "url": "https://www.runoob.com/",
+          "target": "_blank",
+          "name": "菜鸟教程"
+        },
+        {
+          "url": "https://www.atool99.com/",
+          "target": "_blank",
+          "name": "ATOOL在线工具"
         }
       ]
     }
