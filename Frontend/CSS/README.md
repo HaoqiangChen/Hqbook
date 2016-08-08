@@ -418,3 +418,244 @@ background-origin | 相对于什么位置来定位 | `padding-box`(背景从边�
 * `border-style`(边框样式): `none`(不加边框线,默认); `hidden`(隐藏边框线); `dotted`(点状虚线); `dashed`(线状虚线,常用); `solid`(实线,常用); `double`(双实线); `groove`(浅色实线); `ridge`(深浅色实线); `inset`(左上深右下浅的实线); `outset`(左上浅右下深的实线)
 * `border-width`(边框宽度): 值是以px为单位的数值
 * `border-color`(边框颜色): 值是颜色的英文单词或者十六进制的颜色
+
+> 轮廓`outline`
+
+轮廓（outline）是绘制于元素周围的一条线，位于边框边缘的外围，可起到突出元素的作用。  
+轮廓（outline）属性指定元素轮廓的样式、颜色和宽度。用法同`border`一样。
+
+![轮廓（outline）](../../images/css/outline.gif)
+
+## 盒子模型(Box Model) {#boxmodel}
+
+所有HTML元素可以看作盒子，在CSS中，"box model"这一术语是用来设计和布局时使用。  
+在网页设计中常用的属性名：`content`(内容)，`padding`(填充)，`border`(边框)，`margin`(边界), CSS盒子模式都具备这些属性。  
+下面的图片说明了盒子模型(Box Model)：
+
+![盒子模型](../../images/css/box-model.gif)
+
+**说明：**
+1. `html` 元素都可以看成一个盒子
+2. 盒子模型的参照物不一样，则使用的css属性不一样。比如：两个div左右并排时，从div1的角度看，是`margin-right`，从div2看，则是`margin-left`。
+3. 如果你不希望破坏外观，则尽量使用`margin`布局，因为`padding`可能会改变盒子的大小（相当于这个盒子有弹性），`margin`如果过大，盒子内容被挤到盒子外边去，但盒子本身没有变化。
+
+### margin、padding
+
+* `width`元素的宽度,值有两种,第一种是弹性宽度,值用百分比表示,第二种是固定宽度,值用以px为单位的数值表示.
+* `height`元素的高度,值有两种,第一种是弹性高度,值用百分比表示,第二种是固定高度,值用以px为单位的数值表示.
+
+* `margin`设置外边距，即区块与周围元素之间或元素与元素之间的间距，它包括了 left||right||top||bottom ，分别设定各个方向对象之间的间距  
+缩写：`{margin:margin-top margin-right margin-bottom margin-left;}`按照顺时针的顺序
+```css
+{margin:100px(上) 90px(右) 30px(下) 90px(左);}
+{margin:100px(上) 90px(左右相等90px) 30px(下);}
+{margin:100px(上下100px) 90px(左右90px);}
+{margin:100px(上下左右都为100px);}
+```
+可惜的是，上下边距相等，左右不相等是没有缩写的。若想方便调试建议还是四个参数都写上吧，哈哈
+
+* `padding`设置内边距，即区块边框与内容之间的间距，同样包括 left||right||top||bottom ，分别设定各个方向的填充距离  
+**缩写或者用法什么的基本都与margin类似**
+
+**有一个值auto,意思是自动。也有居中的效果**  
+元素居中的写法是`{margin:100px(上边距) auto 90px(下边距);}`或者`{margin:100px(上下边距相等) auto;}`
+
+### W3C盒子模型和IE盒子模型
+
+盒模型一共有两种模式，一种是`标准模式(W3C盒子模型)`，另一种就是`怪异模式(IE盒子模型)`。
+
+![W3C盒子模型](../../images/css/w3c-box.jpeg)
+
+从上图可以看到`W3C盒子模型`的范围包括margin、border、padding、content，再看看content的宽度width和高度height，可以看出content部分不包含其他部分。
+
+![IE盒子模型](../../images/css/ie-box.jpeg)
+
+从上图可以看到`IE盒子模型`的范围也包括margin、border、padding、content，再看看content的宽度width和高度height，可以看出和标准W3C盒子模型不同的是：`IE盒子模型的content部分包含了border和pading`。
+
+**浏览器的兼容性问题**  
+那应该选择哪种盒子模型呢？当然是`“标准W3C盒子模型”`了。怎么样才算是选择了“标准W3C盒子模型”呢？很简单，就是在网页的顶部加上`DOCTYPE声明`。如果不加 DOCTYPE声明，那么各个浏览器会根据自己的行为去理解网页，即`IE浏览器会采用IE盒子模型`去解释你的盒子，而`FF(Firefox)等会采用标准W3C盒子模型`解释你的盒子，所以网页在不同的浏览器中就显示的不一样了。反之，如果加上了`DOCTYPE声明`，那么`所有浏览器都会采用标准W3C盒子模型`去解释你的盒子，网页就能在各个浏览器中显示一致了。
+
+### CSS3的`box-sizing`属性
+
+`box-sizing`语法：box-sizing：`content-box` 或者 `border-box`;
+
+* 当设置为`box-sizing:content-box`时，将采用`标准模式`解析计算，也是默认模式:  
+元素的总宽度 = 宽度 + 左padding + 右padding + 左border + 右border + 左margin + 右margin  
+元素的总高度 = 高度 + 顶部填充 + 底部填充 + 上边框 + 下边框 + 上边距 + 下边距
+
+* 当设置为`box-sizing:border-box`时，将采用`怪异模式`解析计算；
+元素的总宽度= width + margin(左右)（即width已经包含了padding和border值）
+
+## 块状元素和行内元素 {#display}
+
+在用CSS布局页面的时候，我们会将HTML标签分成两种，`块状元素`和`行内元素`（行内元素也叫内联元素）
+
+### 块状元素
+
+特点不管内容有多少，它要换行，同时沾满整行。块元素可以放文本、行内元素和块元素，宽度(width)高度(height)起作用。  
+**常用的块状元素有：**
+```html
+<div>、<p>、<h1>...<h6>、<ol>、<ul>、<dl>、<table>、<address>、<blockquote> 、<form>、<center>、<dir>、<pre>、<menu>、<hr>
+```
+
+### 行内元素
+
+特点是只占内容的宽度，默认不会换行，行内元素一般放文本或者其它的行内元素，但宽度(width)高度(height)不起作用。  
+**常用的内联元素有：**
+```html
+<a>、<span>、<br>、<i>、<em>、<strong>、<label>、<q>、<var>、<cite>、<code>、<abbr>、<acronym>、<b>、<big>、<dfn>、
+<font>、<kbd>、<s>、<samp>、<select>、<small>、<strike>、<sub>、<sup>、<textarea>、<tt>、<u>
+```
+
+### 行内块状元素
+
+行内块状元素：就是同时具有行内元素、块状元素的特点。  
+1. 和其他元素都在一行上；
+2. 元素的高度、宽度、行高以及顶和底边距都可设置。
+
+`<img>`,`<input>`标签就是这种行内块状标签。
+
+**对比如下**
+
+  | 块状元素 | 行内元素 | 行内块状元素
+:-: | :-: | :-: | :-:
+是否允许其他元素同处一行 | no | yes | yes
+width和height是否起作用 | yes | no | yes
+
+### `display`属性
+
+值 | 描述
+:-- | :--
+none | 隐藏对象,不保留空间。与visibility属性的hidden值不同,visibility仍会保留空间
+inline | 指定对象为内联元素。
+block | 指定对象为块元素。
+list-item | 指定对象为列表项目。
+inline-block | 指定对象为内联块元素。（CSS2）
+table | 指定对象作为块元素级的表格。类同于html标签`<table>`（CSS2）
+inline-table | 指定对象作为内联元素级的表格。类同于html标签`<table>`（CSS2）
+table-caption | 指定对象作为表格标题。类同于html标签`<caption>`（CSS2）
+table-cell | 指定对象作为表格单元格。类同于html标签`<td>`（CSS2）
+table-row | 指定对象作为表格行。类同于html标签`<tr>`（CSS2）
+table-row-group | 指定对象作为表格行组。类同于html标签`<tbody>`（CSS2）
+table-column | 指定对象作为表格列。类同于html标签`<col>`（CSS2）
+table-column-group | 指定对象作为表格列组显示。类同于html标签`<colgroup>`（CSS2）
+table-header-group | 指定对象作为表格标题组。类同于html标签`<thead>`（CSS2）
+table-footer-group | 指定对象作为表格脚注组。类同于html标签`<tfoot>`（CSS2）
+
+#### Display(显示) 与 Visibility（可见性）
+
+隐藏元素 - `display:none`或`visibility:hidden`  
+隐藏一个元素可以通过把display属性设置为"none"，或把visibility属性设置为"hidden"。但是请注意，这两种方法会产生不同的结果。  
+`visibility:hidden`可以隐藏某个元素，但隐藏的元素仍需占用与未隐藏之前一样的空间。也就是说，该元素虽然被隐藏了，但仍然会影响布局。  
+`display:none`可以隐藏某个元素，且隐藏的元素不会占用任何空间。也就是说，该元素不但被隐藏了，而且该元素原本占用的空间也会从页面布局中消失。
+
+#### 块状元素和行内元素的转换
+
+* 如果我们希望一个元素按照块状元素方式显示，则给该元素添加样式`display:block;`
+* 如果我们希望一个元素按照行内元素方式显示，则给该元素添加样式`display:inline;`
+* 如果我们希望一个元素按照行内块状元素元素方式显示，则给该元素添加样式`display:inline-block;`
+
+## 浮动`float` {#float}
+
+![浮动float](../../images/css/float.jpg)
+
+CSS 的 Float（浮动），会使元素向左或向右移动，其周围的元素也会重新排列。Float（浮动），往往是用于图像，但它在布局时一样非常有用。
+
+**小白的话可以通过阅读以下两篇文章进行对浮动`float`的详细了解**  
+[CSS浮动(float,clear)详细教程](https://www.cnblogs.com/iyangyuan/archive/2013/03/27/2983813.html)  
+[w3school CSS 浮动](https://www.w3school.com.cn/css/css_positioning_floating.asp)
+
+**元素怎样浮动**  
+元素的水平方向浮动，意味着元素只能左右移动而不能上下移动。  
+一个浮动元素会尽量向左或向右移动，直到它的外边缘碰到包含框或另一个浮动框的边框为止。  
+浮动元素之后的元素将围绕它。浮动元素之前的元素将不会受到影响。  
+如果图像是右浮动，下面的文本流将环绕在它左边：
+
+### css解决浮动，清除浮动方法
+
+尽量少用浮动，容易出现副作用，需要清除浮动才行。
+
+![浮动负作用](../../images/css/side-effect.png)
+
+从上图可以看出，由于两个黑色盒子产生了浮动，导致红色盒子不能撑开，那么相应的红色盒子的样式也不能显示出来，比如：  
+* 背景不能显示
+* 边框不能撑开
+* `margin`,`padding`设置值不能正确显示
+
+**清除浮动**  
+[清除浮动的几种方法](http://www.iyunlu.com/view/css-xhtml/55.html)
+
+**个人推荐使用"伪元素after"清除浮动**
+```css
+.clearfix:after {content:"."; display:block; height:0; visibility:hidden; clear:both; }
+.clearfix { *zoom:1; }
+```
+
+### 文档流
+
+**CSS核心内容——流**  
+`流`：在网页设计中就是指元素（标签）的排列方式。
+* `文本流`：顾名思义，就是文字，段落什么的。文本流是相对于文子段落讲的
+* `文档流`：个人觉得文档流的翻译容易误导人，没看过原版的我竟然拿"document flow"去问了度娘，然后被鄙视……（哈哈，开个小玩笑）。原文是"normal flow"，不明白为什么会被翻译成文档流，也有人叫普通流、正常流，指语言文本从左到右，从上到下显示，这是传统HTML文档的文本布局。
+* `标准文档流`：简称为"标准流"，是指在不使用其他与排位和定位相关的特殊CSS规则时各种页面元素默认的排列规则。也就是默认的块级元素和行内元素的排列方式。在一个页面中如果没有出现特殊的排列方式如定位什么的，排在前面的元素（标签）在内容前面出现，排在后面的元素（标签）在内容后面出现。依次排序，整个页面如同河流和它的支流，所以称为"标准流"。
+* `脱离文档流`：也叫"非标准流"，当某个元素（标签）脱离了标准流【比如因为浮动或者定位之类】排列，我们统称为非标准流排列。
+
+**文档流和文本流的区别**  
+* 元素浮动之后，会让它跳出文档流，也就是说当它后面还有元素时，其他元素会无视它所占据了的区域，直接在它身下布局。但是文字却会认同浮动元素所占据的区域，围绕它布局，也就是没有拖出文本流。总结来说：浮动后脱离文档流，但是没有脱离文本流。
+* 但是绝对定位后，元素既会脱离文档流也会脱离文本流。那么后面元素的文本就不会再认同它的区域位置，会直接在它后面布局，不会在环绕。
+* 当然你可以使用`z-index`来让底部的元素到上面来，类似于一个图层的概念。
+
+## 定位`position` {#position}
+
+position 属性指定了元素的定位类型。position 属性的五个值：
+
+属性值 | 描述
+:-- | :--
+static | `静态定位`，HTML元素的默认值，即没有定位，遵循正常的文档流对象。网页里任一元素的默认position属性值均是static。静态定位的元素不会受到 top,bottom,left,right影响。
+relative | `相对定位`，相对定位，相对于自身原来的位置，但是原来的位置仍然保留。
+absolute | `绝对定位`，相对于最近的非标准流定位，原来的位置消失，被后边的位置所顶替。将被赋予此定位方法的对象从文档流中拖出，使用left,right,top,bottom等属性相对于其最接近的一个有定位设置的父级对象进行绝对定位，如果对象的父级没有设置定位属性，即还是遵循HTML定位规则的，则依据`body对象左上角`作为参考进行定位。绝对定位对象可层叠，层叠顺序可通过`z-index`属性控制，z-index值为无单位的整数，大的在最上面，可以有负值。
+fixed | `固定定位`，它和绝对定位类似，只是以浏览器窗口为基准进行定位，也就是当拖动浏览器窗口的滚动条时，依然保持对象位置不变。
+sticky | `粘性定位`，基于用户的滚动位置来定位,它的行为就像 position:relative; 而当页面滚动超出目标区域时，它的表现就像 position:fixed;，它会固定在目标位置。元素定位表现为在跨越特定阈值前为相对定位，之后为固定定位。
+
+> [!Warning|label: 注意]
+> 尽量不使用该属性值，Internet Explorer, Edge 15 及更早 IE 版本不支持 sticky 定位。 Safari 需要使用 -webkit- prefix (查看以下实例)。
+
+**阅读这篇文章详细了解`position`：**[CSS 定位详解](http://www.ruanyifeng.com/blog/2019/11/css-position.html)
+
+**[综合实例见证定位的魅力](https://jsrun.net/K86Kp/edit)**
+
+## 其他CSS属性 {#other}
+
+### 布局`overflow`
+
+overflow 属性用于控制内容溢出元素框时显示的方式。
+
+值 | 描述
+:-- | :--
+visible | 默认值。当层内的内容超出层所能容纳的范围时，显示层大小及内容
+hidden | 当层内的内容超出层所能容纳的范围时，隐藏超出层大小的内容
+scroll | 不管层内容是否超出层所能容纳的范围，层总是显示滚动条
+auto | 如果层内容超出层所能容纳的范围，才会显示滚动条
+
+> [!Warning|label: 注意]
+> overflow 属性只工作于指定高度的块元素上
+
+### 鼠标属性`cursor`
+
+cursor属性定义了鼠标指针放在一个元素边界范围内时所用的光标形状。常用的是`cursor:pointer;`(一只手)  
+下面表格描述了各个`cursor`效果，将鼠标移动到各个`属性值单词`上面，可以看到鼠标指针发生变化：
+
+属性值 | 描述 | 属性值 | 描述 | 属性值 | 描述
+:-- | :-- | :-- | :-- | :-- | :--
+<span style="cursor:default">default</span> | 默认光标（通常是一个箭头）| <span style="cursor:auto">auto</span> | 默认。浏览器设置的光标。 | <span style="cursor:pointer">pointer</span> | 小手掌
+<span style="cursor:crosshair">crosshair</span> | 十字线 | <span style="cursor:move">move</span> | 方向移动十字型 | <span style="cursor:wait">wait</span> | 一只表或沙漏
+<span style="cursor:w-resize">w-resize</span> | 向左箭头 | <span style="cursor:n-resize">n-resize</span> | 向上箭头 | <span style="cursor:nw-resize">nw-resize</span> | 左上箭头
+<span style="cursor:e-resize">e-resize</span> | 向右箭头 | <span style="cursor:s-resize">s-resize</span> | 向下箭头 | <span style="cursor:se-resize">se-resize</span> | 右下箭头
+<span style="cursor:ne-resize">ne-resize</span> | 右上箭头 | <span style="cursor:sw-resize">sw-resize</span> | 左下箭头 | <span style="cursor:help">help</span> | 一个问号或一个气球
+
+
+
+
+
+
+

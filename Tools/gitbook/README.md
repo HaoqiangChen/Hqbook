@@ -200,10 +200,6 @@ bin/*
 GitBook使用一个 `SUMMARY.md` 文件来定义文档的菜单。
 `SUMMARY.md`中`[]`内的内容是标题，`()`内是文档的路径，章节和子章节用四个空格或者`tab`键来分级。
 
-The format of `SUMMARY.md` is just a list of links. The link's title is used as the chapter's title, and the link's target is a path to that chapter's file.
-
-Adding a nested list to a parent chapter will create subchapters.
-
 ##### 简单示例
 
 ```markdown

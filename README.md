@@ -116,4 +116,4 @@ del /S /Q docs\*.md
 
 ## 最后
 
-如果觉得我的笔记还不错的话 :clap:，就给个 star :star: 鼓励一下吧~
+如果觉得我的笔记还不错的话 <i class="fa fa-thumbs-up" /> ，就给个`star` <i class="fa fa-star" style="font-size: 20px;color: goldenrod;"></i> 鼓励一下吧~
