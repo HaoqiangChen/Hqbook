@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hqbook-HTML在线编辑器</title>
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+
+    <link href="./static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./static/css/codemirror.min.css" rel="stylesheet">
+    <link href="./static/css/demo.css" rel="stylesheet">
+
+    <script src="./static/js/codemirror.min.js"></script>
+</head>
+<body onload="onload()">
+<header>
+    <div class="logo">
+        <img src="../images/home/logo.png" alt="logo">
+        <span class="title">hqbook</span>
+    </div>
+    <nav>
+        <a href="http://jsrun.net" target="_blank">JSRUN</a>
+        <a href="https://www.runoob.com" target="_blank">菜鸟教程</a>
+        <a href="https://www.atool99.com" target="_blank">ATOOL在线工具</a>
+    </nav>
+    <div class="input-group">
+        <input type="text" id="searchInput" class="form-control" placeholder="Search for Baidu" onkeydown="onKeydown(event)">
+        <span class="input-group-btn">
+            <button class="btn btn-primary" type="button" onclick="search()">Go!</button>
+          </span>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <form class="form-inline">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <button type="button" class="btn btn-default" onclick="resetCode()">HTML源代码</button>
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <button type="button" class="btn btn-success" onclick="submitTryit()" id="submitBTN">
+                                    <span class=""></span> 点击运行
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="panel-body">
+                    <textarea class="form-control" id="textareaCode" name="textareaCode"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <form class="form-inline">
+                        <button type="button" class="btn btn-info">运行结果</button>
+                    </form>
+                </div>
+                <div class="panel-body">
+                    <div id="iframewrapper"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+var mixedMode = {
+  name: "htmlmixed",
+  scriptTypes: [{
+    matches: /\/x-handlebars-template|\/x-mustache/i,
+    mode: null
+  },
+    {
+      matches: /(text|application)\/(x-)?vb(a|script)/i,
+      mode: "vbscript"
+    }]
+};
+
+var editor = CodeMirror.fromTextArea(document.getElementById("textareaCode"), {
+  mode: mixedMode, // 模式
+  selectionPointer: true, // 当将鼠标悬停在所选内容上时，可用于控制鼠标光标的外观
+  lineNumbers: true, // 是否显示行号
+});
+
+function autodivheight() {
+  var winHeight = 0;
+  if (window.innerHeight) {
+    winHeight = window.innerHeight;
+  } else if ((document.body) && (document.body.clientHeight)) {
+    winHeight = document.body.clientHeight;
+  }
+  //通过深入Document内部对body进行检测，获取浏览器窗口高度
+  if (document.documentElement && document.documentElement.clientHeight) {
+    winHeight = document.documentElement.clientHeight;
+  }
+  height = winHeight * 0.76
+  editor.setSize('100%', height);
+  document.getElementById("iframeResult").style.height = height + "px";
+}
+
+function resetCode() {
+  var initCode = "";
+  editor.getDoc().setValue(initCode);
+  submitTryit();
+}
+
+function submitTryit() {
+  var text = editor.getValue();
+  var patternHtml = /<html[^>]*>((.|[\n\r])*)<\/html>/im
+  var patternHead = /<head[^>]*>((.|[\n\r])*)<\/head>/im
+  var array_matches_head = patternHead.exec(text);
+  var patternBody = /<body[^>]*>((.|[\n\r])*)<\/body>/im;
+
+  var array_matches_body = patternBody.exec(text);
+  var basepath_flag = 1;
+  var basepath = '';
+  if (basepath_flag) {
+    basepath = '';
+  }
+  if (array_matches_head) {
+    text = text.replace('<head>', '<head>' + basepath);
+  } else if (patternHtml) {
+    text = text.replace('<html>', '<head>' + basepath + '</head>');
+  } else if (array_matches_body) {
+    text = text.replace('<body>', '<body>' + basepath);
+  } else {
+    text = basepath + text;
+  }
+  var ifr = document.createElement("iframe");
+  ifr.setAttribute("frameborder", "0");
+  ifr.setAttribute("id", "iframeResult");
+  document.getElementById("iframewrapper").innerHTML = "";
+  document.getElementById("iframewrapper").appendChild(ifr);
+
+  var ifrw = (ifr.contentWindow) ? ifr.contentWindow : (ifr.contentDocument.document) ? ifr.contentDocument.document : ifr.contentDocument;
+  ifrw.document.open();
+  ifrw.document.write(text);
+  ifrw.document.close();
+  autodivheight();
+}
+
+function search() {
+  window.open('https://www.baidu.com/s?ie=utf-8&wd=' + document.getElementById('searchInput').value, '_blank');
+}
+
+function onKeydown(e) {
+  if (e.keyCode === 13) {
+    search()
+  }
+}
+
+function onload() {
+  submitTryit();
+  autodivheight();
+}
+</script>
+</body>
+</html>
