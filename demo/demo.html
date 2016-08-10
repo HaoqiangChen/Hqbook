@@ -17,6 +17,8 @@
     <link href="./static/css/demo.css" rel="stylesheet">
 
     <script src="./static/js/codemirror.min.js"></script>
+    <script src="./static/js/format.min.js"></script>
+    <script src="./static/js/clipboard.min.js"></script>
 </head>
 <body onload="onload()">
 <header>
@@ -46,6 +48,9 @@
                         <div class="row">
                             <div class="col-xs-6">
                                 <button type="button" class="btn btn-default" onclick="resetCode()">HTML源代码</button>
+                                <button type="button" class="btn btn-primary" onclick="compressCode()">压缩</button>
+                                <button type="button" class="btn btn-danger" onclick="formatCode()">格式化</button>
+                                <button type="button" class="btn btn-warning" id="copycode">复制代码</button>
                             </div>
                             <div class="col-xs-6 text-right">
                                 <button type="button" class="btn btn-success" onclick="submitTryit()" id="submitBTN">
@@ -161,9 +166,35 @@ function onKeydown(e) {
   }
 }
 
+function compressCode() {
+  var code = editor.getValue();
+  var packer = new Packer;
+  var output = packer.pack(code, 0, 0);
+  editor.getDoc().setValue(output);
+}
+
+function formatCode() {
+  var code = editor.getValue();
+  if (code) {
+    var result = style_html(code, 1, '\t');
+    editor.getDoc().setValue(result);
+  }
+}
+
 function onload() {
   submitTryit();
   autodivheight();
+
+  new ClipboardJS('.btn-warning', {
+    text: function (trigger) {
+      return editor.getDoc().getValue();
+    }
+  }).on('success', function (e) {
+    document.getElementById('copycode').innerHTML = '已复制';
+    e.clearSelection();
+  }).on('error', function (e) {
+    alert('Error!');
+  });
 }
 </script>
 </body>
