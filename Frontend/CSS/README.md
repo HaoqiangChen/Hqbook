@@ -622,7 +622,7 @@ sticky | `粘性定位`，基于用户的滚动位置来定位,它的行为就�
 
 **阅读这篇文章详细了解`position`：**[CSS 定位详解](http://www.ruanyifeng.com/blog/2019/11/css-position.html)
 
-**[综合实例见证定位的魅力](https://jsrun.net/K86Kp/edit)**
+<a href="../../demo/demo.html?demoname=position" target="_blank">综合实例见证定位的魅力</a>
 
 ## 其他CSS属性 {#other}
 
@@ -652,10 +652,3 @@ cursor属性定义了鼠标指针放在一个元素边界范围内时所用的�
 <span style="cursor:w-resize">w-resize</span> | 向左箭头 | <span style="cursor:n-resize">n-resize</span> | 向上箭头 | <span style="cursor:nw-resize">nw-resize</span> | 左上箭头
 <span style="cursor:e-resize">e-resize</span> | 向右箭头 | <span style="cursor:s-resize">s-resize</span> | 向下箭头 | <span style="cursor:se-resize">se-resize</span> | 右下箭头
 <span style="cursor:ne-resize">ne-resize</span> | 右上箭头 | <span style="cursor:sw-resize">sw-resize</span> | 左下箭头 | <span style="cursor:help">help</span> | 一个问号或一个气球
-
-
-
-
-
-
-

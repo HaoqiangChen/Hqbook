@@ -1,3 +1,26 @@
+/*simplescrollbars.css*/
+.CodeMirror-simplescroll-horizontal div,.CodeMirror-simplescroll-vertical div{position:absolute;background:#ccc;-moz-box-sizing:border-box;box-sizing:border-box;border:1px solid #bbb;border-radius:2px}
+.CodeMirror-simplescroll-horizontal,.CodeMirror-simplescroll-vertical{position:absolute;z-index:6;background:#eee}
+.CodeMirror-simplescroll-horizontal{bottom:0;left:0;height:8px}
+.CodeMirror-simplescroll-horizontal div{bottom:0;height:100%}
+.CodeMirror-simplescroll-vertical{right:0;top:0;width:8px}
+.CodeMirror-simplescroll-vertical div{right:0;width:100%}
+.CodeMirror-overlayscroll .CodeMirror-scrollbar-filler,.CodeMirror-overlayscroll .CodeMirror-gutter-filler{display:none}
+.CodeMirror-overlayscroll-horizontal div,.CodeMirror-overlayscroll-vertical div{position:absolute;background:#bcd;border-radius:3px}
+.CodeMirror-overlayscroll-horizontal,.CodeMirror-overlayscroll-vertical{position:absolute;z-index:6}
+.CodeMirror-overlayscroll-horizontal{bottom:0;left:0;height:6px}
+.CodeMirror-overlayscroll-horizontal div{bottom:0;height:100%}
+.CodeMirror-overlayscroll-vertical{right:0;top:0;width:6px}
+.CodeMirror-overlayscroll-vertical div{right:0;width:100%}
+/*foldgutter.css*/
+.CodeMirror-foldmarker{color:blue;text-shadow:#b9f 1px 1px 2px,#b9f -1px -1px 2px,#b9f 1px -1px 2px,#b9f -1px 1px 2px;font-family:arial;line-height:.3;cursor:pointer}
+.CodeMirror-foldgutter{width:.7em}
+.CodeMirror-foldgutter-open,.CodeMirror-foldgutter-folded{cursor:pointer}
+.CodeMirror-foldgutter-open:after{content:"\25BE"}
+.CodeMirror-foldgutter-folded:after{content:"\25B8"}
+/*fullscreen.css*/
+.CodeMirror-fullscreen{position:fixed;top:0;left:0;right:0;bottom:0;height:auto;z-index:9}
+/*user setting*/
 body{background-color:#f6f6f6}
 header{width:100%;height:80px;background-color:#fff;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #dededede;padding:0 30px}
 header .logo img{margin-right:10px}
@@ -9,6 +32,8 @@ header nav a:hover,header nav a.active{color:#3884ff;text-decoration:none}
 .CodeMirror{min-height:600px;font-family:Menlo,Monaco,Consolas,"Andale Mono","lucida console","Courier New",monospace}
 #textareaCode,#iframewrapper{min-height:600px}
 #iframeResult{display:block;overflow:hidden;border:0 !important;min-width:100px;width:100%;min-height:600px;background-color:#fff}
+.cm-matchhighlight{background-color:rgba(255,255,255,.3) !important;}
+.CodeMirror-selection-highlight-scrollbar{background-color:green}
 @media screen and (max-width:768px){#textareaCode,#iframeResult,.CodeMirror{height:300px}
     .form-inline{padding:6px 0 2px 0}
 }

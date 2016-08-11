@@ -9,14 +9,32 @@
     <meta name="HandheldFriendly" content="true"/>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152"
+          href="../gitbook/images/apple-touch-icon-precomposed-152.png">
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
 
     <link href="./static/css/bootstrap.min.css" rel="stylesheet">
-    <link href="./static/css/codemirror.min.css" rel="stylesheet">
+    <link href="./static/css/codemirror/codemirror.min.css" rel="stylesheet">
+    <link href="./static/css/codemirror/monokai.css" rel="stylesheet">
     <link href="./static/css/demo.css" rel="stylesheet">
+    <script src="./static/js/demojson.min.js"></script>
 
-    <script src="./static/js/codemirror.min.js"></script>
+    <script src="./static/js/codemirror/codemirror.min.js"></script>
+    <script src="./static/js/codemirror/htmlmixed.min.js"></script>
+    <script src="./static/js/codemirror/css.min.js"></script>
+    <script src="./static/js/codemirror/javascript.min.js"></script>
+    <script src="./static/js/codemirror/xml.min.js"></script>
+    <script src="./static/js/codemirror/simplescrollbars.min.js"></script>
+    <script src="./static/js/codemirror/xml-fold.min.js"></script>
+    <script src="./static/js/codemirror/foldcode.min.js"></script>
+    <script src="./static/js/codemirror/foldgutter.min.js"></script>
+    <script src="./static/js/codemirror/match-highlighter.min.js"></script>
+    <script src="./static/js/codemirror/closetag.min.js"></script>
+    <script src="./static/js/codemirror/closebrackets.min.js"></script>
+    <script src="./static/js/codemirror/comment.min.js"></script>
+    <script src="./static/js/codemirror/sublime.min.js"></script>
+    <script src="./static/js/codemirror/fullscreen.min.js"></script>
+
     <script src="./static/js/format.min.js"></script>
     <script src="./static/js/clipboard.min.js"></script>
 </head>
@@ -32,7 +50,8 @@
         <a href="https://www.atool99.com" target="_blank">ATOOL在线工具</a>
     </nav>
     <div class="input-group">
-        <input type="text" id="searchInput" class="form-control" placeholder="Search for Baidu" onkeydown="onKeydown(event)">
+        <input type="text" id="searchInput" class="form-control" placeholder="Search for Baidu"
+               onkeydown="onKeydown(event)">
         <span class="input-group-btn">
             <button class="btn btn-primary" type="button" onclick="search()">Go!</button>
           </span>
@@ -60,7 +79,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="panel-body">
+                <div class="panel-editor">
                     <textarea class="form-control" id="textareaCode" name="textareaCode"></textarea>
                 </div>
             </div>
@@ -97,7 +116,33 @@ var editor = CodeMirror.fromTextArea(document.getElementById("textareaCode"), {
   mode: mixedMode, // 模式
   selectionPointer: true, // 当将鼠标悬停在所选内容上时，可用于控制鼠标光标的外观
   lineNumbers: true, // 是否显示行号
+  lineWrapping: true, // 是否应滚动或换行以显示长行
+  theme: 'monokai', // 主题
+  scrollbarStyle: "overlay", // 滚动条
+  foldGutter: true, // 折叠代码块
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"], // 折叠代码块
+  autoCloseTags: true, // 该选项将在键入`>`或`/`时自动关闭XML标记，取决于fold/xml-fold.js插件
+  autoCloseBrackets: true, // 自动关闭括号和引号等符号
+  highlightSelectionMatches: {showToken: /\w/, annotateScrollbar: true}, // 突出显示当前所选单词的所有实例
+  keyMap: "sublime",
+  extraKeys: {
+    "Ctrl-J": "toMatchingTag", // 绑定到一个键，以跳转到与光标下方匹配的标签
+    "Ctrl-[": function (cm) {
+      cm.foldCode(cm.getCursor());
+    },
+    "Ctrl-shift-f": formatCode,
+    "F11": function (cm) {
+      cm.setOption("fullScreen", !cm.getOption("fullScreen"));
+    },
+    "Esc": function (cm) {
+      if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
+    }
+  },
 });
+
+function getUrlParam(param) {
+  return decodeURIComponent((new RegExp('[?|&]' + param + '=' + '([^&;]+?)(&|#|;|$)').exec(location.href) || [, ''])[1].replace(/\+/g, '%20')) || null;
+}
 
 function autodivheight() {
   var winHeight = 0;
@@ -116,8 +161,9 @@ function autodivheight() {
 }
 
 function resetCode() {
-  var initCode = "";
+  var initCode = demojson[getUrlParam('demoname')] || '';
   editor.getDoc().setValue(initCode);
+  formatCode();
   submitTryit();
 }
 
@@ -182,7 +228,7 @@ function formatCode() {
 }
 
 function onload() {
-  submitTryit();
+  resetCode();
   autodivheight();
 
   new ClipboardJS('.btn-warning', {
