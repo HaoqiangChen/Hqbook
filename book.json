@@ -71,10 +71,19 @@
     "chapter-fold": {},
     "flexible-alerts": {
       "style": "flat",
-      "comment": {
-        "label": "Comment",
-        "icon": "fa fa-comments",
-        "className": "info"
+      "note": {
+        "label": "笔记"
+      },
+      "tip": {
+        "label": "提示"
+      },
+      "warning": {
+        "label": "警告",
+        "icon": "fa fa-warning"
+      },
+      "danger": {
+        "label": "注意",
+        "icon": "fa fa-exclamation-triangle"
       }
     },
     "localized-footer": {

@@ -98,7 +98,7 @@ img{ width: 100%;}
 #IDname {width: 960px; margin: auto; }
 ```
 
-> [!Warning|label: 注意]
+> [!danger]
 > 每个id名都必须不同，应该慎重使用ID选择器。
 
 ### 类选择符（class）
@@ -108,7 +108,7 @@ img{ width: 100%;}
 .className {border-color: blue; font-size:16px;}
 ```
 
-> [!Warning|label: 注意]
+> [!danger]
 > 一个标签可以用多个class名,一个class名可以供多个标签使用。
 
 ### 群组选择符
@@ -143,7 +143,7 @@ E~F | 兄弟选择符 |  选择E元素所有兄弟元素F。 |     CSS3 |  (Gene
 * `a:hover {color: #FF00FF; text-decoration: underline}`   鼠标在链接上
 * `a:active {color: #0000FF; text-decoration: underline}`  激活链接
 
-> [!Warning|label: 注意]
+> [!danger]
 > 以上的a标签伪类你可以写1个或者写多个。但是一定要按照顺序写，否则会出问题！
 
 选择符 | 版本 | 描述
@@ -194,7 +194,7 @@ E:target              | CSS3    | 匹配相关URL指向的E元素。
 * `:first-child` 匹配的是某父元素的第一个子元素，可以说是结构上的第一个子元素。
 * `:first-of-type` 匹配的是某父元素下相同类型子元素中的第一个，比如 `p:first-of-type`，就是指所有类型为p的子元素中的第一个。这里不再限制是第一个子元素了，只要是该类型元素的第一个就行了。
 
-> [!Warning|label: 注意]
+> [!danger]
 > 当然这些元素的范围都是属于同一级的，也就是同辈的。  
 > 同样类型的选择器`:last-child`和`:last-of-type`、`:nth-child(n)`和`:nth-of-type(n)`也可以这样去理解。
 
@@ -221,7 +221,7 @@ E:after/E::after               | CSS2/3 | 设置在对象后（依据对象树�
 E::placeholder                 | CSS3   | 设置对象文字占位符的样式。
 E::selection                   | CSS3   | 设置对象被选择时的颜色。
 
-> [!Warning|label: 注意]
+> [!danger]
 > CSS3的语法改成:: ,原本CSS1是: ,故一般直接用两个冒号为妥。如果为了兼容IE浏览器的话，就用一个冒号。
 > 举例：`input::-webkit-input-placeholder {color: green;}`
 
@@ -237,7 +237,7 @@ CSS本身的设置可以同时应用多个样式在同一个元素，此时样�
 * 在样式中，选择器的优先级：`ID样式>class样式>标记样式`（以权重比喻：id的权重为100，class的权重为10,标签名的权重为1）
 * 在样式后面加一个`!important`，例如这样：`.abc {background:#fff !improtant;}` 这个样式的优先级就会默认提升到顶级，全局样式就无法影响到它了。
 
-> [!Warning|label: 注意]
+> [!danger]
 > `!important`要写在分号的前面
 
 **优先级：**
@@ -256,7 +256,7 @@ CSS本身的设置可以同时应用多个样式在同一个元素，此时样�
 1. 我设置`上级(父级：p)`的文字颜色为红色，而`子级(span)`未设置文字颜色，但是文字具有继承特性，所以子级文字内容依然是红色。
 2. 假如设置父级文字颜色样式后，其多个子级因继承而与父级相同，若有些子级颜色不想与父级相同，这个时候只需对对应子级设置需要颜色即可。
 
-> [!Warning|label: 注意]
+> [!danger]
 > 还有一个权值比较特殊--继承也有权值但很低，有的文献提出它只有0.1，所以可以理解为继承的权值最低。
 
 **继承好处：**可以只设置上级的CSS样式表属性，子级（下级）不用设置，都有此CSS属性，可以减少CSS代码，便于维护。
@@ -617,7 +617,7 @@ absolute | `绝对定位`，相对于最近的非标准流定位，原来的位�
 fixed | `固定定位`，它和绝对定位类似，只是以浏览器窗口为基准进行定位，也就是当拖动浏览器窗口的滚动条时，依然保持对象位置不变。
 sticky | `粘性定位`，基于用户的滚动位置来定位,它的行为就像 position:relative; 而当页面滚动超出目标区域时，它的表现就像 position:fixed;，它会固定在目标位置。元素定位表现为在跨越特定阈值前为相对定位，之后为固定定位。
 
-> [!Warning|label: 注意]
+> [!danger]
 > 尽量不使用该属性值，Internet Explorer, Edge 15 及更早 IE 版本不支持 sticky 定位。 Safari 需要使用 -webkit- prefix (查看以下实例)。
 
 **阅读这篇文章详细了解`position`：**[CSS 定位详解](http://www.ruanyifeng.com/blog/2019/11/css-position.html)
@@ -637,7 +637,7 @@ hidden | 当层内的内容超出层所能容纳的范围时，隐藏超出层�
 scroll | 不管层内容是否超出层所能容纳的范围，层总是显示滚动条
 auto | 如果层内容超出层所能容纳的范围，才会显示滚动条
 
-> [!Warning|label: 注意]
+> [!danger]
 > overflow 属性只工作于指定高度的块元素上
 
 ### 鼠标属性`cursor`

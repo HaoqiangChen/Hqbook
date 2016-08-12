@@ -173,7 +173,7 @@ Gitbook 安装插件比较简单，需要在项目下添加 `book.json` 文件�
 - `chapter-fold` 左侧目录折叠 ➡️ <https://github.com/ColinCollins/gitbook-plugin-chapter-fold>
 - `expandable-chapters` 收起或展开章节目录中的父节点 ➡️ <https://github.com/DomainDrivenArchitecture/gitbook-plugin-expandable-chapters>
 - `expandable-chapters-small` 折叠侧边栏 ➡️ <https://github.com/lookdczar/gitbook-plugin-expandable-chapters-small-auto>
-> [!Tip|label: 这三款目录折叠的区别是：]
+> [!note|label: 这三款目录折叠的区别是：]
 > `expandable-chapters-small` 和 `expandable-chapters` 效果相同，唯一不同的是`expandable-chapters`这个插件的箭头粗；  
 > 另外这两款只有点击箭头才能实现折叠扩展。不如`【chapter-fold 左侧目录折叠】`好用
 - `editlink` 顶部显示编辑此页 ➡️ <https://github.com/zhaoda/gitbook-plugin-editlink>
@@ -250,7 +250,7 @@ Gitbook 安装插件比较简单，需要在项目下添加 `book.json` 文件�
 - `mathjax` 支持数学方程式 ➡️ <https://www.mathjax.org/>
 - `mermaid` 使用流程图 ➡️ <https://github.com/JozoVilcek/gitbook-plugin-mermaid>
 
-> [!Tip|label: **MathJax 和 KaTeX 的区别**] 
+> [!note|label: **MathJax 和 KaTeX 的区别**] 
 > `mathjax` 和 `katex` 插件是 Tex 公式绘制的不同实现，它们基于各自的开源库：[KaTeX](https://www.mathjax.org/) 和 [MathJax](https://www.mathjax.org/) 。  
 > MathJax 支持整个 Tex 语法，但是在制作电子书版本时不是很完美。 KaTex 在所有格式（网页和电子书）的绘制上都很完美，但是还不支持 所有的语法。
 
@@ -297,6 +297,21 @@ Gitbook 安装插件比较简单，需要在项目下添加 `book.json` 文件�
           "url": "https://www.baidu.com",
           "target": "_blank",
           "name": "百度一下"
+        },
+        {
+          "url": "http://jsrun.net/",
+          "target": "_blank",
+          "name": "JSRUN"
+        },
+        {
+          "url": "https://www.runoob.com/",
+          "target": "_blank",
+          "name": "菜鸟教程"
+        },
+        {
+          "url": "https://www.atool99.com/",
+          "target": "_blank",
+          "name": "ATOOL在线工具"
         }
       ]
     }
@@ -321,10 +336,21 @@ Gitbook 安装插件比较简单，需要在项目下添加 `book.json` 文件�
     "chapter-fold": {},
     "flexible-alerts": {
       "style": "flat",
-      "comment": {
-        "label": "Comment",
-        "icon": "fa fa-comments",
-        "className": "info"
+      "note": {
+        "label": "笔记"
+      },
+      "tip": {
+        "label": "提示"
+      },
+      "warning": {
+        "label": "警告",
+        "icon": "fa fa-warning",
+        "className": "warning"
+      },
+      "danger": {
+        "label": "注意",
+        "icon": "fa fa-exclamation-triangle",
+        "className": "danger"
       }
     },
     "localized-footer": {
@@ -349,7 +375,7 @@ Gitbook 安装插件比较简单，需要在项目下添加 `book.json` 文件�
       ]
     },
     "sitemap": {
-      "hostname": "https://chq.github.io/"
+      "hostname": "https://haoqiangchen.github.io/hqbook/"
     }
   },
   "pdf": {
@@ -365,6 +391,7 @@ Gitbook 安装插件比较简单，需要在项目下添加 `book.json` 文件�
     }
   }
 }
+
 
 ```
 

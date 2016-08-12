@@ -1,10 +1,8 @@
 /* 插件配置调整 */
-.markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4, .markdown-section h5, .markdown-section h6 {
-    font-weight: bold;
-}
-.page-inner {
-    padding: 20px 260px 40px 50px;
-}
+.markdown-section h1,.markdown-section h2,.markdown-section h3,.markdown-section h4,.markdown-section h5,.markdown-section h6{font-weight:bold}
+.page-inner{padding:20px 260px 40px 50px}
+.alert.flat.warning{color:#d2691e;background-color:#ffd8a0;border-color:#ffcb81}
+.alert.flat.warning .title{color:#8b4513}
 
 /* 代码高亮 */
 
@@ -35,40 +33,10 @@ pre[class*="language-"] .important{color:#ef3b7d;font-weight: bold}
 pre[class*="language-"] .comment,pre[class*="language-"] .prolog,pre[class*="language-"] .doctype,pre[class*="language-"] .cdata{color:#75715E}
 
 /* 用户自定义 */
-::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    -o-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: #F5F5F5;
-    border-radius: 10px
-}
-
-::-webkit-scrollbar {
-    width: 10px;
-    height: 1px;
-    border-radius: 10px
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: #005AFF;
-    border-radius: 10px;
-    background-image: -webkit-linear-gradient(150deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent)
-}
-
-.language-::-webkit-scrollbar {
-    height: 3px;
-}
-
-.book-summary ul.summary li.header {
-    padding: 10px 15px 0;
-}
-
-.markdown-section blockquote {
-    border-left-color: #42b983;
-    font-weight: 600;
-}
-
-.markdown-section table td, .markdown-section table th {
-    padding: 5px;
-}
+::-webkit-scrollbar-track{-webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.3);-moz-box-shadow:inset 0 0 6px rgba(0,0,0,0.3);-o-box-shadow:inset 0 0 6px rgba(0,0,0,0.3);box-shadow:inset 0 0 6px rgba(0,0,0,0.3);background-color:#F5F5F5;border-radius:10px}
+::-webkit-scrollbar{width:10px;height:1px;border-radius:10px}
+::-webkit-scrollbar-thumb{background-color:#005AFF;border-radius:10px;background-image:-webkit-linear-gradient(150deg,rgba(255,255,255,.2) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.2) 50%,rgba(255,255,255,.2) 75%,transparent 75%,transparent)}
+.language-::-webkit-scrollbar{height:3px}
+.book-summary ul.summary li.header{padding:10px 15px 0}
+.markdown-section blockquote{border-left-color:#42b983;font-weight:600}
+.markdown-section table td,.markdown-section table th{padding:5px}

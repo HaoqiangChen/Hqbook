@@ -223,7 +223,7 @@ preload  | 视频在页面加载时进行加载并预备播放，属性值(none:
 
 `<input type="text" autofocus/>`设置 `autofocus` 属性，使文本框自动获得焦点
 
-> [!Warning|label: 注意]
+> [!danger]
 > 一个页面中最多只能有一个表单元素设置该属性，否则功能将失效，建议对第一个`input`元素设置`autofocus`属性。
 
 #### `formaction` 属性

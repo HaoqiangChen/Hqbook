@@ -96,7 +96,7 @@ Markdown使用星号`*`和底线`_`作为标记强调字词的符号，被`*`或
 脚注是对文本的补充说明。  
 在需要添加注脚的文字后加上脚注名字`[^注脚名字]`,称为脚注。 然后在文本的任意位置(一般在最后)添加脚注，脚注前必须有对应的脚注名字。
 
-> [!Warning|label: 注意]
+> [!danger]
 > 脚注 `id` 必须唯一；    
 > 经测试脚注根据`不同编译器`会有不同效果。区别如下：  
 > 一般`线上的markdown编译器`效果为：（1）无论脚注 `id` 如何起名，显示时一律标为数字，并且按出现顺序排列；  
@@ -535,7 +535,7 @@ Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的�
 
 ## LaTeX 公式 {#formula}
 
-> [!Warning|label: 注意]
+> [!danger]
 > 原生markdown不支持LaTeX 公式，有两种可以解决，一种在线LaTeX 数学公式编辑工具生成图片展示，一种使用gitbook插件
 
 * 在线LaTeX 数学公式编辑工具
@@ -606,7 +606,7 @@ title="f(x_1,x_x,\ldots,x_n) = x_1^2 + x_2^2 + \cdots + x_n^2" />
 
 ## 流程图
 
-> [!Warning|label: 注意]
+> [!danger]
 > 原生markdown不支持流程图，有两种可以解决，一种用一些支持流程图的编辑器先画出来，然后截图生成图片展示，一种使用gitbook插件[mermaid](https://github.com/JozoVilcek/gitbook-plugin-mermaid)
 
 **举例：**
