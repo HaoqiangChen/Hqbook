@@ -99,9 +99,6 @@
       "website": "styles/website.css"
     },
     "theme-hqbook": {
-      "favicon": "./favicon.ico",
-      "logo": "../../images/home/logo.png",
-      "search-placeholder": "输入关键字搜索",
       "copyLines": false,
       "hide-elements": [
         ".summary .gitbook-link"

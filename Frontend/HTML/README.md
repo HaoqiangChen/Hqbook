@@ -23,7 +23,7 @@ HTML文件的组成包含两部分内容：一是HTML标记；二是HTML标记�
 * 标签名不区分大小写，但在`XHTML`中必须小写
 * 标签具有属性，属性用来表示标签的性质和特征，属性在一开始的标签中指定，如下图：
 
-![html标签](../../images/html5/html-tag.png)
+![html标签](../../images/html/html-tag.png)
 
 ## 页面的头部标记 {#head}
 
@@ -174,7 +174,7 @@ x | 乘号 | `&times;` | &amp;#215; | ÷ | 除号 | `&divide;` | &amp;#247;
 
 __html特殊符号对照表__
 
-![html特殊符号对照表](../../images/html5/symbol-table.jpg)
+![html特殊符号对照表](../../images/html/symbol-table.jpg)
 
 7\. 段落标记
 
@@ -444,11 +444,14 @@ __代码示例：__
 ```
 __显示效果如下：__
 
-![合并单元格](../../images/html5/table-colgroup.jpg)
+![colgroup对列分组](../../images/html/table-colgroup.jpg)
+
+> @[colgroup对列分组]{`../../demo/demo.html?demoname=colgroup`}
+> `../../images/html/table-colgroup.jpg` "rect"
 
 5\. 合并单元格`colspan`和`rowspan`
 
-![合并单元格`colspan`和`rowspan`](../../images/html5/merge-cells.png)
+![合并单元格`colspan`和`rowspan`](../../images/html/merge-cells.png)
 
 __代码示例：__
 ```html
@@ -463,7 +466,10 @@ __代码示例：__
 ```
 __显示效果如下：__
 
-![合并单元格](../../images/html5/table.gif)
+![合并单元格](../../images/html/table.gif)
+
+> @[合并单元格]{`../../demo/demo.html?demoname=table-merge-cells`}
+> `../../images/html/table.gif` "rect"
 
 ## 表单 {#form}
 
@@ -688,7 +694,7 @@ cols把框架分成左右两半,上下分割使用rows(分成上下两半)。每
 ```
 **效果图如下：**
 
-![frameset 嵌套分割](../../images/html5/frameset.png)
+![frameset 嵌套分割](../../images/html/frameset.png)
 
 ### 框架标记`frame`
 
@@ -744,10 +750,12 @@ src | | 显示页面的URL地址 | | |
     <meta charset="UTF-8">
     <title>框架集frameset和框架frame</title>
 </head>
-<frameset cols="10%,*">
-<frame src="menu.html" />
-<frame  src="http://qq.com" name="RightFrame" />
-</frameset>
+<body>
+    <frameset cols="10%,*">
+    <frame src="menu.html" />
+    <frame  src="http://qq.com" name="RightFrame" />
+    </frameset>
+</body>
 </html>
 ```
 2. 然后，新建一个网页“menu.html”，在左侧窗口中，设置"target"属性显示的窗口名，输入下面的内容：
@@ -768,7 +776,7 @@ src | | 显示页面的URL地址 | | |
 如下图，刚开始打开这个“框架集和框架.html”这个网页时，显示的效果如下：  
 左边相当于是一个菜单，右边是显示效果，当你单击“百度”或者“淘宝”时都可以链接到相应网站。
 
-![框架集和框架.html](../../images/html5/frame.png)
+![框架集和框架.html](../../images/html/frame.png)
 
 ## 在网页中嵌入多媒体内容 {#media}
 
@@ -804,7 +812,7 @@ src | | 显示页面的URL地址 | | |
 
 ```html
 <bgsound src="路径/文件名称" loop="循环次数">
-<--loop默认情况下，背景音乐播放一次；如果取值为-1，则表示背景音乐循环不断地播放-->
+<!--loop默认情况下，背景音乐播放一次；如果取值为-1，则表示背景音乐循环不断地播放-->
 ```
 
 ### 嵌入音视频文件`embed`
@@ -829,7 +837,7 @@ hidden | 设置多媒体播放软件的可视性，默认值是false
     <param name="menu" value="false">
     <param name="wmode" value="transparent">
     <param name="allowScriptAccess" value="always" />
-    <embed src="../../images/html5/一个字.swf" FlashVars="prizeResult=3" allowScriptAccess="always" wmode="transparent" menu="false" quality="high" width="500" height="300" type="application/x-shockwave-flash" pluginspage="http://get.adobe.com/cn/flashplayer/" name="一个字"/>
+    <embed src="../../images/html/一个字.swf" FlashVars="prizeResult=3" allowScriptAccess="always" wmode="transparent" menu="false" quality="high" width="500" height="300" type="application/x-shockwave-flash" pluginspage="http://get.adobe.com/cn/flashplayer/" name="一个字"/>
 </object>
 ```
 其中 __OBJECT__ 的__classid__和__codebase__的值是必须这么写的，告诉浏览器自动下载__flash player__的地址,OBJECT标签是用于windows平台的IE浏览器的，EMBED是用于windows和Macintosh平台下的Netscape Navigator浏览器以及Macintosh平台下的IE浏览器，就是所谓的非IE浏览器。windows平台的IE利用__Activex控件__来播放flash而其它的浏览器则使用Netscape插件技术来播放__flash__。
@@ -843,8 +851,10 @@ hidden | 设置多媒体播放软件的可视性，默认值是false
         <param name="menu" value="false">
         <param name="wmode" value="transparent">
         <param name="allowScriptAccess" value="always" />
-        <embed src="../../images/html5/一个字.swf" FlashVars="prizeResult=3" allowScriptAccess="always" wmode="transparent" menu="false" quality="high" width="500" height="300" type="application/x-shockwave-flash" pluginspage="http://get.adobe.com/cn/flashplayer/" name="一个字"/>
+        <embed src="../../images/html/一个字.swf" FlashVars="prizeResult=3" allowScriptAccess="always" wmode="transparent" menu="false" quality="high" width="500" height="300" type="application/x-shockwave-flash" pluginspage="http://get.adobe.com/cn/flashplayer/" name="一个字"/>
 </object>
+
+> @[object标签：嵌入Flash动画]{`../../demo/demo.html?demoname=object-flash`}
 
 ### 嵌入Java Applet（扩展）
 

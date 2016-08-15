@@ -1,6 +1,6 @@
 # HTML5
 
-<img alt="HTML5" src="../../images/html5/html5.gif" style="float: left;" />
+<img alt="HTML5" src="../../images/html/html5.gif" style="float: left;" />
 
 HTML5是HTML最新的修订版本，2014年10月由万维网联盟（W3C）完成标准制定。
 
@@ -91,11 +91,11 @@ loop     | 每当音频结束时重新开始播放
 preload  | 音频在页面加载时进行加载，并预备播放
 
 ```html
-<audio src="../../images/html5/bell.mp3" controls="controls"></audio>
+<audio src="../../images/html/bell.mp3" controls="controls"></audio>
 ```
 **显示效果如下**
 
-<audio src="../../images/html5/bell.mp3" controls="controls"></audio>
+<audio src="../../images/html/bell.mp3" controls="controls"></audio>
 
 ### `video`视频标签
 
@@ -114,11 +114,11 @@ poster   | 规定视频下载时显示的图像，或者在用户点击播放按
 preload  | 视频在页面加载时进行加载并预备播放，属性值(none:只有单击了Play按钮才加载视频;metadata:仅加载元数据,例如视频长度、作者、版权)
 
 ```html
-<video src="../../images/html5/一拳打碎屏幕的老外.mp4" width="320" controls muted poster="images/logo.png" preload></video>
+<video src="../../images/html/一拳打碎屏幕的老外.mp4" width="320" controls muted poster="images/logo.png" preload></video>
 ```
 **显示效果如下**
 
-<video src="../../images/html5/一拳打碎屏幕的老外.mp4" width="320" controls muted poster="images/logo.png" preload></video>
+<video src="../../images/html/一拳打碎屏幕的老外.mp4" width="320" controls muted poster="images/logo.png" preload></video>
 
 ### 图形中的`figure`及`figcaption`
 
@@ -128,14 +128,14 @@ preload  | 视频在页面加载时进行加载并预备播放，属性值(none:
 
 ```html
 <figure>
-    <img src="../../images/html5/bridge.jpg" width="350" height="234" />
+    <img src="../../images/html/bridge.jpg" width="350" height="234" />
     <figcaption style="color: red">黄浦江上的的卢浦大桥</figcaption>
 </figure>
 ```
 **显示效果如下**
 
 <figure>
-    <img src="../../images/html5/bridge.jpg" width="350" height="234" />
+    <img src="../../images/html/bridge.jpg" width="350" height="234" />
     <figcaption style="color: red">黄浦江上的的卢浦大桥</figcaption>
 </figure>
 
@@ -157,7 +157,7 @@ preload  | 视频在页面加载时进行加载并预备播放，属性值(none:
 ```
 **显示效果如下：**
 
-![datalist选项列表](../../images/html5/datalist.png)
+![datalist选项列表](../../images/html/datalist.png)
 
 ### `progress`元素
 

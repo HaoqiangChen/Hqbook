@@ -344,13 +344,11 @@ Gitbook 安装插件比较简单，需要在项目下添加 `book.json` 文件�
       },
       "warning": {
         "label": "警告",
-        "icon": "fa fa-warning",
-        "className": "warning"
+        "icon": "fa fa-warning"
       },
       "danger": {
         "label": "注意",
-        "icon": "fa fa-exclamation-triangle",
-        "className": "danger"
+        "icon": "fa fa-exclamation-triangle"
       }
     },
     "localized-footer": {
@@ -366,13 +364,15 @@ Gitbook 安装插件比较简单，需要在项目下添加 `book.json` 文件�
       "website": "styles/website.css"
     },
     "theme-hqbook": {
-      "favicon": "./favicon.ico",
-      "logo": "../../images/home/logo.png",
-      "search-placeholder": "输入关键字搜索",
       "copyLines": false,
       "hide-elements": [
         ".summary .gitbook-link"
-      ]
+      ],
+      "flexible-linkcard": {
+        "title": "Converts blockquotes into beautiful linkcard, custom nice links",
+        "hrefUrl": "https://github.com/HaoqiangChen/hqbook",
+        "imgSrc": "../../images/home/logo.png"
+      }
     },
     "sitemap": {
       "hostname": "https://haoqiangchen.github.io/hqbook/"
@@ -391,7 +391,6 @@ Gitbook 安装插件比较简单，需要在项目下添加 `book.json` 文件�
     }
   }
 }
-
 
 ```
 
