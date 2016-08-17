@@ -480,3 +480,21 @@ items.Total price:
   <input type="submit" name="" id="" value="提交" onclick="check()" />
 </form>
 ```
+
+## MathML {#mathml}
+
+## 拖放 {#dragdrop}
+
+## 地理定位 {#geolocation}
+
+## Web 存储 {#storage}
+
+## Web SQL {#web_sql}
+
+## 应用程序缓存 {#application_cache}
+
+## Web Workers {#workers}
+
+## SSE {#sse}
+
+## WebSocket {#websocket}

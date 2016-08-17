@@ -389,7 +389,7 @@ square | 实心方块 | decimal | 数字 | decimal-leading-zero | 0开头的数�
 lower-alpha | 小写英文字母 | upper-alpha | 大写英文字母 | lower-roman | 小写罗马数字(i, ii, iii, iv, v, 等。)
 upper-roman | 大写罗马数字(I, II, III, IV, V, 等。) | lower-latin | 小写拉丁字母(a, b, c, d, e, 等。) | upper-latin | 大写拉丁字母(A, B, C, D, E, 等。)
 
-### 背景样式 `background`
+### 背景样式 `background` {#background}
 
 背景样式的缩写,写法是`{background: background-color background-image background-repeat background-attachment background-position;}`  
 {background: 背景色 背景图片 背景平铺方式 背景图像是否固定或者随着页面的其余部分滚动 背景定位} 要按照顺序来。举例  
@@ -621,7 +621,7 @@ sticky | `粘性定位`，基于用户的滚动位置来定位,它的行为就�
 **阅读这篇文章详细了解`position`：**[CSS 定位详解](http://www.ruanyifeng.com/blog/2019/11/css-position.html)
 
 > @[综合实例见证定位的魅力position]{`../../demo/demo.html?demoname=position`}
-> `../../images/css/css.png`
+> `../../images/home/css.png`
 
 ## 其他CSS属性 {#other}
 
