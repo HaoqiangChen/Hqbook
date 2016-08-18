@@ -46,3 +46,147 @@ CSS3 选择器支持情况：除了 IE 家族和 Firefox3，其他几乎全部�
 
 > @[附录：主流浏览器对CSS属性支持的详细列表]{`http://c.biancheng.net/view/1281.html`}
 > `../../images/home/css3.png`
+
+## CSS3 圆角`border-radius` {#border_radius}
+
+CSS3圆角只需设置一个属性：`border-radius`（含义是"边框半径"）。你为这个属性提供一个值，就能同时设置四个圆角的半径。所有合法的CSS度量值都可以使用：em、px、百分比等等。  
+`border-radius:50px;`这条语句同时将每个圆角的"水平半径"和"垂直半径"都设置为50px。
+
+![border-radius](../../images/css/border-radius.png)
+
+### CSS3 border-radius - 指定每个圆角
+
+`border-radius`可以同时设置1到4个值指定每个圆角。（类似`margin`与`padding`属性）
+* **1个值**，四个圆角值相同
+* **2个值**，第一个值为左上角与右下角，第二个值为右上角与左下角
+* **3个值**，第一个值为左上角, 第二个值为右上角和左下角，第三个值为右下角
+* **4个值**，则依次对应左上角、右上角、右下角、左下角(顺时针顺序)。
+
+`border-radius: 10px 20px 30px 40px / 5px 10px 15px 20px;`  
+也可以分别设置**每个角的垂直半径和水平半径**,`用斜杠隔开`，第一个参数表示左上角开始顺时针的水平半径，第二个参数表示左上角开始顺时针的垂直半径
+
+**CSS3提供四个单独的属性 对应四个角**  
+`border-top-left-radius`    `border-bottom-right-radius`  
+`border-top-right-radius`   `border-bottom-left-radius`  
+这四个属性都可以同时设置1到2个值。如果设置1个值，表示水平半径与垂直半径相等。如果设置2个值，第一个值表示水平半径，第二个值表示垂直半径。
+
+### 常用圆角图形
+
+#### 圆
+
+```css
+.circle {width:100px; height:100px; border-radius: 50%;background: gold;}
+```
+
+<div style="width:100px; height:100px; border-radius: 50%;background: gold;"></div>
+
+#### 半圆
+
+```css
+.semi_circle {
+    width:200px;
+    height:100px; /* 高度是宽度的一半 */
+    background-color:#000;
+    border-radius:100px 100px 0 0; /* 左上和右上至少为height值 */
+}
+```
+
+<div style="width:200px;height:100px;background-color:#000;border-radius:100px 100px 0 0;"></div>
+
+#### 扇形
+
+```css
+.sector {width:0; height:0; border:50px solid gray; border-radius:50px; border-right-color:red;}
+```
+
+<div style="width:0; height:0; border:50px solid gray; border-radius:50px; border-right-color:red;"></div>
+
+#### 椭圆
+
+```css
+.ellipse {width:200px; height:100px; background: blue; border-radius:100px/50px;}
+```
+
+<div style="width:200px; height:100px; background: blue; border-radius:100px/50px;"></div>
+
+> @[常用圆角图形]{`../../demo/demo.html?demoname=border-radius`}
+> `../../images/css/border-radius.png` "rect"
+
+## CSS3 背景`background` {#background}
+
+CSS3 中包含几个新的背景属性([`background-image`](./README.md#background), [`background-size`](./README.md#background), 
+[`background-origin`](./README.md#background), `background-clip`)，提供更大背景元素控制，更是可以`使用多重背景图像`。
+
+### CSS3 `background-clip`属性
+
+CSS3中background-clip背景剪裁属性是从指定位置开始绘制。
+
+**语法：**`background-clip: border-box|padding-box|content-box;`
+
+值 | 说明
+:- | :-
+border-box | 默认值。背景绘制在边框方框内（剪切成边框方框）。
+padding-box | 背景绘制在衬距方框内（剪切成衬距方框）。
+content-box | 背景绘制在内容方框内（剪切成内容方框）。
+
+> @[`background-clip`属性]{`../../demo/demo.html?demoname=background-clip`}
+> `../../images/home/css3.png`
+
+### CSS3 多重背景(multiple backgrounds)
+
+多重背景，也就是CSS2里background的属性外加origin、clip和size组成的新background的多次叠加，缩写时为用逗号隔开的每组值；用分解写法时，如果有多个背景图片，而其他属性只有一个（例如background-repeat只有一个），表明所有背景图片应用该属性值。
+
+**语法缩写如下：**
+```css
+{
+    background: [background-color] | [background-image] | [background-position][/background-size] | [background-repeat] | [background-attachment] | [background-clip] | [background-origin],...
+}
+```
+可以把上面的缩写拆解成以下形式：
+```css
+{
+    background-image:url1,url2,...,urlN;
+    background-repeat : repeat1,repeat2,...,repeatN;
+    backround-position : position1,position2,...,positionN;
+    background-size : size1,size2,...,sizeN;
+    background-attachment : attachment1,attachment2,...,attachmentN;
+    background-clip : clip1,clip2,...,clipN;
+    background-origin : origin1,origin2,...,originN;
+    background-color : color;
+}
+```
+
+> [!danger]
+> * 用逗号隔开每组 background 的缩写值；
+> * 如果有 size 值，需要紧跟 position 并且用 "/" 隔开；
+> * 如果有多个背景图片，而其他属性只有一个（例如 background-repeat 只有一个），表明所有背景图片应用该属性值。
+> * background-color 只能设置一个。
+
+**代码示例：**
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#example1 {
+    background-image: url(../../images/css/img_flwr.png), url(../../images/css/paper.png);
+    background-position: right bottom, left top;
+    background-repeat: no-repeat, repeat;
+    padding: 15px;
+}
+</style>
+</head>
+<body>
+    <div id="example1">
+        <h1>Lorem Ipsum Dolor</h1>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+    </div>
+</body>
+</html>
+```
+
+**显示效果如下：**
+<div style="width:70%;margin:0 auto;background-image: url(../../images/css/img_flwr.png), url(../../images/css/paper.png);background-position: right bottom, left top;background-repeat: no-repeat, repeat;padding: 15px;">
+        <h1>Lorem Ipsum Dolor</h1>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+</div>
