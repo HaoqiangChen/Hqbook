@@ -190,3 +190,161 @@ content-box | 背景绘制在内容方框内（剪切成内容方框）。
         <h1>Lorem Ipsum Dolor</h1>
         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
 </div>
+
+## CSS3 渐变`gradients` {#gradients}
+
+CSS3 渐变（gradients）可以让你在两个或多个指定的颜色之间显示平稳的过渡。  
+以前，你必须使用图像来实现这些效果。但是，通过使用 CSS3 渐变（gradients），你可以减少下载的时间和宽带的使用。此外，渐变效果的元素在放大时看起来效果更好，因为渐变（gradient）是由浏览器生成的。
+
+**渐变的含义与组成**
+* **含义：**两种或多种颜色之间平滑过渡的效果
+* **组成：**由色标来组成（色标：1.颜色 2.颜色出现的位置）
+
+### CSS3 线性渐变（Linear Gradients）
+
+为了创建一个线性渐变，你必须至少定义两种颜色节点。颜色节点即你想要呈现平稳过渡的颜色。同时，你也可以设置一个起点和一个方向（或一个角度）。
+
+#### 语法
+
+```css
+{ background-image: linear-gradient(direction, color-stop1, color-stop2, ...); }
+```
+
+> `direction`: 指定渐变的方向或角度，属性值为 方向的关键词或角度值
+
+角度是指水平线和渐变线之间的角度，逆时针方向计算。换句话说，0deg 将创建一个从下到上的渐变，90deg 将创建一个从左到右的渐变。
+
+<img alt="角度" src="../../images/css/angle.jpg" width=400 />
+
+> [!warning]
+> 但是，请注意很多浏览器(Chrome,Safari,fiefox等)的使用了旧的标准，即 0deg 将创建一个从下到上的渐变，90deg 将创建一个从左到右的渐变。换算公式 `90 - x = y` 其中 x 为标准角度，y为非标准角度。
+
+角度 | `direction` | 作用
+:- | :- | :-
+0deg/360deg | to top | 从下向上填充渐变
+90deg | to right | 从左向右填充渐变
+180deg | to bottom | (默认值)从上向下填充渐变
+270deg | to left | 从右向左填充渐变
+45deg | to top right | 左下角到右上角填充渐变
+135deg | to bottom right | 左上角到右下角填充渐变
+225deg | to bottom left | 右上角到左下角填充渐变
+315deg | to top left | 右下角到左上角填充渐变
+
+> @[CSS3 线性渐变（Linear Gradients）实例]{`../../demo/demo.html?demoname=linear-gradient`}
+> `../../images/home/css3.png`
+
+> `color-stop`: 色标，标识一种颜色，以及出现的位置
+
+第一个参数省略时，默认为“180deg”，等同于“to bottom”。  
+第二个和第三个参数，表示颜色的起始点和结束点，可以有多个颜色值。  
+颜色值后面可以追加百分比，表示这个颜色要占总背景颜色面积的百分比。不加百分比即为平均分布。
+
+**举例说明：**
+```css
+div { background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet); }
+```
+该div元素线性渐变，方向是to right，即从左向右填充渐变，7 个颜色结点（均匀分布），效果类似彩虹
+```css
+div { background-image:linear-gradient(to right, red 10%,blue 80%,green 90%); }
+```
+该div元素线性渐变，方向是to right，即从左向右填充渐变，10%的时候是红色，80%的时候是蓝色，90%的时候是绿色，加百分比不均匀分布
+
+**显示效果如下：**
+<p>7 个颜色结点（均匀分布）</p>
+<div style="height: 50px;background-image:linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);"></div>
+<p>3 个颜色结点（不均匀分布）</p>
+<div style="height: 50px;background-image:linear-gradient(to right,red 0%,blue 50%,green 100%);"></div>
+
+### CSS3 径向渐变（Radial Gradients）
+
+径向渐变由它的中心定义。  
+为了创建一个径向渐变，你也必须至少定义两种颜色结点。颜色结点即你想要呈现平稳过渡的颜色。同时，你也可以指定渐变的中心、形状（圆形或椭圆形）、大小。默认情况下，渐变的中心是 center（表示在中心点），渐变的形状是 ellipse（表示椭圆形），渐变的大小是 farthest-corner（表示到最远的角落）。
+
+#### 语法
+
+```css
+{ background-image: radial-gradient(shape size at position, start-color, ..., last-color); }
+```
+
+> `shape`：设置形状
+
+shape 参数定义了形状。它可以是值 circle 或 ellipse。其中，circle 表示圆形，ellipse 表示椭圆形。默认值是 ellipse。
+
+> `size`：设置半径
+
+size 参数定义了渐变的大小。它可以是具体值 px，也可以是以下四个关键字：
+* `closest-side`: 半径为从圆心到最近边
+* `closest-corner`: 半径为从圆心到最近角
+* `farthest-side`: 半径为从圆心到最远边
+* `farthest-corner`: 半径为从圆心到最远角(默认)
+
+> @[深入理解CSS径向渐变radial-gradient]{`https://www.cnblogs.com/xiaohuochai/p/5383285.html`}
+> `../../images/home/css3.png`
+
+> `position`：圆心的位置
+
+可用数值、百分比、或者 关键字(`left/center/right/top/center/bottom`)表示
+
+> [!tip]
+> 该参数可以省略，如果省略的话，那么圆心默认就在元素的中间位置处
+
+**举例说明：**
+```css
+div { background-image:radial-gradient(100px at 0px 0px,red 0%,blue 50%,green 100%); }
+```
+该div元素径向渐变，圆的半径是100px，圆心在元素的左上角，0%的时候是红色，50%的时候是蓝色，100%的时候是绿色
+
+**显示效果如下：**
+<p>径向渐变，圆的半径是100px，圆心在元素的左上角，0%的时候是红色，50%的时候是蓝色，100%的时候是绿色</p>
+<div style="width:150px;height:150px;background-image:radial-gradient(100px at 0px 0px,red 0%,blue 50%,green 100%);"></div>
+
+### CSS3 重复渐变（Repeating Gradients）
+
+#### 语法
+
+```css
+/* 重复线性渐变 */
+{ background-image: repeating-linear-gradient(direction, color-stop1, color-stop2, ...); }
+/* 重复径向渐变 */
+{ background-image: repeating-radial-gradient(shape size at position, start-color, ..., last-color); }
+```
+重复渐变除了在线性渐变或者径向渐变前加`repeating-`之外，其他用法和属性均与普通线性渐变和径向渐变相同
+
+### 渐变效果图对比
+
+```css
+/* 线性渐变 */
+{ background-image: linear-gradient(to top,red 0%,blue 50%,green 100%); }
+/* 径向渐变 */
+{ background-image:radial-gradient(100px at center center,red 0%,blue 50%,green 100%); }
+/* 重复线性渐变 */
+{ background-image:repeating-linear-gradient(red, yellow 10%, green 20%); }
+/* 重复径向渐变 */
+{ background-image: repeating-radial-gradient(5px at 0px 0px,red 0%,blue 50%,green 100%); }
+{ background-image:repeating-radial-gradient(40px at center center,red 0%,blue 50%,green 100%); }
+```
+
+**显示效果如下：**
+<div style="display:inline-block;">
+    <p>线性渐变</p>
+    <p style="width: 150px;height: 150px;background-image: linear-gradient(to top,red 0%,blue 50%,green 100%);"></p>
+</div>
+<div style="display:inline-block;">
+    <p>径向渐变</p>
+    <p style="width: 150px;height: 150px;background-image:radial-gradient(100px at center center,red 0%,blue 50%,green 100%);"></p>
+</div>
+<div style="display:inline-block;">
+    <p>重复线性渐变</p>
+    <p style="width: 150px;height: 150px;background-image:repeating-linear-gradient(red, yellow 10%, green 20%);"></p>
+</div>
+<div style="display:inline-block;">
+    <p>重复径向渐变</p>
+    <p style="width: 150px;height: 150px;background-image: repeating-radial-gradient(5px at 0px 0px,red 0%,blue 50%,green 100%);"></p>
+</div>
+<div style="display:inline-block;">
+    <p>重复径向渐变</p>
+    <p style="width: 150px;height: 150px;background-image:repeating-radial-gradient(40px at center center,red 0%,blue 50%,green 100%);"></p>
+</div>
+
+> @[css3 渐变效果图对比]{`../../demo/demo.html?demoname=css3-gradient`}
+> `../../images/home/css3.png`

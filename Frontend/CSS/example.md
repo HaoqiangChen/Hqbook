@@ -17,3 +17,19 @@ display: -webkit-box;
 -webkit-line-clamp: 2;
 -webkit-box-orient: vertical;
 ``` 
+
+## background简写方式图片铺满元素的几种写法
+
+**1. 裁剪铺满背景,不拉伸图片形状。不要求全部展示图片的可以使用**
+```css
+{ background: url('../../images/home/css3.png') no-repeat center/cover; }
+```
+**2. 不裁剪铺满背景,不拉伸图片形状, 图片规格和屏幕一致可以使用这种方式**
+```css
+{ background: url('../../images/home/css3.png') no-repeat center/contain; }
+```
+**3. 不裁剪铺满背景, 拉伸图片形状。让整个图片全部填满元素**
+```css
+{ background: url('../../images/home/css3.png') no-repeat center/100% 100%; }
+```
+

@@ -30,10 +30,11 @@ header nav a{color:#333;margin-left:30px}
 header nav a:hover,header nav a.active{color:#3884ff;text-decoration:none}
 .container{width:98%;margin:15px auto}
 .CodeMirror{min-height:600px;font-family:Menlo,Monaco,Consolas,"Andale Mono","lucida console","Courier New",monospace}
-#textareaCode,#iframewrapper{min-height:600px}
-#iframeResult{display:block;overflow:hidden;border:0 !important;min-width:100px;width:100%;min-height:600px;background-color:#fff}
+#textareaCode,#iframewrapper{min-height:600px;overflow:hidden}
+#iframeResult{display:block;overflow:hidden;border:0 !important;min-width:100px;width:101.5%;min-height:600px;background-color:#fff;}
 .cm-matchhighlight{background-color:rgba(255,255,255,.3) !important;}
 .CodeMirror-selection-highlight-scrollbar{background-color:green}
+.panel-editor{padding:15px 0;background: #272822;}
 @media screen and (max-width:768px){#textareaCode,#iframeResult,.CodeMirror{height:300px}
     .form-inline{padding:6px 0 2px 0}
 }
