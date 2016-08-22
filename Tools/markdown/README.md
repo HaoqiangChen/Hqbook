@@ -423,7 +423,7 @@ Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的�
 `Markdown` 支持以比较简短的自动链接形式来处理网址和电子邮件信箱，只要是用`<>`包起来，`Markdown`就会自动把它转成链接。一般网址的链接文字就和链接地址一样，例如：
 
 ```markdown
-<http://example.com/>
+<https://example.com/>
 <address@example.com>
 ```
 
@@ -542,7 +542,7 @@ Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的�
 
 可以用codecogs的云服务，在线LaTeX 数学公式编辑工具，api+一大串LaTex，比如：  
 ```html
-<img src="http://latex.codecogs.com/gif.latex?\frac{\partial J}{\partial \theta_k^{(j)}}=  
+<img alt="LaTeX数学公式" src="http://latex.codecogs.com/gif.latex?\frac{\partial J}{\partial \theta_k^{(j)}}=  
 \sum_{i:r(i,j)=1}{\big((\theta^{(j)})^Tx^{(i)}-y^{(i,j)}\big)x_k^{(i)}}+\lambda \theta_k^{(j)}" />
 ```
 当然这么强大的在线公式编辑器肯定提供了在线GUI给大家，打开网址：[http://www.codecogs.com/latex/eqneditor.php](http://www.codecogs.com/latex/eqneditor.php)，
@@ -584,7 +584,7 @@ $$\sum^{j-1}_{k=0}{\widehat{\gamma}_{kj} z_k}$$
 原生不支持，可使用以下图片：  
 ![](http://latex.codecogs.com/gif.latex?\\sum_{i=1}^n&space;a_i=0 "\sum_{i=1}^n a_i=0")  
 
-<img src="http://latex.codecogs.com/gif.latex?f(x_1,x_x,\ldots,x_n)&space;=&space;x_1^2&space;&plus;&space;
+<img alt="" src="http://latex.codecogs.com/gif.latex?f(x_1,x_x,\ldots,x_n)&space;=&space;x_1^2&space;&plus;&space;
 x_2^2&space;&plus;&space;\cdots&space;&plus;&space;x_n^2" 
 title="f(x_1,x_x,\ldots,x_n) = x_1^2 + x_2^2 + \cdots + x_n^2" />
 
@@ -596,7 +596,7 @@ title="f(x_1,x_x,\ldots,x_n) = x_1^2 + x_2^2 + \cdots + x_n^2" />
 
 ![](http://latex.codecogs.com/gif.latex?\\sum_{i=1}^n&space;a_i=0 "\sum_{i=1}^n a_i=0")
 
-<img src="http://latex.codecogs.com/gif.latex?f(x_1,x_x,\ldots,x_n)&space;=&space;x_1^2&space;&plus;&space;x_2^2&space;&plus;&space;\cdots&space;&plus;&space;x_n^2" title="f(x_1,x_x,\ldots,x_n) = x_1^2 + x_2^2 + \cdots + x_n^2" />
+<img alt="" src="http://latex.codecogs.com/gif.latex?f(x_1,x_x,\ldots,x_n)&space;=&space;x_1^2&space;&plus;&space;x_2^2&space;&plus;&space;\cdots&space;&plus;&space;x_n^2" title="f(x_1,x_x,\ldots,x_n) = x_1^2 + x_2^2 + \cdots + x_n^2" />
 
 ![](http://latex.codecogs.com/gif.latex?\\sum^{j-1}_{k=0}{\widehat{\gamma}_{kj}&space;z_k} "\sum^{j-1}_{k=0}{\widehat{\gamma}_{kj} z_k}")
 

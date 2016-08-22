@@ -21,7 +21,7 @@ Nunjucks语法与**Jinja2**或**Liquid**非常相似。语法使用大括号`{}`
 
 如果值未定义，则不显示任何内容。如果foo未定义，下面的所有输出都不会输出：`{{ foo }}`, `{{ foo.bar }}`, `{{ foo.bar.baz }}`。
 
-GitBook提供了[预定义变量](#variables)。
+GitBook提供了[预定义变量](config.md#variables)。
 
 ## 过滤器
 

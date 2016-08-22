@@ -14,7 +14,7 @@ hqbook其实是我个人平时学习笔记，就是零散记点编程知识点�
 - 在线阅读：https://haoqiangchen.github.io/hqbook/
 
 ## Build Setup
-克隆代码到本地之后，可以查看本书 [Gitbook](gitbook/README.md) 笔记了解如何运行本项目。
+克隆代码到本地之后，可以查看本书 [Gitbook](Tools/gitbook/README.md) 笔记了解如何运行本项目。
 
 ```bash
 # 如果 gitbook 没有安装，运行下面的命令，如果有，忽略它
@@ -116,4 +116,4 @@ del /S /Q docs\*.md
 
 ## 最后
 
-如果觉得我的笔记还不错的话 <i class="fa fa-thumbs-up" /> ，就给个`star` <i class="fa fa-star" style="font-size: 20px;color: goldenrod;"></i> 鼓励一下吧~
+如果觉得我的笔记还不错的话 👏 ，就给个`star` 🌟 鼓励一下吧~

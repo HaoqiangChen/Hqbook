@@ -90,8 +90,8 @@ gitbook-cli是一个命令行工具，使用方法：
 ```markdown
 # Summary
 
-* [简介](README.md)
-* [常见问题](Faq.md)
+* [简介](build.md)
+* [常见问题](config.md)
 ```
 
 ### 本地预览
@@ -129,7 +129,7 @@ $ gitbook -h
 
 ## 目录结构 {#structure}
 
-GitBook使用[SUMMARY](#summary)文件管理目录结构，文件支持Markdown和Asciidoc两种语法。 GitBook按照[SUMMARY](#summary)文件中的目录结构生成HTML。 如果你通过GitBook创建一本支持多语言文档，目录结构会稍微不同，具体可参考[多语言环境](#language)。
+GitBook使用[SUMMARY](#summary)文件管理目录结构，文件支持Markdown和Asciidoc两种语法。 GitBook按照[SUMMARY](#summary)文件中的目录结构生成HTML。 如果你通过GitBook创建一本支持多语言文档，目录结构会稍微不同，具体可参考[多语言环境](config.md#language)。
 
 一般GitBook目录如下：
 
@@ -153,7 +153,7 @@ GitBook使用[SUMMARY](#summary)文件管理目录结构，文件支持Markdown�
 | `book.json` | 保存 [配置文件](config.md) 数据 (__可选__) |
 | `README.md` | 简介 - 书籍的简单介绍 (**必填**) |
 | `SUMMARY.md` | 目录 (参见 [目录管理](#structure)) (__可选__) |
-| `GLOSSARY.md` | 字段/注释 - 专业术语列表 (参见 [词汇表](#lexicon)) (__可选__) |
+| `GLOSSARY.md` | 字段/注释 - 专业术语列表 (参见 [词汇表](config.md#lexicon)) (__可选__) |
 
 ### 静态文件和图像
 
@@ -202,14 +202,14 @@ GitBook使用一个 `SUMMARY.md` 文件来定义文档的菜单。
 
 ##### 简单示例
 
-```markdown
+```
 # 概述
 
 ### 第一部分
 
-* [ 第一部分 ]（part1 / README.md）
-     * [ 写作很好 ]（part1 / README.md＃writing）
-     * [ GitBook很不错 ]（part1 / README.md＃gitbook）
+* [第一部分](part1/README.md)
+     * [写作很好](part1/README.md＃writing)
+     * [GitBook很不错](part1/README.md＃gitbook)
 * [第二部分](part2/README.md)
     * [我们喜欢社交网络](part2/README.md#feedback)
     * [更好的写作工具](part2/README.md#tools)
@@ -221,14 +221,14 @@ GitBook使用一个 `SUMMARY.md` 文件来定义文档的菜单。
 
 文章可以使用区域导航定位到文件的特定部分。 在md文件结尾使用#号加上文章内容中章节的标题就能实现锚点
 
-```markdown
+```
 # 概述
 
 ### 第一部分
 
-* [ 第一部分 ]（part1 / README.md）
-     * [ 写作很好 ]（part1 / README.md＃writing）
-     * [ GitBook很不错 ]（part1 / README.md＃gitbook）
+* [第一部分](part1/README.md)
+    * [写作很好](part1/README.md＃writing)
+    * [GitBook很不错](part1/README.md＃gitbook)
 ```
 
 
@@ -267,7 +267,7 @@ GitBook使用一个 `SUMMARY.md` 文件来定义文档的菜单。
 ```markdown
 ＃ 本章标题
 
-这是一个很棒的介绍。
+这是一个很棒地介绍。
 
 ## 第1节
 

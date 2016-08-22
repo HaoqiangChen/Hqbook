@@ -68,3 +68,6 @@
 
 ## JavaScript
 * [JavaScript](Js/JavaScript/README.md)
+  * [JavaScript 简介](Js/JavaScript/README.md)
+  * [JavaScript 数据类型](Js/JavaScript/README.md#datatype)
+  * [JavaScript 知识图谱](Js/JavaScript/mind_map.md)

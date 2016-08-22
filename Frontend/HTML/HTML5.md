@@ -17,7 +17,7 @@ HTML5简化了许多,它的设计遵循了3个原则:1.兼容性、2.实用性�
 **完美的 IE浏览器 兼容 解决方案**
 ```html
 <!--[if lt IE 9]>
-  <script src="http://cdn.static.runoob.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+  <script src="https://cdn.static.runoob.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
 <![endif]-->
 ```
 html5shiv.js 引用代码必须放在 <head> 元素中，因为 IE 浏览器在解析 HTML5 新元素时需要先加载该文件。
@@ -114,11 +114,11 @@ poster   | 规定视频下载时显示的图像，或者在用户点击播放按
 preload  | 视频在页面加载时进行加载并预备播放，属性值(none:只有单击了Play按钮才加载视频;metadata:仅加载元数据,例如视频长度、作者、版权)
 
 ```html
-<video src="../../images/html/一拳打碎屏幕的老外.mp4" width="320" controls muted poster="images/logo.png" preload></video>
+<video src="../../images/html/一拳打碎屏幕的老外.mp4" width="320" controls muted poster="../../images/html/poster.png" preload></video>
 ```
 **显示效果如下**
 
-<video src="../../images/html/一拳打碎屏幕的老外.mp4" width="320" controls muted poster="images/logo.png" preload></video>
+<video src="../../images/html/一拳打碎屏幕的老外.mp4" width="320" controls muted poster="../../images/html/poster.png" preload></video>
 
 ### 图形中的`figure`及`figcaption`
 
@@ -127,15 +127,16 @@ preload  | 视频在页面加载时进行加载并预备播放，属性值(none:
 每一个`figure`元素中只能包括一个`figcaption`元素。图片排列一起可用。常常用到一种图片列表，图片+标题或者图片+标题+简单描述。
 
 ```html
+
 <figure>
-    <img src="../../images/html/bridge.jpg" width="350" height="234" />
+    <img alt="黄浦江上的的卢浦大桥" src="../../images/html/bridge.jpg" width="319" height="213"/>
     <figcaption style="color: red">黄浦江上的的卢浦大桥</figcaption>
 </figure>
 ```
 **显示效果如下**
 
 <figure>
-    <img src="../../images/html/bridge.jpg" width="350" height="234" />
+    <img alt="黄浦江上的的卢浦大桥" src="../../images/html/bridge.jpg" width="319" height="213" />
     <figcaption style="color: red">黄浦江上的的卢浦大桥</figcaption>
 </figure>
 
@@ -365,7 +366,7 @@ Progress:<progress value="0" max="10" id="pb"></progress></p>
       var ip=document.getElementsByTagName("input");
       var cnt=0;
       for(var i=0;i<ip.length;i++){
-        if(ip[i].checked==true){
+        if(ip[i].checked===true){
           cnt++;
         }
       }
@@ -469,7 +470,7 @@ items.Total price:
   function check(){
     var psw1=document.getElementById("password1");
     var psw2=document.getElementById("password2");
-    if(psw1.value!=psw2.value)
+    if(psw1.value!==psw2.value)
       psw2.setCustomValidity("密码和确定密码不一致");
     return false;
   }
