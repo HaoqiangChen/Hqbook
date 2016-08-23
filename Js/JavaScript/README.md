@@ -8,7 +8,7 @@ JavaScript 是可插入 HTML 页面的编程代码。JavaScript 插入 HTML 页�
 
 JavaScript 很容易学习。
 
-## Javascript 简介
+## JS 简介
 
 javascript因为兼容于ECMA标准，因此也称为ECMAScript。
 JavaScript作为一种脚本语言，已经被广泛地应用于Web页面当中，通过嵌入HTML来实现各种酷炫的动态效果，为用户提供赏心悦目的浏览效果。  
@@ -36,7 +36,7 @@ JavaScript和Java除了在名字上有一点类似，以及JavaScript语法源�
 JAVA是强类型语言：因此每个变量和对象都必须具有声明类型。  
 javascript是弱类型语言：因此它可以不先定义类理和对象、或用var定义所有变量
 
-## JavaScript 用法
+## JS 用法
 
 HTML 中的脚本必须位于 `<script>` 与 `</script>` 标签之间。脚本可被放置在 HTML 页面的 `<body>` 和 `<head>` 部分中。  
 也可以把脚本保存到外部文件中。外部文件通常包含被多个网页使用的代码。外部 JavaScript 文件的文件扩展名是 .js。  
@@ -47,9 +47,7 @@ HTML 中的脚本必须位于 `<script>` 与 `</script>` 标签之间。脚本�
   HTML文件的`<head>...</head>`标记中。某些代码，比如函数体内的代码，不会被立即执行，只有当所在的函数被其他程序调用时，该代码才会被执行。
 * 与Java语言不同，JavaScript并不要求必须以分号`;`作为语句的结束标记。JavaScript会自动将该行代码的结尾作为语句的结尾。
 
-### JavaScript 语法
-
-#### JavaScript 字面量/常量
+### JS 字面量/常量
 
 在编程语言中，一般固定值称为字面量，如 3.14。
 1. **数字（Number）字面量** 可以是整数或者是小数，或者是科学计数(e):`3.14`；
@@ -59,7 +57,7 @@ HTML 中的脚本必须位于 `<script>` 与 `</script>` 标签之间。脚本�
 5. **对象（Object）字面量** 定义一个对象：`{a: 1, b: 2}`；
 6. **函数（Function）字面量** 定义一个函数：`function fun(a) {return a}`。
 
-#### JavaScript 关键字
+### JS 关键字
 
 JavaScript 关键字用于标识要执行的操作。关键字是不能作为变量名和函数名使用的。比如 `var` 关键字告诉浏览器创建一个新的变量。  
 以下是 JavaScript 中最重要的保留字（按字母顺序）：
@@ -73,7 +71,7 @@ instanceof | int | interface | let | long | native | new | null | package | priv
 protected | public | return | short | static | super | switch | synchronized | this | throw
 throws | transient | true | try | typeof | var | void | volatile | while | with
 
-#### JavaScript 变量
+### JS 变量
 
 在编程语言中，变量用于存储数据值。JavaScript 使用关键字 var 来定义变量， 使用等号来为变量赋值。
 
@@ -97,7 +95,7 @@ throws | transient | true | try | typeof | var | void | volatile | while | with
 > [!tip]
 > 一个好的编程习惯是，在代码开始处，统一对需要的变量进行声明。
 
-#### JavaScript 注释
+### JavaScript 注释
 
 //      单行注释  
 /* */   多行注释，注意：多行注释不能互相嵌套
@@ -114,8 +112,272 @@ throws | transient | true | try | typeof | var | void | volatile | while | with
 
 ![Chrome 浏览器中执行 JavaScript](../../images/javascript/snippets2.jpg)
 
-## JavaScript 数据类型 {#datatype}
+## JS 数据类型 {#datatype}
 
 **值类型(基本类型)**：字符串（String）、数字(Number)、布尔(Boolean)、对空（Null）、未定义（Undefined）、Symbol。  
 **引用数据类型**：对象(Object)、数组(Array)、函数(Function)。
 
+> [!Warning|label: 注意]
+> Symbol 是 ES6 引入了一种新的原始数据类型，表示独一无二的值。
+
+### JS 拥有动态类型
+
+JavaScript 拥有动态类型。这意味着相同的变量可用作不同的类型：
+```js
+var x;               // x 为 undefined
+var x = 5;           // 现在 x 为数字
+var x = "John";      // 现在 x 为字符串
+```
+
+### JS 字符串（String）
+
+字符串由零个或多个Unicode字符构成，可以是引号中的任意文本。您可以使用单引号或双引号。  
+单引号中可以含有单引号或双引号，只要不匹配包围字符串的引号即可；但是单包单或双包双时必须进行转义，用\隔开。
+```js
+var str = 'I like "JavaScript"'; // 单包双
+var str = "I like 'JavaScript'"; // 双包单
+
+var str = 'I like \'JavaScript\''; // 单包单
+var str = "I like \"JavaScript\""; // 双包双
+```
+
+> [!note]
+> javascript中的字符串是不可变的。一旦字符串被创建，就永远无法改变它。要改变某个变量保存的字符串，  
+> 首先要销毁原来的字符串，然后再用另一个包含新值的字符串填充该变量，可以通过+运算符连接其他字符串来创建一个新字符串。  
+> 举例：`var lang = "java"; lang = lang + "script";` => 'javascript'  
+> 以上代码的实际过程是：首先创建一个能够容纳10个字符的新字符串，然后在这个字符串中填充'java'和'script'，
+最后一步是销毁原来的字符串'java'和'script'，因为这两个字符串已经没用了。
+
+### JS 数字（Number）
+
+JavaScript 只有一种数字类型。数字可以带小数点，也可以不带：
+```js
+var x1=34.00;      //使用小数点来写
+var x2=34;         //不使用小数点来写
+```
+极大或极小的数字可以通过科学（指数）计数法来书写：
+```js
+var y=123e5;      // 12300000
+var z=123e-5;     // 0.00123
+```
+
+### JS 布尔（Boolean）
+
+布尔（逻辑）只能有两个值：true 或 false。
+
+> [!danger]
+> 在`Number()`方法中空字符串和空白字符串都转换为`0`，而在`Boolean`方法中，`空字符串""`转换为 false，而`空白字符串" "`转换为 true。  
+> 与字符串不同，不要把布尔值用引号括起来。布尔值 false 与 字符串 "false"是两回事。
+
+### JS 数组（Array）
+
+我们的变量一般都只能存储一个内容，所以它其实是一个单一的容器。  
+我们的数组一般可以存一个或者是多个值，所以数组是一个大的容器。
+
+> 组成部分
+
+数组其实是由多个(键-值)所组成的一个多容器，数组的索引 默认是从0开始的，所以第一个项目是 [0]，第二个是 [1]，以此类推。
+
+### JS 对象（Object）
+
+在 JavaScript中，几乎所有的事物都是对象。  
+对象由花括号分隔。在括号内部，对象的属性以名称和值对的形式 (name : value) 来定义。属性由逗号分隔：
+```js
+var person={firstname:"John", lastname:"Doe", id:5566};
+```
+上面例子中的对象 (person) 有三个属性：firstname、lastname 以及 id。  
+空格和折行无关紧要。声明可横跨多行：
+```js
+var person={
+  firstname : "John",
+  lastname  : "Doe",
+  id        :  5566
+};
+```
+**对象属性有两种寻址方式：**
+```js
+name=person.lastname;
+name=person["lastname"];
+```
+
+### 特殊数据类型
+
+#### 转义字符
+
+在javascript字符串，反斜线 ` \ ` 有着特殊的用途，反斜线符号后加一个字符，就不表示它们的字面含义，用来表示一些特殊字符，称为转义字符。
+
+   |   |   |   |   |   |   |   |   |   |
+ - | - | - | - | - | - | - | - | - | - 
+ `\0` | 空字节 | `\n` | 换行 | `\t` | 制表 | `\b` | 空格 | `\r` | 回车
+ `\f` | 换页符 | `\\` | 反斜杠,对自身转义 | `\'` | 单引号 | `\"` | 双引号 |  | 
+
+`\xnn` 以十六进制nn表示一个字符(n为0-f)，如`\x41`表示`A`  
+`\unnnn` 以十六进制nnnn表示一个Unicode字符(n为0-f)，如`\u03a3`表示`希腊字符ε`
+
+> [!tip]
+> 如果在非特殊字符前面使用反斜杠，则反斜杠会被省略，如 `'\a'` => `'a'`
+
+#### null
+
+在JavaScript中`null`表示"`什么都没有，为空值`"。  
+`null`是一个只有一个值的特殊类型。表示一个空对象引用。  
+`var person = null;` // 你可以设置为`null`来清空对象。  
+**注意：`null` 不等同于`空的字符串（""）`或`0`**
+
+#### undefined
+
+在JavaScript中, `undefined`是一个没有设置值的变量，表示变量还没有赋值（如`var a;`），
+或者赋予一个不存在的属性值（如`var a=String.notProperty;`）。`typeof`一个没有值的变量会返回`undefined`。  
+`var person = undefined;` // 你可以设置为`undefined`来清空对象。
+
+> `undefined`和`null`的区别
+
+```js
+typeof undefined             // undefined
+typeof null                  // object
+null === undefined           // false
+null == undefined            // true
+```
+
+#### NaN
+
+特殊类型的数字常量`NaN`，即“非数字”。当在程序中由于某种原因发生计算错误后，将产生一个没有意义的数字，此时JavaScript返回的数字值就是`NaN`。
+
+### 声明变量类型
+
+当您声明新变量时，可以使用关键词 `new` 来声明其类型：
+```js
+var carname = new String;
+var x = new Number;
+var y = new Boolean;
+var cars = new Array;
+var person = new Object;
+```
+
+> [!note]
+> JavaScript 变量均为对象。当您声明一个变量时，就创建了一个新的对象。
+
+## JS 数据类型转换
+
+### typeof 操作符
+
+你可以使用 typeof 操作符来检测变量的数据类型。
+```js
+typeof "John"                // 返回 string
+typeof 3.14                  // 返回 number
+typeof false                 // 返回 boolean
+typeof [1,2,3,4]             // 返回 object
+typeof {name:'John', age:34} // 返回 object
+```
+
+> [!tip]
+> 在JavaScript中，数组是一种特殊的对象类型。 因此 `typeof [1,2,3,4]` 返回 `object`。  
+> `NaN` 的数据类型是 `number`; 日期(Date)的数据类型为 object; `null` 的数据类型是 `object`。
+
+### constructor 属性
+
+constructor 属性返回所有 JavaScript 变量的构造函数。
+```js
+"John".constructor                 // 返回函数 String()  { [native code] }
+(3.14).constructor                 // 返回函数 Number()  { [native code] }
+false.constructor                  // 返回函数 Boolean() { [native code] }
+[1,2,3,4].constructor              // 返回函数 Array()   { [native code] }
+{name:'John', age:34}.constructor  // 返回函数 Object()  { [native code] }
+new Date().constructor             // 返回函数 Date()    { [native code] }
+function () {}.constructor         // 返回函数 Function(){ [native code] }
+```
+你可以使用 constructor 属性来查看对象是否为数组 (包含字符串 "Array")，也可以使用 constructor 属性来查看对象是否为日期 (包含字符串 "Date"):
+
+> @[constructor 属性实例]{`../../demo/demo.html?demoname=constructor`}
+> `../../images/home/javascript.png`
+
+### JS 数据类型转换
+
+#### 强制转换
+
+强制转换主要指使用Number、String和Boolean三个构造函数，手动将各种类型的值，转换成数字、字符串或者布尔值
+
+**1. Number函数：强制转换成数值**
+```js
+Number("324") // 324
+Number("324abc") // NaN
+Number("") // 0
+Number(false) // 0
+Number(undefined) // NaN
+Number(null) // 0
+```
+**2. String函数：强制转换成字符串**
+```js
+String(123) // "123"
+String("abc") // "abc"
+String(true) // "true"
+String(undefined) // "undefined"
+String(null) // "null"
+```
+**3. Boolean函数：强制转换成布尔值**
+```js
+Boolean(undefined) // false
+Boolean(null) // false
+Boolean(0) // false
+Boolean(NaN) // false
+Boolean('') // false
+```
+
+#### 转换函数
+
+1. **toString()**：转换为字符串
+2. **parseInt()**：转换成整数
+3. **parseFloat()**：转换成浮点数
+
+更多更新转换函数在 [高级章节]，待完善。
+
+#### 自动转换
+
+当遇到以下几种情况，JavaScript会自动转换数据类型：
+
+* 不同类型的数据进行互相运算；
+* 对非布尔值类型的数据求布尔值;
+* 对非数值类型的数据使用一元运算符（即“+”和“-”）。
+
+**1. 自动转换为布尔值**
+
+除了以下六个值，其他都是自动转为true：`undefined`, `null`, `-0`, `+0`, `NaN`, `''`(空字符串)
+```js
+if (!undefined && !null && !0 && !NaN && !''){
+    console.log('true');
+}
+// true
+```
+
+**2. 自动转换为字符串**
+
+字符串的自动转换，主要发生在加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。
+```js
+'5' + 1 // '51'
+1 + 2 + '5'  // '35'
+'5' + true // "5true"
+'5' + {} // "5[object Object]"
+'5' + [] // "5"
+'5' + function (){} // "5function (){}"
+'5' + undefined // "5undefined"
+'5' + null // "5null"
+```
+
+**3. 自动转换为数值**
+
+除了加法运算符有可能把运算子转为字符串，其他运算符都会把两侧的运算子自动转成数值。
+```js
+'5' - '2' // 3
+'5' * '2' // 10
+true - 1 // 0
+false - 1 // -1
+'1' - 1 // 0
+'5'*[] // 0
+false/'5' // 0
+'abc'-1 // NaN
+```
+
+> @[javascript数据类型转换]{`https://www.css88.com/archives/5199`}
+> `../../images/home/javascript.png`
+
+## JS 运算符 {#operator}

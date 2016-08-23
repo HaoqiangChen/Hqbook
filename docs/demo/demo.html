@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hqbook-HTML在线编辑器</title>
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152"
+          href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+
+    <link href="./static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./static/css/codemirror/codemirror.min.css" rel="stylesheet">
+    <link href="./static/css/codemirror/monokai.css" rel="stylesheet">
+    <link href="./static/css/demo.css" rel="stylesheet">
+    <script src="./static/js/demojson.min.js"></script>
+
+    <script src="./static/js/codemirror/codemirror.min.js"></script>
+    <script src="./static/js/codemirror/htmlmixed.min.js"></script>
+    <script src="./static/js/codemirror/css.min.js"></script>
+    <script src="./static/js/codemirror/javascript.min.js"></script>
+    <script src="./static/js/codemirror/xml.min.js"></script>
+    <script src="./static/js/codemirror/simplescrollbars.min.js"></script>
+    <script src="./static/js/codemirror/xml-fold.min.js"></script>
+    <script src="./static/js/codemirror/foldcode.min.js"></script>
+    <script src="./static/js/codemirror/foldgutter.min.js"></script>
+    <script src="./static/js/codemirror/match-highlighter.min.js"></script>
+    <script src="./static/js/codemirror/closetag.min.js"></script>
+    <script src="./static/js/codemirror/closebrackets.min.js"></script>
+    <script src="./static/js/codemirror/comment.min.js"></script>
+    <script src="./static/js/codemirror/sublime.min.js"></script>
+    <script src="./static/js/codemirror/fullscreen.min.js"></script>
+
+    <script src="./static/js/format.min.js"></script>
+    <script src="./static/js/clipboard.min.js"></script>
+</head>
+<body onload="onload()">
+<header>
+    <div class="logo">
+        <img src="../images/home/logo.png" alt="logo">
+        <span class="title">hqbook</span>
+    </div>
+    <nav>
+        <a href="http://jsrun.net" target="_blank">JSRUN</a>
+        <a href="https://www.runoob.com" target="_blank">菜鸟教程</a>
+        <a href="https://www.atool99.com" target="_blank">ATOOL在线工具</a>
+    </nav>
+    <div class="input-group">
+        <input type="text" id="searchInput" class="form-control" placeholder="Search for Baidu"
+               onkeydown="onKeydown(event)">
+        <span class="input-group-btn">
+            <button class="btn btn-primary" type="button" onclick="search()">Go!</button>
+          </span>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <form class="form-inline">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <button type="button" class="btn btn-default" onclick="resetCode()">HTML源代码</button>
+                                <button type="button" class="btn btn-primary" onclick="compressCode()">压缩</button>
+                                <button type="button" class="btn btn-danger" onclick="formatCode()">格式化</button>
+                                <button type="button" class="btn btn-warning" id="copycode">复制代码</button>
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <button type="button" class="btn btn-success" onclick="submitTryit()" id="submitBTN">
+                                    <span class=""></span> 点击运行
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="panel-editor">
+                    <textarea class="form-control" id="textareaCode" name="textareaCode"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <form class="form-inline">
+                        <button type="button" class="btn btn-info">运行结果</button>
+                    </form>
+                </div>
+                <div class="panel-body">
+                    <div id="iframewrapper"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+var mixedMode = {
+  name: "htmlmixed",
+  scriptTypes: [{
+    matches: /\/x-handlebars-template|\/x-mustache/i,
+    mode: null
+  },
+    {
+      matches: /(text|application)\/(x-)?vb(a|script)/i,
+      mode: "vbscript"
+    }]
+};
+
+var editor = CodeMirror.fromTextArea(document.getElementById("textareaCode"), {
+  mode: mixedMode, // 模式
+  selectionPointer: true, // 当将鼠标悬停在所选内容上时，可用于控制鼠标光标的外观
+  lineNumbers: true, // 是否显示行号
+  lineWrapping: true, // 是否应滚动或换行以显示长行
+  theme: 'monokai', // 主题
+  scrollbarStyle: "overlay", // 滚动条
+  foldGutter: true, // 折叠代码块
+  gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"], // 折叠代码块
+  autoCloseTags: true, // 该选项将在键入`>`或`/`时自动关闭XML标记，取决于fold/xml-fold.js插件
+  autoCloseBrackets: true, // 自动关闭括号和引号等符号
+  highlightSelectionMatches: {showToken: /\w/, annotateScrollbar: true}, // 突出显示当前所选单词的所有实例
+  keyMap: "sublime",
+  extraKeys: {
+    "Ctrl-J": "toMatchingTag", // 绑定到一个键，以跳转到与光标下方匹配的标签
+    "Ctrl-[": function (cm) {
+      cm.foldCode(cm.getCursor());
+    },
+    "Ctrl-shift-f": formatCode,
+    "F11": function (cm) {
+      cm.setOption("fullScreen", !cm.getOption("fullScreen"));
+    },
+    "Esc": function (cm) {
+      if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
+    }
+  },
+});
+
+function getUrlParam(param) {
+  return decodeURIComponent((new RegExp('[?|&]' + param + '=' + '([^&;]+?)(&|#|;|$)').exec(location.href) || [, ''])[1].replace(/\+/g, '%20')) || null;
+}
+
+function autodivheight() {
+  var winHeight = 0;
+  if (window.innerHeight) {
+    winHeight = window.innerHeight;
+  } else if ((document.body) && (document.body.clientHeight)) {
+    winHeight = document.body.clientHeight;
+  }
+  //通过深入Document内部对body进行检测，获取浏览器窗口高度
+  if (document.documentElement && document.documentElement.clientHeight) {
+    winHeight = document.documentElement.clientHeight;
+  }
+  height = winHeight * 0.76
+  editor.setSize('100%', height);
+  document.getElementById("iframeResult").style.height = height + "px";
+}
+
+function resetCode() {
+  var initCode = demojson[getUrlParam('demoname')] || '';
+  editor.getDoc().setValue(initCode);
+  formatCode();
+  submitTryit();
+}
+
+function submitTryit() {
+  var text = editor.getValue();
+  var patternHtml = /<html[^>]*>((.|[\n\r])*)<\/html>/im
+  var patternHead = /<head[^>]*>((.|[\n\r])*)<\/head>/im
+  var array_matches_head = patternHead.exec(text);
+  var patternBody = /<body[^>]*>((.|[\n\r])*)<\/body>/im;
+
+  var array_matches_body = patternBody.exec(text);
+  var basepath_flag = 1;
+  var basepath = '';
+  if (basepath_flag) {
+    basepath = '';
+  }
+  if (array_matches_head) {
+    text = text.replace('<head>', '<head>' + basepath);
+  } else if (patternHtml) {
+    text = text.replace('<html>', '<head>' + basepath + '</head>');
+  } else if (array_matches_body) {
+    text = text.replace('<body>', '<body>' + basepath);
+  } else {
+    text = basepath + text;
+  }
+  var ifr = document.createElement("iframe");
+  ifr.setAttribute("frameborder", "0");
+  ifr.setAttribute("id", "iframeResult");
+  document.getElementById("iframewrapper").innerHTML = "";
+  document.getElementById("iframewrapper").appendChild(ifr);
+
+  var ifrw = (ifr.contentWindow) ? ifr.contentWindow : (ifr.contentDocument.document) ? ifr.contentDocument.document : ifr.contentDocument;
+  ifrw.document.open();
+  ifrw.document.write(text);
+  ifrw.document.close();
+  autodivheight();
+}
+
+function search() {
+  window.open('https://www.baidu.com/s?ie=utf-8&wd=' + document.getElementById('searchInput').value, '_blank');
+}
+
+function onKeydown(e) {
+  if (e.keyCode === 13) {
+    search()
+  }
+}
+
+function compressCode() {
+  var code = editor.getValue();
+  var packer = new Packer;
+  var output = packer.pack(code, 0, 0);
+  editor.getDoc().setValue(output);
+}
+
+function formatCode() {
+  var code = editor.getValue();
+  if (code) {
+    var result = style_html(code, 1, '\t');
+    editor.getDoc().setValue(result);
+  }
+}
+
+function onload() {
+  resetCode();
+  autodivheight();
+
+  new ClipboardJS('.btn-warning', {
+    text: function (trigger) {
+      return editor.getDoc().getValue();
+    }
+  }).on('success', function (e) {
+    document.getElementById('copycode').innerHTML = '已复制';
+    e.clearSelection();
+  }).on('error', function (e) {
+    alert('Error!');
+  });
+}
+</script>
+</body>
+</html>

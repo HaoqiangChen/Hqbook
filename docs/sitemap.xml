@@ -6,12 +6,13 @@
 <url> <loc>https://haoqiangchen.github.io/Tools/gitbook/templating.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://haoqiangchen.github.io/Tools/gitbook/build.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://haoqiangchen.github.io/Tools/markdown/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://haoqiangchen.github.io/Frontend/HTML5/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://haoqiangchen.github.io/./</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://haoqiangchen.github.io/Tools/gitbook/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://haoqiangchen.github.io/Tools/gitbook/config.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://haoqiangchen.github.io/Tools/gitbook/templating.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://haoqiangchen.github.io/Tools/gitbook/build.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://haoqiangchen.github.io/Tools/markdown/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://haoqiangchen.github.io/Frontend/HTML5/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://haoqiangchen.github.io/Frontend/HTML/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://haoqiangchen.github.io/Frontend/HTML/HTML5.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://haoqiangchen.github.io/Frontend/HTML/Canvas.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://haoqiangchen.github.io/Frontend/HTML/svg.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://haoqiangchen.github.io/Frontend/CSS/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://haoqiangchen.github.io/Frontend/CSS/CSS3.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://haoqiangchen.github.io/Frontend/CSS/example.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://haoqiangchen.github.io/Js/JavaScript/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://haoqiangchen.github.io/Js/JavaScript/mind_map.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 </urlset>
