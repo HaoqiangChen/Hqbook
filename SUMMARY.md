@@ -72,4 +72,5 @@
   * [JS 数据类型](Js/JavaScript/README.md#datatype)
   * [JS 运算符](Js/JavaScript/README.md#operator)
   * [JS 条件语句](Js/JavaScript/README.md#if_else)
+  * [JS 循环语句](Js/JavaScript/README.md#for_or_while)
   * [JS 知识图谱](Js/JavaScript/mind_map.md)

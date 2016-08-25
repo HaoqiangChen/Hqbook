@@ -98,7 +98,7 @@ throws | transient | true | try | typeof | var | void | volatile | while | with
 ### JavaScript 注释
 
 //      单行注释  
-/* */   多行注释，注意：多行注释不能互相嵌套
+/\* \*/   多行注释，注意：多行注释不能互相嵌套
 
 ### Chrome 浏览器中执行 JavaScript
 
@@ -108,9 +108,9 @@ throws | transient | true | try | typeof | var | void | volatile | while | with
 我们也可以在 Chrome 浏览器中创建一个脚本来执行，在开发者工具中点击 Sources 面板，选择 Snippets 选项卡，在导航器中右击鼠标，
 然后选择 Creat new snippet 来新建一个脚本文件：
 
-![Chrome 浏览器中执行 JavaScript](../../images/javascript/snippets1.jpg)
+![Chrome 浏览器中执行 JavaScript](../../images/javascript/js-snippets1.jpg)
 
-![Chrome 浏览器中执行 JavaScript](../../images/javascript/snippets2.jpg)
+![Chrome 浏览器中执行 JavaScript](../../images/javascript/js-snippets2.jpg)
 
 ## JS 数据类型 {#datatype}
 
@@ -286,7 +286,7 @@ false.constructor                  // 返回函数 Boolean() { [native code] }
 [1,2,3,4].constructor              // 返回函数 Array()   { [native code] }
 {name:'John', age:34}.constructor  // 返回函数 Object()  { [native code] }
 new Date().constructor             // 返回函数 Date()    { [native code] }
-function () {}.constructor         // 返回函数 Function(){ [native code] }
+function() {}.constructor         // 返回函数 Function(){ [native code] }
 ```
 你可以使用 constructor 属性来查看对象是否为数组 (包含字符串 "Array")，也可以使用 constructor 属性来查看对象是否为日期 (包含字符串 "Date"):
 
@@ -395,12 +395,12 @@ false/'5' // 0
  -Infinity  |	-Infinity   |	"-Infinity" |	true	
  "" |	0   |	""  |	false	
  "20"   |	20  |	"20"    |	true	
- "Runoob"   |	NaN |	"Runoob"    |	true	
+ "Hqbook"   |	NaN |	"Hqbook"    |	true	
  [ ]    |	0   |	""  |	true	
  [20]   |	20  |	"20"    |	true	
  [10,20]    |	NaN |	"10,20" |	true	
- ["Runoob"] |	NaN |	"Runoob"    |	true	
- ["Runoob","Google"]    |	NaN |	"Runoob,Google" |	true	
+ ["Hqbook"] |	NaN |	"Hqbook"    |	true	
+ ["Hqbook","Google"]    |	NaN |	"Hqbook,Google" |	true	
  function(){}   |	NaN |	"function(){}"  |	true	
  { }    |	NaN |	"[object Object]"   |	true	
  null   |	0   |	"null"  |	false	
@@ -494,3 +494,511 @@ JavaScript中的运算符优先级是一套规则。该规则在计算表达式�
 
 ## JS 条件语句 {#if_else}
 
+### JS 流程控制
+
+就是程序代码执行顺序，通过规定的语句让程序代码有条件的按照一定的方式执行。
+
+三大流程控制结构：
+* `顺序结构`：按照书写顺序来执行，是程序中最基本的流程结构。
+* `条件结构（分支结构）`：根据给定的条件有选择的执行相应的语句，分支控制有三种：①单分支，②双分支，③多分支，④嵌套分支。
+* `循环结构`：在给定的条件满足的情况下，反复的执行同一段代码。
+
+### 条件语句
+
+> **if 语句** - (单分支)，只有当指定条件为 true 时，使用该语句来执行代码。
+
+```js
+if (condition) {
+ // 当条件为 true 时执行的代码，如果只包含一条语句，那么可以省略{}，一般最好不要省略
+}
+```
+
+> **if...else 语句** - (双分支)，当条件为 true 时执行代码，当条件为 false 时执行其他代码
+
+```js
+if (condition) {
+ // 当条件为 true 时执行的代码
+} else {
+ // 当条件不为 true 时执行的代码
+}
+```
+
+> **if...else if...else 语句** - (多分支)，如果某个条件成立，则后续就不再继续判断了，直接结束整个多分支。
+
+```js
+if (condition1) {
+ // 当条件 1 为 true 时执行的代码
+} else if (condition2) {
+ // 当条件 2 为 true 时执行的代码
+} else {
+ // 当条件 1 和 条件 2 都不为 true 时执行的代码
+}
+```
+
+> [!danger]
+> 一旦找到一个满足条件的入口，执行完毕后，就直接结束整个多分支，所以需要用对条件语句。比如：
+> `10<=A<=30`需要写成 `10<=A && A<=30`;
+
+```js
+var a = 5;
+if (a > 1) {
+ // 条件满足，执行这里的代码
+} else if (a > 3) {
+ // 这个入口条件虽然也满足条件，但是上面入口已经满足，所以这里不会执行。
+}
+```
+
+> **if...if... 语句** - (嵌套分支)，如果某个条件成立，则后续就不再继续判断了，直接结束整个多分支。
+
+```js
+if (condition1) {
+ // 当条件 1 为 true 时执行的代码
+ if (condition2) {
+  // 当条件1和条件2 都为 true 时执行的代码
+ }
+} else {
+ // 当条件 1 不为 true 时执行的代码
+}
+```
+
+### switch 语句
+
+当有很多种选项的时候，`switch`比`if else`使用更方便。`switch`适合处理判断分支较多的情况下(代码可读性好)，而if适合处理判断分支较少的情况下(反之代码可读性差，容易出现漏判或重复判断)。尽管`if`括号内也支持常量、枚举但也是有前提的那就是常量或枚举必须要显式给出相应的数值，而`switch`则不必。
+
+```js
+switch('条件表达式') {
+  case '常量1':
+    '语句'; 
+    break;
+  case '常量2':
+    '语句'; 
+    break;
+  // …
+  case '常量n':
+    '语句'; 
+    break;
+  default:
+    '语句';
+}
+```
+1. `case`有几个都行，`default`可以没有。当`case`所有条件都不满足的时候，则`default`。`default`并不一定要在最后。
+2. `case`后面一般是常量（能作用在int和比int范围下的数字型数据类型，int,short,char,byte。long和String类型是不行的。）而不同于`if else`的条件判断，`switch`不是`if`的替代品。编译时会对`switch`进行优化，根据`case`标签后面的常量值，生成跳转表，只经过少数次数的比较，就可以跳到对应标签下面。所以，标签也是不能重复的。如果允许变量，`switch`只能退化成跟一连串的`if else`, 对于一个数据也只能从头到尾地进行比较，也就失去了`switch`的意义。跳转表和逐个比较，这两种方式的复杂度差很多。
+3. `break`是中断跳转语句，表示在完成相应的`case`标号规定的操作之后，不继续执行`switch`语句的剩余部分而直接跳出`switch`语句之外，继而执行`switch`结构后面的第一条语句，如果不在`switch`结构的`case`中使用`break`语句。程序就会接着执行下面的语句。
+4. `default`用于处理所有`switch`结构的非法操作。当表达式的值与任何一个`case`都不匹配时，则执行`default`语句。
+
+**举例**：我们将上面用if语句做的例子改用switch语句来判断学生分数的水平。
+```js
+var score = prompt('你的成绩是?');
+// 因为`case`后面是常量，我们又不至于把`0~100`的每个分数都判断一遍吧，所以可以进行取整判断
+// 在上面的代码中，`break`作用是跳出整个`switch`语句，如果没有`break`停止语句，那么当输入`100`后将每种结果都弹窗一次，不信你试试
+switch(parseInt(score/10)){
+  case 10:
+    alert('非常优秀');
+    break;
+  case 9:
+    alert('优秀');
+    break;
+  case 8:
+    alert('良好');
+    break;
+  case 7:
+    alert('中等');
+    break;
+  default:
+    alert('继续努力');
+    break;
+}
+```
+
+## JS 循环语句 {#for_or_while}
+
+**循环结构**：在给定的条件满足的情况下，反复的执行同一段代码  
+循环结构以下几种：`while`循环、`do while`循环、`for`循环
+
+* **`for`** - 循环代码块一定的次数
+* **`for/in`** - 循环遍历对象的属性
+* **`while`** - 当指定的条件为 `true` 时循环指定的代码块
+* **`do/while`** - 同样当指定的条件为 `true` 时循环指定的代码块
+
+### for 循环
+
+```js
+for('循环初值'; '循环条件'; '步长') {
+  '循环体语句';
+}
+```
+
+**for 循环的执行顺序**
+
+通俗的讲：`for(a;b;c){循环体语句}`  
+执行顺序：先执行`a`，再判断`b`是否为真，若为真，执行循环体，执行`c`  
+然后再次判断`b`是否为真，若为真，执行循环体，执行`c`  
+直到`b`为假，跳出循环
+
+![for 循环](../../images/javascript/js-for.png)
+
+详情看这里：[http://jingyan.baidu.com/article/7f766dafaa6ee04101e1d0e6.html](http://jingyan.baidu.com/article/7f766dafaa6ee04101e1d0e6.html)
+
+**下面详细介绍`for`循环一个非常有趣的例子：** 打印出【金字塔型】【完整菱形】和【自定义菱形】的思路算法。  
+而且还有很多有趣的例子你们可以网上百度找找，像九九乘法口诀表或者国际象棋等。
+
+> @[for循环 金字塔等有趣例子]{`https://blog.csdn.net/wenximalong/article/details/8224891`}
+> `../../images/home/javascript.png`
+
+![for 循环](../../images/javascript/js-for-pyramid.jpg)
+
+> [!danger|label:注意：少用for循环]
+> 要知道，循环计算的话电脑运行会消耗内存资源，为提高性能效率，`for`循环用的少比较好，2个for循环可以解决就别用3个，虽然可读性降低了，但是性能好。  
+
+### while 循环
+
+while 循环会在指定条件为真时循环执行代码块。
+
+```js
+while('循环条件') {
+    '循环体语句'; 
+}
+```
+**用一个例子来说明**
+
+用while循环计算从1累加到n的总和。接下来就是思路了，思路最重要啊，这个数学不好就。。。  
+首先从1开始加，加2得到一个值，然后加3又得到一个值，循环加，所以
+
+1. 如何确定循环条件表达式，一般我们会用“变量<=结束值”来表示
+2. 满足表达式条件应该执行什么循环体语句
+3. 如何存放总和
+
+```js
+var n = window.prompt("请输入一个整数");
+n = parseInt(n);
+var i = 1;
+var sum = 0;
+while(i<=n){
+  sum = sum + i; //还记得这里可以怎么简写吗，前面小浩的笔记（运算符）已经有介绍，不知道的可以去看哦
+  i++;          //这里可以将sum=sum+i;i++; 简写成一句：sum+=i++;
+}
+document.writeln("结果是" + sum);
+```
+
+### do while循环
+
+`do/while`循环是`while`循环的变体。该循环会在检查条件是否为真之前执行一次代码块，然后如果条件为真的话，就会重复这个循环。
+
+```js
+do {
+    '循环体语句'
+} while ('循环条件');
+```
+眼尖的人已经看出来，跟`while`语句语法颠倒过来差不多，其实也是，因为它用法确实跟`while`差不多，只不过还是有区别的：  
+`while`循环是先判断再执行语句。`do while`循环是先执行，再判断。  
+所以`while`的循环体里面的语句可能不执行，而`do while`循环体里面的语句则至少执行一次。
+
+用罚抄作业来通俗讲解的话就是  
+`while`：上来先问你作业做了没，做了，就不打你（先判断，再执行）
+`do while`：上来先打一顿，打完了再问，作业做了吗（先执行，再判断）
+
+```js
+<script>
+  var i = 10;
+  //【do while循环】
+  do{
+    document.write('不管作业，先打再说');
+    i++;
+  }while(i<10);
+  console.log(i);
+ 
+  //【while循环】
+  // while(i<10){
+  //  document.write('先问作业，做了不打');
+  //  i++;
+  // }
+  // console.log(i);
+</script>
+```
+这里我已经先将`while`循环那段注释掉了，你们复制的时候注意，没用到哪段哪段就注释掉，这样效果更明显。  
+可以看到，`do while`循环体里面的语句先执行一次，所以会浏览器显示出“不管作业，先打再说”，并且打印出 i 的值，i 变成11。  
+接下来我们把`【do while循环】`那段代码注释，把`while`循环这段代码清掉注释，然后运行后可以看到，浏览器并没有显示什么东西，只有打印出 i的值为10。
+
+### break 和 continue 语句
+
+`break` 语句用于跳出循环。  
+`continue` 用于跳过循环中的一个迭代。
+
+**break和continue有什么区别**  
+`break` 语句可以立即退出循环;  
+`continue` 语句只是退出当前循环;  
+看看下面的例子，输出10个数，如果数值为5，break就停止输出。而continue却是不输出5但是后面继续循环输出。
+```js
+for(var num=1;num<=10;num++) {
+  if(num==5){
+    break;
+    //continue;
+  }
+  document.writeln(num);
+}
+// break运行的结果为：1 2 3 4
+// continue运行的结果为：1 2 3 4 6 7 8 9 10
+```
+
+### with 语句
+
+将代码的作用域设置到一个特定的对象中，先来看一般我们是怎么样输出对象的属性的值的：
+```js
+var box = {
+  name: "张三",
+  age: 24,
+  sex: "男"
+};
+var n = box.name;
+var a = box.age;
+var s = box.sex;
+document.write(n + "<br/>");
+document.write(a + "<br/>");
+document.write(s);
+```
+改用with语句来写：
+```js
+var box={
+  name: "张三",
+  age: 24,
+  sex: "男"
+};
+with(box){
+  var n = name;
+  var a = age;
+  var s = sex;
+};
+document.write(n + "<br/>");
+document.write(a + "<br/>");
+document.write(s);
+```
+两个运行的结果是一样的，可以看出`with`语句的简洁明了，不过在代码的世界里是很难找到真正的完美。  
+js的解释器需要检查`with`块中的变量是否属于`with`包含的对象，这将使`with`语句执行速度大大下降，并且导致js语句很难被优化。  
+所以在以后的高效代码开发中我们应该尽可能的避免使用`with`语句。
+
+## 函数
+
+### 什么是函数？
+
+函数就是完成某个功能的一组语句，函数由关键字`function` + `函数名` + `一组参数定义`;  
+函数在定义后可以被重复调用，通常将常用的功能写成一个函数，利用函数可以使代码的组织结构更多清晰。  
+Javascript Function无处不在，而且功能强大！通过Javascript函数可以让JS具有面向对象的一些特征，实现封装、继承等，也可以让代码得到复用。  
+但事物都有两面性，Javascript函数有的时候也比较“任性”，你如果不了解它的“性情”，它很可能给你制造出一些意想不到的麻烦（bugs)出来。
+
+**基本语法**
+```js
+function functionname(arg0, arg1, '…', 'argN') {
+  '这里是要执行的代码'
+}
+```
+函数就是一段可以反复调用的代码块。函数声明由三部分组成：`函数名`，`函数参数`，`函数体`。整体的构造是function命令后面是函数名，函数名后面是一对圆括号，里面是传入函数的参数。  
+函数体放在大括号里面。当函数体没有使用`return`关键字返回函数时，函数调用时返回默认的`undefined`；如果有使用`return`语句，则返回指定内容。函数最后不用加上冒号。
+```js
+function say_hello(name,msg) {
+    alert('hello' + name + ':' + msg);
+}
+say_hello('david', 'How are you today?');
+```
+
+> 使用`return`语句从函数返回值
+
+```js
+function sum (num1, num2){
+    return num1 + num2;
+}
+var s = sum(1, 2);
+alert(s);
+```
+**注意事项**
+
+1. 位于`return`语句之后的任何代码都永远不会执行！整个`JavaScript`并不会停止执行，仅仅是函数。`JavaScript`将继续执行代码，从调用函数的地方。
+2. 在`JavaScript`中，不一定要指定返回值！
+3. 定义函数的参数时，如果调用函数时没有传进参数，并不会报错，但可以在函数里面判断一下是否有传进参数，例如可以这样判断:
+```js
+if(variable == 'undefined' || variable == null){
+  variable = '1'; // 可以给他一个默认值
+}
+```
+
+### 函数参数
+
+#### 函数的实参和形参
+
+声明函数时，定义括号内的变量是形参；调用时传入的值是实参。  
+可选形参：(1)实参个数 < 形参个数 时，剩余的形参传入`undefined`；(2)可选项必须放在参数列表的末尾，必选项先传入。
+
+默认值:在JavaScript中，函数参数的默认值是`undefined`。然而，在某些情况下设置不同的默认值是有用的。一般策略是在函数的主体测试参数值是否为`undefined`，如果是则赋予一个值，如果不是，则返回实际参数传递的值。
+```js
+function keith(a, b) {
+    (typeof b !== 'undefined') ? b = b: b = 1;
+    return a * b;
+}
+console.log(keith(15)); //15
+console.log(keith(15, 2)) //30
+```
+上面代码中，做了个判断。当在调用时没有传入`b`参数，则默认为`1`。
+从ECMAScript 6开始，定义了默认参数(default parameters)。使用默认参数，在函数体的检查就不再需要了。
+```js
+function keith(a, b = 1) {
+    return a * b;
+}
+```
+
+#### 参数传递方式
+
+函数参数的传递方式有两种，一个是传值传递，一个是传址传递。  
+当函数参数是原始数据类型时（字符串，数值，布尔值），参数的传递方式为传值传递。也就是说，在函数体内修改参数值，不会影响到函数外部。
+```js
+var a = 1;
+function keith(num) {
+    num = 5;
+}
+keith(a);
+console.log(a); //1
+```
+上面代码中，全局变量`a`是一个原始类型的值，传入函数`keith`的方式是传值传递。因此，在函数内部，`a`的值是原始值的拷贝，无论怎么修改，都不会影响到原始值。  
+但是，如果函数参数是复合类型的值（数组、对象、其他函数），传递方式是传址传递（pass by reference）。也就是说，传入函数的是原始值的地址，因此在函数内部修改参数，将会影响到原始值。
+```js
+var arr = [2, 5];
+function keith(Arr) {
+    Arr[0] = 3;
+}
+keith(arr);
+console.log(arr[0]); //3
+```
+上面代码中，传入函数`keith`的是参数对象`arr`的地址。因此，在函数内部修改`arr`第一个值，会影响到原始值。  
+注意，如果函数内部修改的，不是参数对象的某个属性，而是替换掉整个参数，这时不会影响到原始值。
+```js
+var arr = [2, 3, 5];
+function keith(Arr) {
+    Arr = [1, 2, 3];
+}
+keith(arr);
+console.log(arr); // [2,3,5]
+```
+上面代码中，在函数`keith`内部，参数对象`arr`被整个替换成另一个值。这时不会影响到原始值。这是因为，形式参数（Arr）与实际参数arr存在一个赋值关系。
+
+#### 同名参数
+
+如果有同名参数，则取最后面出现的那个值，如果未提供最后一个参数的值，则取值变成`undefined`。
+```js
+function keith(a, a) {
+    return a;
+}
+console.log(keith(1, 3)); //3
+console.log(keith(1)); //undefined
+```
+如果想访问同名参数中的第一个参数，则使用`arguments`对象。
+```js
+function keith(a, a) {
+    return arguments[0];
+}
+console.log(keith(2)); // 2
+```
+
+#### `arguments`对象
+
+JavaScript 中每个函数内都能访问一个特别变量 `arguments`。这个变量维护着所有传递到这个函数中的参数列表。  
+`arguments`对象包含了函数运行时的所有参数，`arguments[0]`就是第一个参数，`arguments[1]`就是第二个参数，以此类推，通过`arguments[n]`,来访问第n个参数。  
+标识符`arguments`是指向实参对象的引用。这个对象只有在函数体内部，才可以使用。
+
+可以访问`arguments`对象的`length`属性，判断函数调用时到底带几个参数。
+```js
+function keith(a, b, c) {
+    console.log(arguments[0]); //1
+    console.log(arguments[2]); //3
+    console.log(keith.length);  //3     fn.length：表示形参个数
+    console.log(arguments.length); //4  arguments.length：表示实参个数
+}
+keith(1, 2, 3, 4);
+```
+**arguments对象与数组的关系**  
+`arguments`对象不是一个数组（Array）。 尽管在语法上它有数组相关的属性`length`，但它不从`Array.prototype`继承，实际上它是一个类数组对象。  
+因此，无法对`arguments`变量使用标准的数组方法，比如`push`, `pop` 或者`slice`。但是可以使用数组中的`length`属性。非严格模式下，`argument`为标识符。严格模式下，`argument`为保留字。  
+通常使用如下方法把`arguments`对象转换为数组：`var arr = Array.prototype.slice.call(arguments);`
+
+### 如何定义一个函数？
+
+> 函数声明
+
+```js
+function functionName(parameters) {
+  '执行的代码'
+}
+```
+函数声明后`js`解析器会优先读取，不会立即执行，会在我们需要的时候调用到。如果同一个函数被多次声明，后面的声明就会覆盖前面的声明。
+
+> 函数表达式，又叫函数字面量
+
+函数表达式可以存储在变量中：
+```js
+var x = function (a, b) {
+    return a * b
+};
+```
+在函数表达式存储在变量后，变量也可作为一个函数使用：`var z = x(4, 3);`
+
+> @[函数声明和函数表达式的区别]{`http://www.cnblogs.com/isaboy/p/javascript_function.html`}
+> `../../images/home/css3.png`
+
+可将调用语句写在函数声明之前。但是在 函数表达式之前调用函数会报错，因为这个时候函数变量值是`undefined`。
+
+> 命名函数的函数表达式
+
+采用函数表达式声明函数时，`function`命令后面不带有函数名。如果加上函数名，该函数名只在函数体内部有效，在函数体外部无效。
+```js
+var keith = function boy(){
+  console.log(typeof boy);
+};
+
+console.log(boy); // ReferenceError: boy is not defined
+keith(); // function
+```
+上面代码在函数表达式中，加入了函数名`boy`。这个`boy`只在函数体内部可用，指代函数表达式本身，其他地方都不可用。  
+这种写法的用处有两个，一是可以在函数体内部调用自身，二是方便除错（除错工具显示函数调用栈时，将显示函数名，而不再显示这里是一个匿名函数）。
+
+> Function() 构造函数
+
+函数同样可以通过内置的 JavaScript 函数构造器`Function()`定义。
+```js
+var myFunction = new Function("a", "b", "return a * b");
+var x = myFunction(4, 3);
+```
+
+### 函数的部分属性和方法
+
+> name属性
+
+`name`属性返回紧跟在`function`关键字之后的那个函数名。
+```js
+function k1() {};
+console.log(k1.name); //'k1'
+ 
+var k2 = function() {};
+console.log(k2.name); //''
+ 
+var k3 = function hello() {};
+console.log(k3.name); //'hello'
+```
+上面代码中，`name`属性返回`function`后面紧跟着的函数名。对于`k2`来说，返回一个空字符串，  
+注意：匿名函数的`name`属性总是为空字符串。对于`k3`来说，返回函数表达式的名字（真正的函数名为k3，hello这个函数名只能在函数内部使用。）
+
+> length属性
+
+`length`属性返回函数预期传入的参数个数，即函数定义之中的参数个数。返回的是个数，而不是具体参数。
+```js
+function keith(a, b, c, d, e) {};
+console.log(keith.length) // 5
+```
+上面代码定义了空函数`keith`，它的`length`属性就是定义时的参数个数。不管调用时输入了多少个参数，`length`属性始终等于5。也就是说，当调用时给实参传递了6个参数，`length`属性会忽略掉一个。
+
+> toString()方法
+
+函数的`toString`方法返回函数的代码本身。
+```js
+function keith(a, b, c, d, e) {
+  // 这是注释。
+}
+console.log(keith.toString());  //function keith(a, b, c, d, e) { // 这是注释。 }
+```
+可以看到，函数内部的注释段也被返回了。
