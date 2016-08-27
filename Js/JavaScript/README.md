@@ -778,7 +778,7 @@ document.write(s);
 js的解释器需要检查`with`块中的变量是否属于`with`包含的对象，这将使`with`语句执行速度大大下降，并且导致js语句很难被优化。  
 所以在以后的高效代码开发中我们应该尽可能的避免使用`with`语句。
 
-## 函数
+## 函数 {#function}
 
 ### 什么是函数？
 
@@ -929,6 +929,9 @@ function functionName(parameters) {
 }
 ```
 函数声明后`js`解析器会优先读取，不会立即执行，会在我们需要的时候调用到。如果同一个函数被多次声明，后面的声明就会覆盖前面的声明。
+> [!tip]
+> 分号是用来分隔可执行JavaScript语句。  
+> 由于函数声明不是一个可执行语句，所以不以分号结束。
 
 > 函数表达式，又叫函数字面量
 
@@ -966,6 +969,34 @@ keith(); // function
 var myFunction = new Function("a", "b", "return a * b");
 var x = myFunction(4, 3);
 ```
+> [!warning]
+> 在 JavaScript 中，很多时候，你需要避免使用 `new` 关键字。
+
+#### 函数表达式和`Function()`构造函数的区别
+
+虽然函数字面量是一个匿名函数，但语法允许为其指定任意一个函数名，当写递归函数时可以调用它自己，使用Function()构造函数则不行。
+```js
+var f = function fact(x) {
+    if (x <  = 1)
+        return 1;
+    else
+        return x * fact(x - 1);
+};
+```
+`Function()`构造函数允许运行时Javascript代码动态的创建和编译。在这个方式上它类似全局函数`eval()`。
+`Function()`构造函数每次执行时都解析函数主体，并创建一个新的函数对象。所以当在一个循环或者频繁执行的函数中调用`Function()`构造函数的效率是非常低的。相反，函数字面量却不是每次遇到都重新编译的。
+用`Function()`构造函数创建一个函数时并不遵循典型的作用域，它一直把它当作是顶级函数来执行。
+```js
+var y = "global";
+function constructFunction() {
+  var y = "local";
+  return new Function("return y"); // 无法获取局部变量
+}
+alert(constructFunction()()); // 输出 "global"
+```
+和函数关键字定义相比`Function()`构造器有自己的特点且要难以使用的多，所以这项技术通常很少使用。而函数字面量表达式和函数关键字定义非常接近。  
+考虑前面的区别，虽然有消息说字面量的匿名函数在`OS X 10.4.3`下的某些webkit的引擎下有`bug`，但我们平常所说的匿名函数均指采用函数字面量形式的匿名函数。  
+更多详细内容可以阅读《JavaScript : The Definitive Guide, 5th Edition》的`Functions`那章。
 
 ### 函数的部分属性和方法
 
@@ -975,10 +1006,10 @@ var x = myFunction(4, 3);
 ```js
 function k1() {};
 console.log(k1.name); //'k1'
- 
+
 var k2 = function() {};
 console.log(k2.name); //''
- 
+
 var k3 = function hello() {};
 console.log(k3.name); //'hello'
 ```
@@ -1171,3 +1202,121 @@ JavaScript 严格模式（strict mode）即在严格的条件下运行。
 14. 禁止this关键字指向全局对象
 还有很多其他的等等，就不再一一赘述了。
 
+### 函数调用
+
+函数体代码在函数被调用时才会执行。Javascript`函数有4中调用方式`，每种方式的不同在于`this`的初始化：
+* 普通的函数调用
+* 方法调用
+* 构造函数调用
+* 通过`call()`和`apply()`间接调用
+
+#### 作为一个函数调用(普通的函数调用)
+```js
+function addFun(a, b) {
+  alert(this) // this被绑定到window
+  return a + b;
+}
+addFun(3, 6); // 返回 9
+window.addFun(3, 6); // 返回 9
+```
+以上函数不属于任何对象。但是在 JavaScript 中它始终是默认的全局对象。
+在 HTML 中默认的全局对象是 HTML 页面本身，所以函数是属于 HTML 页面。
+在浏览器中的页面对象是浏览器窗口(window 对象)。以上函数会自动变为 window 对象的函数。
+`addFun()` 和 `window.addFun()` 是一样的。
+
+> [!note]
+> 这是调用 JavaScript 函数常用的方法， 但不是良好的编程习惯  
+> 全局变量，方法或函数容易造成命名冲突的bug。
+
+---
+> 全局对象
+
+当函数没有被自身的对象调用时 `this` 的值就会变成全局对象。  
+在 web 浏览器中全局对象是浏览器窗口（`window 对象`）。上面`addFun`函数里面`this`的值是`window`对象。
+
+> [!note]
+> 函数作为全局对象调用，会使 `this` 的值成为全局对象。  
+> 使用 `window` 对象作为一个变量容易造成程序崩溃。
+
+#### 函数作为方法调用
+
+在 JavaScript 中你可以将函数定义为对象的方法。所谓方法就是将一个函数赋给一个对象的属性：
+
+以下实例创建了一个对象 (`myObject`), 对象有两个属性 (`firstName` 和 `lastName`), 及一个方法 (`fullName`):
+```js
+var myObject = {
+    firstName: "John",
+    lastName: "Doe",
+    fullName: function () {
+        return this.firstName + " " + this.lastName;
+    }
+}
+myObject.fullName();         // 返回 "John Doe"
+```
+`fullName` 方法是一个函数。函数属于对象。 `myObject` 是函数的所有者。  
+`this`对象，拥有 JavaScript 代码。实例中 `this` 的值为 `myObject` 对象。  
+**函数作为对象方法调用，会使得 this 的值成为对象本身。**
+
+#### 使用构造函数调用函数
+
+如果函数调用前使用了 `new` 关键字, 则是调用了构造函数。  
+这看起来就像创建了新的函数，但实际上 JavaScript 函数是重新创建的对象：
+```js
+// 构造函数:
+function myFunction(arg1, arg2) {
+    this.firstName = arg1;
+    this.lastName  = arg2;
+}
+
+// This creates a new object
+var x = new myFunction("John","Doe");
+x.firstName; // 返回 "John"
+```
+构造函数的调用会创建一个新的对象。新对象会继承构造函数的属性和方法。
+
+> [!note]
+> 构造函数中 `this` 关键字没有任何的值。  
+> this 的值在函数调用实例化对象(`new object`)时创建。
+
+#### 作为函数方法调用函数
+
+在 JavaScript 中, 函数是对象。JavaScript 函数有它的属性和方法。  
+`call()` 和 `apply()` 是预定义的函数方法。 两个方法可用于调用函数，两个方法的第一个参数必须是对象本身。
+```js
+function myFunction(a, b) {
+    return a * b;
+}
+myObject = myFunction.call(myObject, 10, 2); // 返回 20
+
+function myFunction(a, b) {
+ return a * b;
+}
+myArray = [10, 2];
+myObject = myFunction.apply(myObject, myArray); // 返回 20
+```
+两个方法都使用了对象本身作为第一个参数。 两者的区别在于第二个参数： `apply`传入的是一个参数数组，也就是将多个参数组合成为一个数组传入，而`call`则作为`call`的参数传入（从第二个参数开始）。  
+在 JavaScript 严格模式(`strict mode`)下, 在调用函数时第一个参数会成为 `this` 的值， 即使该参数不是一个对象。  
+在 JavaScript 非严格模式(`non-strict mode`)下, 如果第一个参数的值是 `null` 或 `undefined`, 它将使用全局对象替代。  
+**通过 `call()` 或 `apply()` 方法你可以设置 `this` 的值, 且作为已存在对象的新方法调用。**
+
+
+### 匿名函数
+
+#### 什么是匿名函数？
+
+匿名函数就是没有名字的函数，又称为拉姆达函数。匿名函数的作用是避免全局变量的污染以及函数名的冲突
+> 小括号的作用
+
+小括号能把我们的表达式组合分块，并且每一块，也就是每一对小括号，都有一个返回值。这个返回值实际上也就是小括号中表达式的返回值。  
+所以，当我们用一对小括号把匿名函数括起来的时候，实际上小括号对返回的，就是一个匿名函数的Function 对象。  
+因此，小括号对加上匿名函数就如同有名字的函数般被我们取得它的引用位置了。所以如果在这个引用变量后面再加上参数列表，就会实现普通函数的调用形式。  
+简单来说就是小括号有返回值，也就是小括号内的函数或者表达式的返回值，所以说小括号内的function返回值等于小括号的返回值。  
+执行函数必须加上小括号。没有小括号时，函数名表示 函数本身。
+
+在Javascript定义一个函数一般有如下三种方式：  
+1. 函数声明
+```js
+function functionName(parameters) {
+  '执行的代码'
+}
+```
